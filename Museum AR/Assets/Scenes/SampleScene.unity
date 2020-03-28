@@ -121,6 +121,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &18790598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18790599}
+  - component: {fileID: 18790600}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &18790599
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18790598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 876040056}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &18790600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18790598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &19970603
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &19970604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -203,12 +264,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 19970605}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 19970608}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -262,58 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: 
-    exhibitText: 
-    image: {fileID: 0}
---- !u!1 &53502883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 53502885}
-  - component: {fileID: 53502884}
-  m_Layer: 0
-  m_Name: Sword
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &53502884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53502883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6260aaf60071d498e0fd1995929f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exhibitName: 0
-  title: 
-  exhibitText: 
-  image: {fileID: 0}
---- !u!4 &53502885
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53502883}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 319, y: 154.37875, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  title: "Tatoveringsn\xE5le fra Bronzealderen"
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 4
 --- !u!1 &244651910
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &570653284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -583,12 +596,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 570653285}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 570653288}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -642,11 +655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: Petreas Skilt
-    exhibitText: 
-    image: {fileID: 0}
+  title: "Hedeg\xE5rdmanden"
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 5
 --- !u!1 &585169553
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &585169554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -857,7 +869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &845899798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -920,12 +932,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 845899799}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 845899802}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -979,11 +991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: 
-    exhibitText: 
-    image: {fileID: 0}
+  title: "Ryttergraven fra N\xE6sby"
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 3
 --- !u!1 &876040055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1034,7 @@ RectTransform:
   - {fileID: 845899798}
   - {fileID: 19970604}
   - {fileID: 570653284}
+  - {fileID: 18790599}
   m_Father: {fileID: 472355664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1107,7 +1119,6 @@ MonoBehaviour:
   background: {fileID: 912028069}
   journalIcon: {fileID: 21300000, guid: 9f760e154162e3a44ba842c9512acc41, type: 3}
   closeIcon: {fileID: 21300000, guid: 91ffd358e294df746889ab480e43be5a, type: 3}
-  journalCanvas: {fileID: 0}
   exhibitImages:
   - {fileID: 570653286}
   - {fileID: 19970606}
@@ -1357,25 +1368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Plyndre, naturligvis! Hvad skal man ellers i Nordspanien? Da han kom hjem
-    fik vi ogs\xE5 at h\xF8re, at han havde v\xE6ret en del af et st\xF8rre togt.
-    Et togt der skulle erobre Redrondela siger jeg dig! Legenden fort\xE6ller at
-    han hjalp en grev Romaniz med at sejre over baskerne. H\xE6rf\xF8rer, blev min
-    dreng kaldt. Men en viking var han da stadig og plyndre skulle han jo, s\xE5
-    p\xE5 vejen tog han mange et klostersamfund og bragte deres rigdomme hjem til
-    os. Han blev udn\xE6vnt som kongens personlige beskytter og da han d\xF8de fik
-    han en begravelse passende for en jarl, med hans sv\xE6rd og rytterudstyr til
-    hans rejse til Valhalla samt et kristent kapel for hans indgang til det evige
-    liv.Plyndre, naturligvis! Hvad skal man ellers i Nordspanien? Da han kom hjem
-    fik vi ogs\xE5 at h\xF8re, at han havde v\xE6ret en del af et st\xF8rre togt.
-    Et togt der skulle erobre Redrondela siger jeg dig! Legenden fort\xE6ller at
-    han hjalp en grev Romaniz med at sejre over baskerne. H\xE6rf\xF8rer, blev min
-    dreng kaldt. Men en viking var han da stadig og plyndre skulle han jo, s\xE5
-    p\xE5 vejen tog han mange et klostersamfund og bragte deres rigdomme hjem til
-    os. Han blev udn\xE6vnt som kongens personlige beskytter og da han d\xF8de fik
-    han en begravelse passende for en jarl, med hans sv\xE6rd og rytterudstyr til
-    hans rejse til Valhalla samt et kristent kapel for hans indgang til det evige
-    liv."
+  m_text: "Bes\xF8g udstillingen for at fylde siden med information om denne."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1420,7 +1413,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 625
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1444,12 +1437,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 977755280}
-    characterCount: 1332
+    characterCount: 58
     spriteCount: 0
-    spaceCount: 240
-    wordCount: 242
+    spaceCount: 8
+    wordCount: 9
     linkCount: 0
-    lineCount: 28
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1624,6 +1617,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066180144}
   m_CullTransparentMesh: 0
+--- !u!1 &1081725949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081725951}
+  - component: {fileID: 1081725950}
+  m_Layer: 0
+  m_Name: Exhibit Button Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1081725950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081725949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f758d54e030aa4f9f86d43c0b6049a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journalCanvas: {fileID: 585169557}
+  exhibitTitle: {fileID: 244651912}
+  exhibitImage: {fileID: 1066180146}
+  exhibitText: {fileID: 977755280}
+  exhibitButtons: []
+--- !u!4 &1081725951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081725949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1470727217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1470727218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1706,12 +1747,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1470727219}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 1470727222}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1765,11 +1806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: 
-    exhibitText: 
-    image: {fileID: 0}
+  title: "Aars-egnens F\xF8rste Bank"
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 1
 --- !u!1 &1585205410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,7 +1892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 876040060}
-        m_MethodName: OnJournalIconTap
+        m_MethodName: ExpandJournalUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1983,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1995868483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2046,12 +2086,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1995868484}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 1995868487}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2105,11 +2145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: 
-    exhibitText: 
-    image: {fileID: 0}
+  title: Petreas Skilt
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 0
 --- !u!1 &2050063867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2050063868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2192,12 +2231,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876040060}
-        m_MethodName: OnExhibitIconTap
+      - m_Target: {fileID: 1081725950}
+        m_MethodName: OpenJournal
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2050063869}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 2050063872}
+          m_ObjectArgumentAssemblyTypeName: ExhibitButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2251,55 +2290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dacfefe6f563014dacf2695ab704c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test:
-    exhibitName: 0
-    title: 
-    exhibitText: 
-    image: {fileID: 0}
---- !u!1 &2062595587
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2062595589}
-  - component: {fileID: 2062595588}
-  m_Layer: 0
-  m_Name: Skull
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2062595588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062595587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6260aaf60071d498e0fd1995929f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exhibitName: 0
-  title: 
-  exhibitText: 
-  image: {fileID: 0}
---- !u!4 &2062595589
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062595587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 319, y: 154.37875, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  title: Gundestrupkarret
+  exhibitText: {fileID: 0}
+  sprite: {fileID: 0}
+  exhibitTag: 2

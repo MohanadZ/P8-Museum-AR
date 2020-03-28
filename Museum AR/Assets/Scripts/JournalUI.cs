@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,16 +10,16 @@ public class JournalUI : MonoBehaviour
     [SerializeField] Image background = null;
     [SerializeField] Sprite journalIcon = null;
     [SerializeField] Sprite closeIcon = null;
-    [SerializeField] Canvas journalCanvas = null;
     [SerializeField] Image[] exhibitImages = null;
 
     private bool closeIconIsShowing = false;
+
+    public static event Action JournalUIClosedEvent;
 
     private void Awake()
     {
         journalImage.GetComponent<Image>();
         background.GetComponent<Image>();
-        journalCanvas.GetComponent<Canvas>();
     }
 
     public void ExpandJournalUI()
@@ -42,21 +43,41 @@ public class JournalUI : MonoBehaviour
             {
                 exhibitImages[i].gameObject.SetActive(false);
             }
+
+            JournalUIClosedEvent();
         }
 
         closeIconIsShowing = !closeIconIsShowing;
     }
 
-    public void OpenJournal(Button button)
+    private void Update()
     {
-        if(button.gameObject.tag == "Visited")
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            
-            print("SHOWING SCROLL WITH TEXT FOR VISITED EXHIBIT");
+            ExhibitVisitedEvent(ExhibitTag.Petrea);
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            print("SHOWING SCROLL WITH IMAGE FOR UNVISITED EXHIBIT");
+            ExhibitVisitedEvent(ExhibitTag.Bank);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Bathtub);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Sword);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Tattoo);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Skull);
         }
     }
+
+    public static event Action<ExhibitTag> ExhibitVisitedEvent;
+
 }

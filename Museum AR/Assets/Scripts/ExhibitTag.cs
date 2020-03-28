@@ -1,4 +1,4 @@
-﻿public enum ExhibitName
+﻿public enum ExhibitTag
 {
     Petrea,
     Bank,
