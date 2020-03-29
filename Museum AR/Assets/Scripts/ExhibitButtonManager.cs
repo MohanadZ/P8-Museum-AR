@@ -6,19 +6,29 @@ using UnityEngine.UI;
 
 public class ExhibitButtonManager : MonoBehaviour
 {
-    [SerializeField] Canvas journalCanvas = null;
-    [SerializeField] TextMeshProUGUI exhibitTitle = null;
-    [SerializeField] Image exhibitImage = null;
-    [SerializeField] TextMeshProUGUI exhibitText = null;
+    [Header("Visited Journal Canvas References")]
+    [SerializeField] Canvas visitedJournalCanvas = null;
+    [SerializeField] TextMeshProUGUI visitedExhibitTitle = null;
+    [SerializeField] Image visitedExhibitImage = null;
+    [SerializeField] TextMeshProUGUI visitedExhibitText = null;
 
-    [SerializeField] ExhibitButton[] exhibitButtons = null;
+    [Header("Unvisited Journal Canvas References")]
+    [SerializeField] Canvas unvisitedJournalCanvas = null;
+    [SerializeField] TextMeshProUGUI unvisitedExhibitTitle = null;
+    [SerializeField] Image unvisitedExhibitImage = null;
+
+    ExhibitButton[] exhibitButtons = null;
 
     private void Awake()
     {
-        journalCanvas.GetComponent<Canvas>();
-        exhibitTitle.GetComponent<TextMeshProUGUI>();
-        exhibitImage.GetComponent<Image>();
-        exhibitText.GetComponent<TextMeshProUGUI>();
+        visitedJournalCanvas.GetComponent<Canvas>();
+        visitedExhibitTitle.GetComponent<TextMeshProUGUI>();
+        visitedExhibitImage.GetComponent<Image>();
+        visitedExhibitText.GetComponent<TextMeshProUGUI>();
+
+        unvisitedJournalCanvas.GetComponent<Canvas>();
+        unvisitedExhibitTitle.GetComponent<TextMeshProUGUI>();
+        unvisitedExhibitImage.GetComponent<Image>();
     }
 
     private void OnEnable()
@@ -30,7 +40,7 @@ public class ExhibitButtonManager : MonoBehaviour
 
     private void OnDisable()
     {
-        //JournalUI.ExhibitVisitedEvent -= OnExhibitVisited;
+        JournalUI.ExhibitVisitedEvent -= OnExhibitVisited;
         JournalUI.JournalUIClosedEvent -= OnJournalClosed;
         //Unsubscribe to event that triggers once an exhibit has been fully explored/visited
     }
@@ -49,22 +59,35 @@ public class ExhibitButtonManager : MonoBehaviour
     {
         if (exhibitButton.gameObject.tag == "Visited")
         {
-            PopulateJournal(exhibitButton);
-            //exhibitText.text = exhibitButton.ExhibitText.text;
-            exhibitText.text = "THIS HAS BEEN VISITED";
+            ShowVisitedJournal(exhibitButton);
         }
         else
         {
-            PopulateJournal(exhibitButton);
-            exhibitText.text = "Besøg udstillingen for at fylde siden med information om denne.";
+            ShowUnvisitedJournal(exhibitButton);
         }
     }
 
-    private void PopulateJournal(ExhibitButton exhibitButton)
+    private void ShowVisitedJournal(ExhibitButton exhibitButton)
     {
-        exhibitTitle.text = exhibitButton.Title;
-        exhibitImage.sprite = exhibitButton.ExhibitImage;
-        journalCanvas.gameObject.SetActive(true);
+        visitedExhibitTitle.text = exhibitButton.Title;
+        visitedExhibitImage.sprite = exhibitButton.ExhibitImage;
+        visitedExhibitText.text = exhibitButton.ExhibitText;
+        if (!visitedJournalCanvas.gameObject.activeSelf)
+        {
+            unvisitedJournalCanvas.gameObject.SetActive(false);
+            visitedJournalCanvas.gameObject.SetActive(true);
+        }
+    }
+
+    private void ShowUnvisitedJournal(ExhibitButton exhibitButton)
+    {
+        unvisitedExhibitTitle.text = exhibitButton.Title;
+        unvisitedExhibitImage.sprite = exhibitButton.ExhibitImage;
+        if (!unvisitedJournalCanvas.gameObject.activeSelf)
+        {
+            visitedJournalCanvas.gameObject.SetActive(false);
+            unvisitedJournalCanvas.gameObject.SetActive(true);
+        }
     }
 
     private void OnExhibitVisited(ExhibitTag exhibitTag)
@@ -86,6 +109,7 @@ public class ExhibitButtonManager : MonoBehaviour
 
     private void OnJournalClosed()
     {
-        journalCanvas.gameObject.SetActive(false);
+        visitedJournalCanvas.gameObject.SetActive(false);
+        unvisitedJournalCanvas.gameObject.SetActive(false);
     }
 }
