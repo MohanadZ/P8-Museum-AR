@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Sword-Question2 IntroAudio
   audioClip: {fileID: 8300000, guid: 9f7ced491f872004fb750b77f988d2b8, type: 3}
   index: 2
-  hasOptions: 1
   numberOfOptions: 2
+  hasFinished: 0

@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Sword-Question4 Answer
   audioClip: {fileID: 8300000, guid: 38c54986e4e21214eafdf69cd30e81e5, type: 3}
   index: 4
-  hasOptions: 1
   numberOfOptions: 2
+  hasFinished: 0

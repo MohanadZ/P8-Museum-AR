@@ -15,6 +15,6 @@ MonoBehaviour:
   exhibitTag: Sword
   name: Sword-Question6 Answer
   audioClip: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
-  index: 5
-  hasOptions: 0
-  numberOfOptions: 0
+  index: 6
+  numberOfOptions: 2
+  hasFinished: 0

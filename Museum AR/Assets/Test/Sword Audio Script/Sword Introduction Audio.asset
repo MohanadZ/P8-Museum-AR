@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Sword Introduction Audio
   audioClip: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
   index: 0
-  hasOptions: 1
   numberOfOptions: 3
+  hasFinished: 0

@@ -9,6 +9,6 @@ public class StoryPart : ScriptableObject
     public new string name;
     public AudioClip audioClip;
     public int index;
-    public bool hasOptions;
     public int numberOfOptions;
+    public bool hasFinished;
 }
