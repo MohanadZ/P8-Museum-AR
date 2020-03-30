@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class JournalUI : MonoBehaviour
 {
+    [SerializeField] Image inputBlocker = null;
     [SerializeField] Image journalImage = null;
     [SerializeField] Image background = null;
     [SerializeField] Sprite journalIcon = null;
     [SerializeField] Sprite closeIcon = null;
     [SerializeField] Image[] exhibitImages = null;
+
+    Animator animator = null;
 
     private bool closeIconIsShowing = false;
 
@@ -20,34 +23,63 @@ public class JournalUI : MonoBehaviour
     {
         journalImage.GetComponent<Image>();
         background.GetComponent<Image>();
+        animator = GetComponent<Animator>();
     }
 
     public void ExpandJournalUI()
     {
+        inputBlocker.gameObject.SetActive(true);
+        animator.SetTrigger("expandUI");
+
+        if (closeIconIsShowing)
+        {
+            JournalUIClosedEvent();
+        }
+    }
+    
+    //Animation event
+    public void SwitchSprite()
+    {
         if (!closeIconIsShowing)
         {
             journalImage.sprite = closeIcon;
-            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 600f);
-
-            for(int i = 0; i < exhibitImages.Length; i++)
-            {
-                exhibitImages[i].gameObject.SetActive(true);
-            }
         }
         else
         {
             journalImage.sprite = journalIcon;
-            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 75f);
-
-            for (int i = 0; i < exhibitImages.Length; i++)
-            {
-                exhibitImages[i].gameObject.SetActive(false);
-            }
-
-            JournalUIClosedEvent();
         }
 
         closeIconIsShowing = !closeIconIsShowing;
+    }
+
+    //Animation event
+    public void EnableExhibitButtons()
+    {
+        for (int i = 0; i < exhibitImages.Length; i++)
+        {
+            exhibitImages[i].gameObject.SetActive(true);
+        }
+
+        animator.SetBool("enableButtons", true);
+    }
+
+    //Animation event
+    public void DisableExhibitButtons()
+    {
+        animator.SetBool("enableButtons", false);
+
+        for (int i = 0; i < exhibitImages.Length; i++)
+        {
+            exhibitImages[i].gameObject.SetActive(false);
+        }
+
+        animator.SetTrigger("shrinkBackground");
+    }
+
+    //Animation event
+    public void EnableInput()
+    {
+        inputBlocker.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -79,5 +111,4 @@ public class JournalUI : MonoBehaviour
     }
 
     public static event Action<ExhibitTag> ExhibitVisitedEvent;
-
 }
