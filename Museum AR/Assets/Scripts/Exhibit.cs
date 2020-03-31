@@ -11,12 +11,12 @@ public class Exhibit : MonoBehaviour
     [SerializeField] Text[] swordOptionsUIText = null;
     [HideInInspector] public bool triggerSwordStory = false;
     AudioSource audioSource;
-    int audioClipIndex;
+    StoryPart[] currentExhibitStory = null;
+    int audioClipIndex = 0;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        audioClipIndex = swordStory[0].index;
         ResetScriptableObjectsProperties();
     }
 
@@ -37,12 +37,13 @@ public class Exhibit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            currentExhibitStory = swordStory;
             triggerSwordStory = true;
         }
 
         if (triggerSwordStory)
         {
-            PlayAudio(swordStory, audioClipIndex);
+            PlayAudio(currentExhibitStory, audioClipIndex);
             triggerSwordStory = false;
         }
     }
@@ -92,7 +93,7 @@ public class Exhibit : MonoBehaviour
         }
         else if (exhibitStory[audioClipIndex].numberOfOptions == 2)
         {
-            if(exhibitStory[audioClipIndex].index == swordStory[1].index || exhibitStory[audioClipIndex].index == swordStory[4].index || exhibitStory[audioClipIndex].index == swordStory[5].index)
+            if(exhibitStory[audioClipIndex].index == currentExhibitStory[1].index || exhibitStory[audioClipIndex].index == currentExhibitStory[4].index || exhibitStory[audioClipIndex].index == currentExhibitStory[5].index)
             {
                 for (int i = 3; i < 5; i++)  // change number to a variable
                 {
@@ -101,7 +102,7 @@ public class Exhibit : MonoBehaviour
                 swordOptionsUIText[3].GetComponent<Text>().text = swordQuestions[3].question;
                 swordOptionsUIText[4].GetComponent<Text>().text = swordQuestions[4].question;
             }
-            else if (exhibitStory[audioClipIndex].index == swordStory[2].index || exhibitStory[audioClipIndex].index == swordStory[6].index || exhibitStory[audioClipIndex].index == swordStory[7].index)
+            else if (exhibitStory[audioClipIndex].index == currentExhibitStory[2].index || exhibitStory[audioClipIndex].index == currentExhibitStory[6].index || exhibitStory[audioClipIndex].index == currentExhibitStory[7].index)
             {
                 for (int i = 5; i < 7; i++)  // change number to a variable
                 {
@@ -110,7 +111,7 @@ public class Exhibit : MonoBehaviour
                 swordOptionsUIText[5].GetComponent<Text>().text = swordQuestions[5].question;
                 swordOptionsUIText[6].GetComponent<Text>().text = swordQuestions[6].question;
             }
-            else if (exhibitStory[audioClipIndex].index == swordStory[3].index || exhibitStory[audioClipIndex].index == swordStory[8].index || exhibitStory[audioClipIndex].index == swordStory[9].index)
+            else if (exhibitStory[audioClipIndex].index == currentExhibitStory[3].index || exhibitStory[audioClipIndex].index == currentExhibitStory[8].index || exhibitStory[audioClipIndex].index == currentExhibitStory[9].index)
             {
                 for (int i = 7; i < 9; i++)  // change number to a variable
                 {
@@ -131,8 +132,8 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[0].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[0].interactable = false;
 
-        audioClipIndex = swordStory[1].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[1].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
     }
 
     public void ChooseSwordOption2()
@@ -144,8 +145,8 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[1].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[1].interactable = false;
 
-        audioClipIndex = swordStory[2].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[2].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
     }
 
     public void ChooseSwordOption3()
@@ -157,8 +158,8 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[2].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[2].interactable = false;
 
-        audioClipIndex = swordStory[3].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[3].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
     }
 
     public void ChooseSwordOption4()
@@ -170,14 +171,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[3].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[3].interactable = false;
 
-        audioClipIndex = swordStory[4].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[4].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if(swordStory[4].hasFinished && swordStory[5].hasFinished)
+        if(currentExhibitStory[4].hasFinished && currentExhibitStory[5].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 
@@ -190,14 +191,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[4].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[4].interactable = false;
 
-        audioClipIndex = swordStory[5].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[5].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if (swordStory[4].hasFinished && swordStory[5].hasFinished)
+        if (currentExhibitStory[4].hasFinished && currentExhibitStory[5].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 
@@ -210,14 +211,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[5].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[5].interactable = false;
 
-        audioClipIndex = swordStory[6].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[6].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if(swordStory[6].hasFinished && swordStory[7].hasFinished)
+        if(currentExhibitStory[6].hasFinished && currentExhibitStory[7].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 
@@ -230,14 +231,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[6].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[6].interactable = false;
 
-        audioClipIndex = swordStory[7].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[7].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if (swordStory[6].hasFinished && swordStory[7].hasFinished)
+        if (currentExhibitStory[6].hasFinished && currentExhibitStory[7].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 
@@ -250,14 +251,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[7].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[7].interactable = false;
 
-        audioClipIndex = swordStory[8].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[8].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if (swordStory[8].hasFinished && swordStory[9].hasFinished)
+        if (currentExhibitStory[8].hasFinished && currentExhibitStory[9].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 
@@ -270,14 +271,14 @@ public class Exhibit : MonoBehaviour
         swordOptionsUI[8].GetComponent<Image>().color = Color.gray;
         swordOptionsUI[8].interactable = false;
 
-        audioClipIndex = swordStory[9].index;
-        PlayAudio(swordStory, audioClipIndex);
+        audioClipIndex = currentExhibitStory[9].index;
+        PlayAudio(currentExhibitStory, audioClipIndex);
 
-        swordStory[audioClipIndex].hasFinished = true;
+        currentExhibitStory[audioClipIndex].hasFinished = true;
 
-        if (swordStory[8].hasFinished && swordStory[9].hasFinished)
+        if (currentExhibitStory[8].hasFinished && currentExhibitStory[9].hasFinished)
         {
-            swordStory[audioClipIndex].numberOfOptions = 3;
+            currentExhibitStory[audioClipIndex].numberOfOptions = 3;
         }
     }
 }
