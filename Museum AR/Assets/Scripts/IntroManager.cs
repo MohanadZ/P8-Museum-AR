@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class IntroManager : MonoBehaviour
     [SerializeField] Image npcTalkingIndicator = null;
     [SerializeField] Sprite playSprite = null;
     [SerializeField] AudioClip[] introduction = null;
+    bool isNextClip = true;
 
     Sprite defaultPauseSprite;
     AudioSource audioSource;
@@ -23,6 +25,8 @@ public class IntroManager : MonoBehaviour
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         npcTalkingIndicator.gameObject.SetActive(false);
+
+        Debug.Log(isNextClip);
     }
 
     private void Update()
@@ -61,7 +65,8 @@ public class IntroManager : MonoBehaviour
     {
         Debug.Log("I am in coroutine");
 
-        yield return new WaitForSeconds(introduction[audioClipIndex].length + 1f);      // Dunno why it does not work if I don't add some time on top of the length of the clip :(
+        //yield return new WaitForSeconds(introduction[audioClipIndex].length + 1f);      // Dunno why it does not work if I don't add some time on top of the length of the clip :(
+        yield return new WaitUntil(() => !audioSource.isPlaying && isNextClip);
         audioClipIndex++;
         PlayIntroductionStory(introduction, audioClipIndex);
     }
@@ -72,11 +77,13 @@ public class IntroManager : MonoBehaviour
         {
             playPauseButton.GetComponent<Image>().sprite = playSprite;
             audioSource.Pause();
+            isNextClip = false;
         }
         else
         {
             playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
             audioSource.UnPause();
+            isNextClip = true;
         }
     }
 
@@ -111,8 +118,10 @@ public class IntroManager : MonoBehaviour
     {
         if (isIntroOver)
         {
-            playPauseButton.gameObject.SetActive(false);
-            skipButton.gameObject.SetActive(false);
+            //playPauseButton.gameObject.SetActive(false);
+            //skipButton.gameObject.SetActive(false);
+
+            SceneManager.LoadScene(1);
         }
     }
 }

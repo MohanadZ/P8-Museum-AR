@@ -7,12 +7,17 @@ public class Exhibit : MonoBehaviour
 {
     [SerializeField] StoryPart[] swordStory = null;
     [SerializeField] QuestionsText[] swordQuestions = null;
-    [SerializeField] Button[] swordOptionsUI = null;
-    [SerializeField] Text[] swordOptionsUIText = null;
+    [SerializeField] Button[] storyOptionsUI = null;
+    [SerializeField] Text[] storyOptionsUIText = null;
+
+    [HideInInspector] public AudioSource audioSource;
+    [HideInInspector] public StoryPart[] currentExhibitStory = null;
+    [HideInInspector] public int audioClipIndex = 0;
     [HideInInspector] public bool triggerSwordStory = false;
-    AudioSource audioSource;
-    StoryPart[] currentExhibitStory = null;
-    int audioClipIndex = 0;
+    [HideInInspector] public bool isDisplayQuestions = true;
+    [HideInInspector] public IEnumerator coroutine;
+
+    QuestionsText[] currentStoryQuestions = null;
 
     void Awake()
     {
@@ -37,38 +42,46 @@ public class Exhibit : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentExhibitStory = swordStory;
             triggerSwordStory = true;
         }
 
         if (triggerSwordStory)
         {
+            //FindObjectOfType<AudioControlManager>().ShowAudioControlUI();
+            currentExhibitStory = swordStory;
+            currentStoryQuestions = swordQuestions;
             PlayAudio(currentExhibitStory, audioClipIndex);
             triggerSwordStory = false;
         }
+
+        Debug.Log(isDisplayQuestions);
     }
 
-    private void PlayAudio(StoryPart[] exhibitStory, int audioClipIndex)
+    public void PlayAudio(StoryPart[] exhibitStory, int audioClipIndex)
     {
         if(audioClipIndex >= exhibitStory.Length) { return; }
 
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(exhibitStory[audioClipIndex].audioClip);
-            StartCoroutine(WaitThenDisplayQuestions(exhibitStory));
+            coroutine = WaitThenDisplayQuestions(exhibitStory);
+            StartCoroutine(coroutine);
         }
     }
 
     IEnumerator WaitThenDisplayQuestions(StoryPart[] exhibitStory)
     {
-        yield return new WaitForSeconds(exhibitStory[audioClipIndex].audioClip.length);
+        //yield return new WaitForSeconds(exhibitStory[audioClipIndex].audioClip.length);
+        yield return new WaitUntil(() => !audioSource.isPlaying && isDisplayQuestions);
         ShowOptions(exhibitStory);
         //audioClipIndex++;
         //PlayAudio(exhibitStory, audioClipIndex);
     }
 
-    private void ShowOptions(StoryPart[] exhibitStory)
+    public void ShowOptions(StoryPart[] exhibitStory)
     {
+        FindObjectOfType<AudioControlManager>().HideAudioControlUI();
+
         if(exhibitStory[audioClipIndex].exhibitTag == "Sword")
         {
             DisplaySwordQuestionsUI(exhibitStory);
@@ -85,11 +98,11 @@ public class Exhibit : MonoBehaviour
         {
             for (int i = 0; i < 3; i++)  // change number to a variable
             {
-                swordOptionsUI[i].gameObject.SetActive(true);
+                storyOptionsUI[i].gameObject.SetActive(true);
             }
-            swordOptionsUIText[0].GetComponent<Text>().text = swordQuestions[0].question;
-            swordOptionsUIText[1].GetComponent<Text>().text = swordQuestions[1].question;
-            swordOptionsUIText[2].GetComponent<Text>().text = swordQuestions[2].question;
+            storyOptionsUIText[0].GetComponent<Text>().text = currentStoryQuestions[0].question;
+            storyOptionsUIText[1].GetComponent<Text>().text = currentStoryQuestions[1].question;
+            storyOptionsUIText[2].GetComponent<Text>().text = currentStoryQuestions[2].question;
         }
         else if (exhibitStory[audioClipIndex].numberOfOptions == 2)
         {
@@ -97,40 +110,40 @@ public class Exhibit : MonoBehaviour
             {
                 for (int i = 3; i < 5; i++)  // change number to a variable
                 {
-                    swordOptionsUI[i].gameObject.SetActive(true);
+                    storyOptionsUI[i].gameObject.SetActive(true);
                 }
-                swordOptionsUIText[3].GetComponent<Text>().text = swordQuestions[3].question;
-                swordOptionsUIText[4].GetComponent<Text>().text = swordQuestions[4].question;
+                storyOptionsUIText[3].GetComponent<Text>().text = currentStoryQuestions[3].question;
+                storyOptionsUIText[4].GetComponent<Text>().text = currentStoryQuestions[4].question;
             }
             else if (exhibitStory[audioClipIndex].index == currentExhibitStory[2].index || exhibitStory[audioClipIndex].index == currentExhibitStory[6].index || exhibitStory[audioClipIndex].index == currentExhibitStory[7].index)
             {
                 for (int i = 5; i < 7; i++)  // change number to a variable
                 {
-                    swordOptionsUI[i].gameObject.SetActive(true);
+                    storyOptionsUI[i].gameObject.SetActive(true);
                 }
-                swordOptionsUIText[5].GetComponent<Text>().text = swordQuestions[5].question;
-                swordOptionsUIText[6].GetComponent<Text>().text = swordQuestions[6].question;
+                storyOptionsUIText[5].GetComponent<Text>().text = currentStoryQuestions[5].question;
+                storyOptionsUIText[6].GetComponent<Text>().text = currentStoryQuestions[6].question;
             }
             else if (exhibitStory[audioClipIndex].index == currentExhibitStory[3].index || exhibitStory[audioClipIndex].index == currentExhibitStory[8].index || exhibitStory[audioClipIndex].index == currentExhibitStory[9].index)
             {
                 for (int i = 7; i < 9; i++)  // change number to a variable
                 {
-                    swordOptionsUI[i].gameObject.SetActive(true);
+                    storyOptionsUI[i].gameObject.SetActive(true);
                 }
-                swordOptionsUIText[7].GetComponent<Text>().text = swordQuestions[7].question;
-                swordOptionsUIText[8].GetComponent<Text>().text = swordQuestions[8].question;
+                storyOptionsUIText[7].GetComponent<Text>().text = currentStoryQuestions[7].question;
+                storyOptionsUIText[8].GetComponent<Text>().text = currentStoryQuestions[8].question;
             }
         }
     }
 
     public void ChooseSwordOption1()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[0].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[0].interactable = false;
+        storyOptionsUI[0].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[0].interactable = false;
 
         audioClipIndex = currentExhibitStory[1].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -138,12 +151,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption2()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[1].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[1].interactable = false;
+        storyOptionsUI[1].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[1].interactable = false;
 
         audioClipIndex = currentExhibitStory[2].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -151,12 +164,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption3()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[2].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[2].interactable = false;
+        storyOptionsUI[2].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[2].interactable = false;
 
         audioClipIndex = currentExhibitStory[3].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -164,12 +177,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption4()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[3].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[3].interactable = false;
+        storyOptionsUI[3].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[3].interactable = false;
 
         audioClipIndex = currentExhibitStory[4].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -184,12 +197,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption5()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[4].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[4].interactable = false;
+        storyOptionsUI[4].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[4].interactable = false;
 
         audioClipIndex = currentExhibitStory[5].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -204,12 +217,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption6()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[5].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[5].interactable = false;
+        storyOptionsUI[5].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[5].interactable = false;
 
         audioClipIndex = currentExhibitStory[6].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -224,12 +237,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption7()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[6].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[6].interactable = false;
+        storyOptionsUI[6].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[6].interactable = false;
 
         audioClipIndex = currentExhibitStory[7].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -244,12 +257,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption8()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[7].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[7].interactable = false;
+        storyOptionsUI[7].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[7].interactable = false;
 
         audioClipIndex = currentExhibitStory[8].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
@@ -264,12 +277,12 @@ public class Exhibit : MonoBehaviour
 
     public void ChooseSwordOption9()
     {
-        for (int i = 0; i < swordOptionsUI.Length; i++)
+        for (int i = 0; i < storyOptionsUI.Length; i++)
         {
-            swordOptionsUI[i].gameObject.SetActive(false);
+            storyOptionsUI[i].gameObject.SetActive(false);
         }
-        swordOptionsUI[8].GetComponent<Image>().color = Color.gray;
-        swordOptionsUI[8].interactable = false;
+        storyOptionsUI[8].GetComponent<Image>().color = Color.gray;
+        storyOptionsUI[8].interactable = false;
 
         audioClipIndex = currentExhibitStory[9].index;
         PlayAudio(currentExhibitStory, audioClipIndex);
