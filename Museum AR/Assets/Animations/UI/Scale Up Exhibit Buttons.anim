@@ -40,7 +40,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Tattoo Exhibit Button
+    path: Background/Exhibit Buttons Panel/Tattoo Exhibit Button
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -65,7 +65,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Skull Exhibit Button
+    path: Background/Exhibit Buttons Panel/Skull Exhibit Button
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -90,7 +90,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Sword Exhibit Button
+    path: Background/Exhibit Buttons Panel/Sword Exhibit Button
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -115,7 +115,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Bank Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bank Exhibit Button
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -140,7 +140,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Petrea Exhibit Button
+    path: Background/Exhibit Buttons Panel/Petrea Exhibit Button
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -165,7 +165,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Bathtub Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bathtub Exhibit Button
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -176,42 +176,42 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 298042310
+      path: 3215233117
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 130531223
+      path: 2986241663
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3977049033
+      path: 1530208801
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1552196585
+      path: 58226390
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1359329619
+      path: 4284672712
       attribute: 3
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1494202833
+      path: 1048351822
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -264,7 +264,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Tattoo Exhibit Button
+    path: Background/Exhibit Buttons Panel/Tattoo Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -292,7 +292,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Tattoo Exhibit Button
+    path: Background/Exhibit Buttons Panel/Tattoo Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -320,7 +320,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Tattoo Exhibit Button
+    path: Background/Exhibit Buttons Panel/Tattoo Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -348,7 +348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Skull Exhibit Button
+    path: Background/Exhibit Buttons Panel/Skull Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -376,7 +376,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Skull Exhibit Button
+    path: Background/Exhibit Buttons Panel/Skull Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -404,7 +404,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Skull Exhibit Button
+    path: Background/Exhibit Buttons Panel/Skull Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -432,7 +432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Sword Exhibit Button
+    path: Background/Exhibit Buttons Panel/Sword Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -460,7 +460,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Sword Exhibit Button
+    path: Background/Exhibit Buttons Panel/Sword Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -488,7 +488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Sword Exhibit Button
+    path: Background/Exhibit Buttons Panel/Sword Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -516,7 +516,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Bank Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bank Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -544,7 +544,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Bank Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bank Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -572,7 +572,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Bank Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bank Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -600,7 +600,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Petrea Exhibit Button
+    path: Background/Exhibit Buttons Panel/Petrea Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -628,7 +628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Petrea Exhibit Button
+    path: Background/Exhibit Buttons Panel/Petrea Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -656,7 +656,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Petrea Exhibit Button
+    path: Background/Exhibit Buttons Panel/Petrea Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -684,7 +684,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Bathtub Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bathtub Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -712,7 +712,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Bathtub Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bathtub Exhibit Button
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -740,7 +740,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Bathtub Exhibit Button
+    path: Background/Exhibit Buttons Panel/Bathtub Exhibit Button
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
