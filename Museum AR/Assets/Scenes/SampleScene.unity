@@ -298,9 +298,9 @@ RectTransform:
   m_Father: {fileID: 1047270337}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -119}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 382, y: -125}
   m_SizeDelta: {x: 509.6, y: 53.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244651912
@@ -323,15 +323,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ryttergraven fra N\xE6sby"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7872b87f4eb065429fcbd234644762e, type: 2}
+  m_sharedMaterial: {fileID: 3267690609414706270, guid: b7872b87f4eb065429fcbd234644762e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -349,8 +350,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -359,14 +360,14 @@ MonoBehaviour:
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -401,7 +402,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -450,16 +451,16 @@ RectTransform:
   m_GameObject: {fileID: 416947371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
   m_Children:
   - {fileID: 977755278}
   m_Father: {fileID: 1047270337}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -123}
-  m_SizeDelta: {x: 379.4, y: 313.6}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -372, y: 27}
+  m_SizeDelta: {x: 440.9, y: 468.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416947373
 MonoBehaviour:
@@ -945,8 +946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -63}
-  m_SizeDelta: {x: 632.8, y: 721.1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711427275
 MonoBehaviour:
@@ -966,7 +967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f556fe318bb953498e2d08bf9af66b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bd0c79964de50b4a811a4d758446a1c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1467,8 +1468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00062561035}
-  m_SizeDelta: {x: 0, y: 559.68005}
+  m_AnchoredPosition: {x: -0.0024719238, y: -0.00061035156}
+  m_SizeDelta: {x: -0.0050354, y: 814.73004}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &977755279
 MonoBehaviour:
@@ -1502,19 +1503,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'awdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawd
-
-
-
-    awdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawd
-
-
-
-
-    awdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawdawdawdasdawd'
+  m_text: "<b>Kontekst:</b>\r\n\n\"Min afd\xF8de s\xF8ns sv\xE6rd. En stor mand.
+    Ulv Galiciefarer. \r\nJeg husker det klart da han drog afsted mod Jakobslandene.\r\nMin
+    afd\xF8de s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer. \r\n\nJeg husker
+    det klart da han drog afsted mod Jakobslandene.\r\nMin afd\xF8de s\xF8ns sv\xE6rd.
+    En stor mand. Ulv Galiciefarer. \r\nJeg husker det klart da han drog afsted mod
+    Jakobslandene.\r\nMin afd\xF8de s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer.
+    \r\nJeg husker det klart da han drog afsted mod Jakobslandene.\r\nMin afd\xF8de
+    s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer. \r\nJeg husker det klart da
+    han drog afsted mod Jakobslandene.\r\nMin afd\xF8de s\xF8ns sv\xE6rd. En stor
+    mand. Ulv Galiciefarer. \r\nJeg husker det klart da han drog afsted mod Jakobslandene.\r\nMin
+    afd\xF8de s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer. \r\nJeg husker det
+    klart da han drog afsted mod Jakobslandene.\r\nMin afd\xF8de s\xF8ns sv\xE6rd.
+    En stor mand. Ulv Galiciefarer. \r\nJeg husker det klart da han drog afsted mod
+    Jakobslandene.\r\nMin afd\xF8de s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer.
+    \r\nJeg husker det klart da han drog afsted mod Jakobslandene.\r\nMin afd\xF8de
+    s\xF8ns sv\xE6rd. En stor mand. Ulv Galiciefarer. \r\nJeg husker det klart da
+    han drog afsted mod Jakobslandene.\"\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7872b87f4eb065429fcbd234644762e, type: 2}
+  m_sharedMaterial: {fileID: 3267690609414706270, guid: b7872b87f4eb065429fcbd234644762e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1539,8 +1548,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1549,7 +1558,7 @@ MonoBehaviour:
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -26
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1577,15 +1586,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 9, y: 0, z: 9, w: 0}
   m_textInfo:
     textComponent: {fileID: 977755280}
-    characterCount: 1039
+    characterCount: 1185
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 3
+    spaceCount: 203
+    wordCount: 191
     linkCount: 0
-    lineCount: 38
+    lineCount: 43
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1648,8 +1657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -63}
-  m_SizeDelta: {x: 632.8, y: 721.1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 1280, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047270338
 MonoBehaviour:
@@ -1669,7 +1678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f556fe318bb953498e2d08bf9af66b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bd0c79964de50b4a811a4d758446a1c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1719,10 +1728,10 @@ RectTransform:
   m_Father: {fileID: 1047270337}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 123}
-  m_SizeDelta: {x: 185.7, y: 161.7}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 382, y: -14}
+  m_SizeDelta: {x: 426, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066180146
 MonoBehaviour:
@@ -2062,8 +2071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.4, y: 170}
-  m_SizeDelta: {x: 469.5, y: 52.1}
+  m_AnchoredPosition: {x: 270.4, y: 65.5}
+  m_SizeDelta: {x: 421.2, y: 52.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508301395
 MonoBehaviour:
@@ -2085,15 +2094,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Bes\xF8g udstillingen for at fylde siden med information om denne."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7872b87f4eb065429fcbd234644762e, type: 2}
+  m_sharedMaterial: {fileID: 3267690609414706270, guid: b7872b87f4eb065429fcbd234644762e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2111,8 +2121,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 50.29
+  m_fontSizeBase: 50.29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2128,7 +2138,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2544,10 +2554,10 @@ RectTransform:
   m_Father: {fileID: 711427274}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011683, y: -68}
-  m_SizeDelta: {x: 424.4, y: 369}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 382, y: -13.999989}
+  m_SizeDelta: {x: 426, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1879574056
 GameObject:
@@ -2581,9 +2591,9 @@ RectTransform:
   m_Father: {fileID: 711427274}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -119}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 382, y: -125}
   m_SizeDelta: {x: 509.6, y: 53.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1879574058
@@ -2614,15 +2624,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ryttergraven fra N\xE6sby"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b7872b87f4eb065429fcbd234644762e, type: 2}
+  m_sharedMaterial: {fileID: 3267690609414706270, guid: b7872b87f4eb065429fcbd234644762e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2640,8 +2651,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2650,14 +2661,14 @@ MonoBehaviour:
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
