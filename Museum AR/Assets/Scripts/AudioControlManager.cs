@@ -8,13 +8,15 @@ public class AudioControlManager : MonoBehaviour
     [SerializeField] Button playPauseButton = null, skipButton = null;
     [SerializeField] Image npcTalkingIndicator = null;
     [SerializeField] Sprite playSprite = null;
-    Sprite defaultPauseSprite;
 
-    Exhibit exhibit;
+    Sprite defaultPauseSprite;
+    ExhibitAudioManager exhibitAudioManager;
+    StoryOptionsManager storyOptionsManager;
 
     void Awake()
     {
-        exhibit = FindObjectOfType<Exhibit>();
+        exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+        storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
         defaultPauseSprite = playPauseButton.GetComponent<Image>().sprite;
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -26,51 +28,38 @@ public class AudioControlManager : MonoBehaviour
         TalkingIcon();
     }
 
-    //public void ShowAudioControlUI()
-    //{
-    //    playPauseButton.gameObject.SetActive(true);
-    //    skipButton.gameObject.SetActive(true);
-    //}
-
     public void PlayPause()
     {
         if (playPauseButton.GetComponent<Image>().sprite == defaultPauseSprite)
         {
             playPauseButton.GetComponent<Image>().sprite = playSprite;
-            exhibit.audioSource.Pause();
-            exhibit.isDisplayQuestions = false;
+            exhibitAudioManager.audioSource.Pause();
+            exhibitAudioManager.isDisplayQuestions = false;
         }
         else
         {
             playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
-            exhibit.audioSource.UnPause();
-            exhibit.isDisplayQuestions = true;
+            exhibitAudioManager.audioSource.UnPause();
+            exhibitAudioManager.isDisplayQuestions = true;
         }
     }
 
     public void Skip()
     {
-        exhibit.audioSource.Stop();
-        exhibit.isDisplayQuestions = true;
-        //exhibit.audioClipIndex++;
-        if (exhibit.audioClipIndex < exhibit.currentExhibitStory.Length)
+        exhibitAudioManager.audioSource.Stop();
+        exhibitAudioManager.isDisplayQuestions = true;
+
+        if (exhibitAudioManager.audioClipIndex < exhibitAudioManager.currentExhibitStory.Length)
         {
             playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
-            //exhibit.PlayAudio(exhibit.currentExhibitStory, exhibit.audioClipIndex);
-            //Debug.Log(exhibit.audioClipIndex);
-            StopCoroutine(exhibit.coroutine);
-            exhibit.ShowOptions(exhibit.currentExhibitStory);
+            StopCoroutine(exhibitAudioManager.coroutine);
+            storyOptionsManager.ShowOptions(exhibitAudioManager.currentExhibitStory);
         }
-        //else
-        //{
-        //    TO DO: Go back to main questions with them being greyed out
-        //    Debug.Log("STORY IS OVER");
-        //}
     }
 
     private void TalkingIcon()
     {
-        if (exhibit.audioSource.isPlaying)
+        if (exhibitAudioManager.audioSource.isPlaying)
         {
             npcTalkingIndicator.gameObject.SetActive(true);
             playPauseButton.gameObject.SetActive(true);

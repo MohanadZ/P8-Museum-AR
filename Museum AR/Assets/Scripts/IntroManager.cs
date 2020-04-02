@@ -25,8 +25,6 @@ public class IntroManager : MonoBehaviour
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         npcTalkingIndicator.gameObject.SetActive(false);
-
-        Debug.Log(isNextClip);
     }
 
     private void Update()
@@ -50,8 +48,6 @@ public class IntroManager : MonoBehaviour
 
         if (!audioSource.isPlaying)
         {
-            Debug.Log("I am here now " + audioClipIndex);
-
             audioSource.PlayOneShot(introduction[audioClipIndex]);
             StartCoroutine(WaitThenResumeAudio());
         }
@@ -63,9 +59,6 @@ public class IntroManager : MonoBehaviour
 
     IEnumerator WaitThenResumeAudio()
     {
-        Debug.Log("I am in coroutine");
-
-        //yield return new WaitForSeconds(introduction[audioClipIndex].length + 1f);      // Dunno why it does not work if I don't add some time on top of the length of the clip :(
         yield return new WaitUntil(() => !audioSource.isPlaying && isNextClip);
         audioClipIndex++;
         PlayIntroductionStory(introduction, audioClipIndex);
@@ -118,9 +111,6 @@ public class IntroManager : MonoBehaviour
     {
         if (isIntroOver)
         {
-            //playPauseButton.gameObject.SetActive(false);
-            //skipButton.gameObject.SetActive(false);
-
             SceneManager.LoadScene(1);
         }
     }
