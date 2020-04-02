@@ -10,15 +10,19 @@ public class StoryOptionsManager : MonoBehaviour
     [SerializeField] Text[] storyButtonsText = null;
 
     ExhibitAudioManager exhibitAudioManager;
+    StoryCompletionManager storyCompletion;
 
     private void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+        storyCompletion = FindObjectOfType<StoryCompletionManager>();
     }
 
     public void ShowOptions(StoryPart[] exhibitStory)
     {
         FindObjectOfType<AudioControlManager>().HideAudioControlUI();
+
+        storyCompletion.CheckExhibitCompletion();
 
         if (exhibitStory[exhibitAudioManager.audioClipIndex].exhibitTag == "Sword")
         {
@@ -126,6 +130,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[4].hasFinished && exhibitAudioManager.currentExhibitStory[5].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[1].hasFinished = true;
         }
     }
 
@@ -146,6 +151,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[4].hasFinished && exhibitAudioManager.currentExhibitStory[5].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[1].hasFinished = true;
         }
     }
 
@@ -166,6 +172,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[6].hasFinished && exhibitAudioManager.currentExhibitStory[7].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[2].hasFinished = true;
         }
     }
 
@@ -186,6 +193,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[6].hasFinished && exhibitAudioManager.currentExhibitStory[7].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[2].hasFinished = true;
         }
     }
 
@@ -206,6 +214,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[8].hasFinished && exhibitAudioManager.currentExhibitStory[9].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[3].hasFinished = true;
         }
     }
 
@@ -226,6 +235,7 @@ public class StoryOptionsManager : MonoBehaviour
         if (exhibitAudioManager.currentExhibitStory[8].hasFinished && exhibitAudioManager.currentExhibitStory[9].hasFinished)
         {
             exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.currentExhibitStory[3].hasFinished = true;
         }
     }
 }

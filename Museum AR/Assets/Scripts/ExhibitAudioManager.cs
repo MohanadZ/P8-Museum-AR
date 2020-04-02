@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ExhibitAudioManager : MonoBehaviour
 {
-    [SerializeField] StoryPart[] swordStory = null;
+    public StoryPart[] swordStory = null;
 
     [HideInInspector] public AudioSource audioSource;
     [HideInInspector] public StoryPart[] currentExhibitStory = null;
