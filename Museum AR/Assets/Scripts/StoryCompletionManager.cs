@@ -21,7 +21,7 @@ public class StoryCompletionManager : MonoBehaviour
                 && exhibitAudioManager.swordStory[3].hasFinished)
             {
                 isSwordOver = true;
-                Debug.Log("SWORD STORY IS OVER. MOVE AWAY!");
+                FindObjectOfType<StoryOptionsManager>().DisableOptionsButtons();
             }
         }
     }

@@ -22,8 +22,6 @@ public class StoryOptionsManager : MonoBehaviour
     {
         FindObjectOfType<AudioControlManager>().HideAudioControlUI();
 
-        storyCompletion.CheckExhibitCompletion();
-
         if (exhibitStory[exhibitAudioManager.audioClipIndex].exhibitTag == "Sword")
         {
             DisplayStoryQuestionsUI(exhibitStory);
@@ -72,14 +70,31 @@ public class StoryOptionsManager : MonoBehaviour
                 storyButtonsText[8].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[8].question;
             }
         }
+
+        storyCompletion.CheckExhibitCompletion();
     }
 
-    public void ChooseStoryOption1()
+    public void DisableOptionsButtons()
     {
         for (int i = 0; i < storyUIButtons.Length; i++)
         {
             storyUIButtons[i].gameObject.SetActive(false);
         }
+    }
+
+    public void ResetOptionsButtons()
+    {
+        for (int i = 0; i < storyUIButtons.Length; i++)
+        {
+            storyUIButtons[i].GetComponent<Image>().color = Color.white;
+            storyUIButtons[i].interactable = true;
+        }
+    }
+
+    public void ChooseStoryOption1()
+    {
+        DisableOptionsButtons();
+
         storyUIButtons[0].GetComponent<Image>().color = Color.gray;
         storyUIButtons[0].interactable = false;
 
@@ -89,10 +104,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption2()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[1].GetComponent<Image>().color = Color.gray;
         storyUIButtons[1].interactable = false;
 
@@ -102,10 +115,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption3()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[2].GetComponent<Image>().color = Color.gray;
         storyUIButtons[2].interactable = false;
 
@@ -115,10 +126,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption4()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[3].GetComponent<Image>().color = Color.gray;
         storyUIButtons[3].interactable = false;
 
@@ -136,10 +145,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption5()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[4].GetComponent<Image>().color = Color.gray;
         storyUIButtons[4].interactable = false;
 
@@ -157,10 +164,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption6()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[5].GetComponent<Image>().color = Color.gray;
         storyUIButtons[5].interactable = false;
 
@@ -178,10 +183,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption7()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[6].GetComponent<Image>().color = Color.gray;
         storyUIButtons[6].interactable = false;
 
@@ -199,10 +202,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption8()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[7].GetComponent<Image>().color = Color.gray;
         storyUIButtons[7].interactable = false;
 
@@ -220,10 +221,8 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ChooseStoryOption9()
     {
-        for (int i = 0; i < storyUIButtons.Length; i++)
-        {
-            storyUIButtons[i].gameObject.SetActive(false);
-        }
+        DisableOptionsButtons();
+
         storyUIButtons[8].GetComponent<Image>().color = Color.gray;
         storyUIButtons[8].interactable = false;
 

@@ -9,6 +9,8 @@ public class AudioControlManager : MonoBehaviour
     [SerializeField] Image npcTalkingIndicator = null;
     [SerializeField] Sprite playSprite = null;
 
+    [HideInInspector] public bool isSkip;
+
     Sprite defaultPauseSprite;
     ExhibitAudioManager exhibitAudioManager;
     StoryOptionsManager storyOptionsManager;
@@ -48,6 +50,7 @@ public class AudioControlManager : MonoBehaviour
     {
         exhibitAudioManager.audioSource.Stop();
         exhibitAudioManager.isDisplayQuestions = true;
+        isSkip = true;
 
         if (exhibitAudioManager.audioClipIndex < exhibitAudioManager.currentExhibitStory.Length)
         {
