@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class StoryOptionsManager : MonoBehaviour
 {
-    public QuestionsText[] swordQuestions = null;
     [SerializeField] Button[] storyUIButtons = null;
     [SerializeField] Text[] storyButtonsText = null;
 

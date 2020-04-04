@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ExhibitAudioManager : MonoBehaviour
 {
     public StoryPart[] swordStory = null;
+    [SerializeField] QuestionsText[] swordQuestions = null;
 
     [HideInInspector] public AudioSource audioSource;
     [HideInInspector] public StoryPart[] currentExhibitStory = null;
@@ -48,7 +49,7 @@ public class ExhibitAudioManager : MonoBehaviour
         {
             storyOptionsManager.ResetOptionsButtons();
             currentExhibitStory = swordStory;
-            currentStoryQuestions = storyOptionsManager.swordQuestions;
+            currentStoryQuestions = swordQuestions;
             PlayAudio(currentExhibitStory, audioClipIndex);
             triggerSwordStory = false;
         }

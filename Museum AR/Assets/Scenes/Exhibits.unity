@@ -1179,16 +1179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246e4378209515c46a86558c56d36650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordQuestions:
-  - {fileID: 11400000, guid: 12cca4d40a7670047ba0a73c98c320dc, type: 2}
-  - {fileID: 11400000, guid: 279c826d95d48bc4b9057faa3ecf991f, type: 2}
-  - {fileID: 11400000, guid: 12bd1c6399c0167418909388fe04d007, type: 2}
-  - {fileID: 11400000, guid: 51d6c19c7728c214da4efb5447098ef4, type: 2}
-  - {fileID: 11400000, guid: f5da337516acc8b4283473c89d01c795, type: 2}
-  - {fileID: 11400000, guid: 268f5354a53eae942ad259d09774ffbb, type: 2}
-  - {fileID: 11400000, guid: 3a3e5e0b4df863c4dae2c3b31ab8eed8, type: 2}
-  - {fileID: 11400000, guid: 8ae4a79135c6eb2429d972e076cfd879, type: 2}
-  - {fileID: 11400000, guid: e893dfbe26e301d4b8ff2ee1d8a0ab89, type: 2}
   storyUIButtons:
   - {fileID: 410296879}
   - {fileID: 1958526977}
@@ -2239,6 +2229,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 657c45872b4e0884ea147eb2507fb940, type: 2}
   - {fileID: 11400000, guid: 61c221906cce09d42ac2a8fa4d778ef8, type: 2}
   - {fileID: 11400000, guid: 3447b247fb1eb8f4887a06a4a0f81f0e, type: 2}
+  swordQuestions:
+  - {fileID: 11400000, guid: 12cca4d40a7670047ba0a73c98c320dc, type: 2}
+  - {fileID: 11400000, guid: 279c826d95d48bc4b9057faa3ecf991f, type: 2}
+  - {fileID: 11400000, guid: 12bd1c6399c0167418909388fe04d007, type: 2}
+  - {fileID: 11400000, guid: 51d6c19c7728c214da4efb5447098ef4, type: 2}
+  - {fileID: 11400000, guid: f5da337516acc8b4283473c89d01c795, type: 2}
+  - {fileID: 11400000, guid: 268f5354a53eae942ad259d09774ffbb, type: 2}
+  - {fileID: 11400000, guid: 3a3e5e0b4df863c4dae2c3b31ab8eed8, type: 2}
+  - {fileID: 11400000, guid: 8ae4a79135c6eb2429d972e076cfd879, type: 2}
+  - {fileID: 11400000, guid: e893dfbe26e301d4b8ff2ee1d8a0ab89, type: 2}
   audioSource: {fileID: 0}
   currentExhibitStory: []
   audioClipIndex: 0
