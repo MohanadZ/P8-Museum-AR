@@ -9,16 +9,12 @@ public class AudioControlManager : MonoBehaviour
     [SerializeField] Image npcTalkingIndicator = null;
     [SerializeField] Sprite playSprite = null;
 
-    [HideInInspector] public bool isSkip;
-
     Sprite defaultPauseSprite;
     ExhibitAudioManager exhibitAudioManager;
-    StoryOptionsManager storyOptionsManager;
 
     void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
-        storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
         defaultPauseSprite = playPauseButton.GetComponent<Image>().sprite;
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -50,13 +46,11 @@ public class AudioControlManager : MonoBehaviour
     {
         exhibitAudioManager.audioSource.Stop();
         exhibitAudioManager.isDisplayQuestions = true;
-        isSkip = true;
 
         if (exhibitAudioManager.audioClipIndex < exhibitAudioManager.currentExhibitStory.Length)
         {
             playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
             StopCoroutine(exhibitAudioManager.coroutine);
-            storyOptionsManager.ShowOptions(exhibitAudioManager.currentExhibitStory);
         }
     }
 

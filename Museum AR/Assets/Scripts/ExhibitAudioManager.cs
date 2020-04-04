@@ -16,13 +16,11 @@ public class ExhibitAudioManager : MonoBehaviour
     [HideInInspector] public QuestionsText[] currentStoryQuestions = null;
 
     StoryOptionsManager storyOptionsManager;
-    AudioControlManager audioControlManager;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
-        audioControlManager = FindObjectOfType<AudioControlManager>();
         ResetScriptableObjectsProperties();
     }
 
@@ -71,9 +69,6 @@ public class ExhibitAudioManager : MonoBehaviour
     IEnumerator WaitThenDisplayQuestions(StoryPart[] exhibitStory)
     {
         yield return new WaitUntil(() => !audioSource.isPlaying && isDisplayQuestions);
-        if(!audioControlManager.isSkip){
-            storyOptionsManager.ShowOptions(exhibitStory);
-        }
-        audioControlManager.isSkip = false;
+        storyOptionsManager.ShowOptions(exhibitStory);
     }
 }
