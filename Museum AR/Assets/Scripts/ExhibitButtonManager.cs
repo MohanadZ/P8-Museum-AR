@@ -72,6 +72,7 @@ public class ExhibitButtonManager : MonoBehaviour
         visitedExhibitTitle.text = exhibitButton.Title;
         visitedExhibitImage.sprite = exhibitButton.ExhibitImage;
         visitedExhibitText.text = exhibitButton.ExhibitText;
+
         if (!visitedJournalCanvas.gameObject.activeSelf)
         {
             unvisitedJournalCanvas.gameObject.SetActive(false);
@@ -83,6 +84,7 @@ public class ExhibitButtonManager : MonoBehaviour
     {
         unvisitedExhibitTitle.text = exhibitButton.Title;
         unvisitedExhibitImage.sprite = exhibitButton.ExhibitImage;
+
         if (!unvisitedJournalCanvas.gameObject.activeSelf)
         {
             visitedJournalCanvas.gameObject.SetActive(false);

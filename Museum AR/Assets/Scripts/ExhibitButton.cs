@@ -6,7 +6,6 @@ using TMPro;
 
 public class ExhibitButton : MonoBehaviour
 {
-    //[System.Serializable]
     [SerializeField] string title = "";
     [SerializeField] TextAsset exhibitTextAsset = null;
     [SerializeField] Sprite sprite = null;
@@ -18,11 +17,6 @@ public class ExhibitButton : MonoBehaviour
     public string ExhibitText { get { return exhibitText; } }
     public Sprite ExhibitImage { get { return sprite; } }
     public ExhibitTag ExhibitTag { get { return exhibitTag; } }
-
-    private void Awake()
-    {
-        sprite = GetComponent<Sprite>();
-    }
 
     private void Start()
     {

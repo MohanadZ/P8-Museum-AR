@@ -18,6 +18,7 @@ public class JournalUI : MonoBehaviour
     private bool closeIconIsShowing = false;
 
     public static event Action JournalUIClosedEvent;
+    public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
     private void Awake()
     {
@@ -109,6 +110,4 @@ public class JournalUI : MonoBehaviour
             ExhibitVisitedEvent(ExhibitTag.Skull);
         }
     }
-
-    public static event Action<ExhibitTag> ExhibitVisitedEvent;
 }
