@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using System;
 
 public class StoryCompletionManager : MonoBehaviour
 {
     ExhibitAudioManager exhibitAudioManager;
     [HideInInspector] public bool isSwordOver;
+
+    public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
     void Awake()
     {
@@ -21,6 +23,7 @@ public class StoryCompletionManager : MonoBehaviour
                 && exhibitAudioManager.swordStory[3].hasFinished)
             {
                 isSwordOver = true;
+                ExhibitVisitedEvent(ExhibitTag.Sword);
                 FindObjectOfType<StoryOptionsManager>().DisableOptionsButtons();
             }
         }
