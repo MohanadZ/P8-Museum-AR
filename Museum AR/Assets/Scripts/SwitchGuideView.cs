@@ -5,31 +5,40 @@ using Vuforia;
 
 public class SwitchGuideView : MonoBehaviour
 {
-    [SerializeField] ModelTarget m;
-    int i;
+    private ModelTargetBehaviour m;
+    private int counter;
 
     void Start()
     {
-        i = 0;
-        m = gameObject.GetComponent<ModelTarget>();
+        m = GetComponent<ModelTargetBehaviour>();
+        counter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        SwitchToNextGuideView();
+
+
+    }
+
+    private void SwitchToNextGuideView()
+    {
+        int guideViewIndex = m.ModelTarget.GetNumGuideViews();
+
         if (Input.GetKeyDown(KeyCode.M))
         {
-            
-            if(i == 0)
+            if (counter == guideViewIndex)
             {
-                i = 1;
-                m.SetActiveGuideViewIndex(0);
-            } else
-            {
-                i = 0;
-                m.SetActiveGuideViewIndex(1);
+                counter = 0;
             }
-            
+            else
+            {
+                counter++;
+            }
+
+            m.ModelTarget.SetActiveGuideViewIndex(counter);
+
         }
     }
 }
