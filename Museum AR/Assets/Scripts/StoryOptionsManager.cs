@@ -21,10 +21,7 @@ public class StoryOptionsManager : MonoBehaviour
     {
         FindObjectOfType<AudioControlManager>().HideAudioControlUI();
 
-        if (exhibitStory[exhibitAudioManager.audioClipIndex].exhibitTag == "Sword")
-        {
-            DisplayStoryQuestionsUI(exhibitStory);
-        }
+        DisplayStoryQuestionsUI(exhibitStory);
     }
 
     private void DisplayStoryQuestionsUI(StoryPart[] exhibitStory)

@@ -93,14 +93,6 @@ public class JournalUI : MonoBehaviour
         {
             ExhibitVisitedEvent(ExhibitTag.Bank);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ExhibitVisitedEvent(ExhibitTag.Bathtub);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            ExhibitVisitedEvent(ExhibitTag.Tattoo);
-        }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             ExhibitVisitedEvent(ExhibitTag.Skull);

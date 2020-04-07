@@ -6,7 +6,7 @@ using UnityEngine;
 public class StoryPart : ScriptableObject
 {
     public string exhibitTag;
-    public new string name;
+    //public new string name;
     public AudioClip audioClip;
     public int index;
     public int numberOfOptions;

@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715af895bea14144a9b3e0524543fc40, type: 3}
-  m_Name: Sword Q 2-2
+  m_Script: {fileID: 11500000, guid: 8496fce4f98535941aa9b18aaab8124a, type: 3}
+  m_Name: Needles-Question7 Answer
   m_EditorClassIdentifier: 
-  question: "Hvad endte han med at d\xF8 af?"
+  exhibitTag: Needles
+  audioClip: {fileID: 8300000, guid: 05900c4af02c50145bfcf47797d44057, type: 3}
+  index: 7
+  numberOfOptions: 2
+  hasFinished: 0

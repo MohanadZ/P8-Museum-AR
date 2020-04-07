@@ -1383,6 +1383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSwordOver: 0
+  isNeedlesOver: 0
+  isTubOver: 0
 --- !u!4 &1195497913
 Transform:
   m_ObjectHideFlags: 0
@@ -2355,10 +2357,54 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3a3e5e0b4df863c4dae2c3b31ab8eed8, type: 2}
   - {fileID: 11400000, guid: 8ae4a79135c6eb2429d972e076cfd879, type: 2}
   - {fileID: 11400000, guid: e893dfbe26e301d4b8ff2ee1d8a0ab89, type: 2}
+  needlesStory:
+  - {fileID: 11400000, guid: 0d8214b5c8d88da489f89b0dc23d4d52, type: 2}
+  - {fileID: 11400000, guid: c97b5989b8a62e64b9f2adbb23b2a872, type: 2}
+  - {fileID: 11400000, guid: 694379bd441197c4084672cd6c91d64d, type: 2}
+  - {fileID: 11400000, guid: b034d33000768fa4b9874e4356a6c121, type: 2}
+  - {fileID: 11400000, guid: db5686fa2a5e592418c550a59e299417, type: 2}
+  - {fileID: 11400000, guid: 8275eac79e59e8842a43561e81d5b080, type: 2}
+  - {fileID: 11400000, guid: 62953c6f50e19c2448a40ed6167a541d, type: 2}
+  - {fileID: 11400000, guid: 4d6273b7bd6e9534480cc0ab8cc12666, type: 2}
+  - {fileID: 11400000, guid: 237d9939668cc5945b7cb9be8861c757, type: 2}
+  - {fileID: 11400000, guid: c3fedbd734f42d7499eb26991416d29a, type: 2}
+  needlesQuestions:
+  - {fileID: 11400000, guid: 412254db091ae204e96849b5e2d8a576, type: 2}
+  - {fileID: 11400000, guid: c07a05c48e4ef214686e5c28908658b1, type: 2}
+  - {fileID: 11400000, guid: 07d6d5a38af84ee42a2f08ce0bd7857d, type: 2}
+  - {fileID: 11400000, guid: 33374e2802da3d041b9c065b85dea7f5, type: 2}
+  - {fileID: 11400000, guid: 5d2904fef56a0464a817dfb052f210e5, type: 2}
+  - {fileID: 11400000, guid: 0c7e3422bb0f62a4287a9dfddc1cc496, type: 2}
+  - {fileID: 11400000, guid: b1e023ee45836af4c8a91445c5c0f0b1, type: 2}
+  - {fileID: 11400000, guid: 84ff5c1aa7c977247a95e1ba808745b1, type: 2}
+  - {fileID: 11400000, guid: 0fbb8bc878d37424b9d90ab93c26997b, type: 2}
+  tubStory:
+  - {fileID: 11400000, guid: 82e346ba0f092534086298b178450ecf, type: 2}
+  - {fileID: 11400000, guid: 5a555c091b7c4534a965dc2a9d8c0e88, type: 2}
+  - {fileID: 11400000, guid: e1fd442cb30ea124789c03ea45cfe9a9, type: 2}
+  - {fileID: 11400000, guid: 3fcfbb76c3ba3c445808dc513890fa3a, type: 2}
+  - {fileID: 11400000, guid: af3d84f88f692ff4b91f7380c07c19f1, type: 2}
+  - {fileID: 11400000, guid: 809b29b561789a74fa092de70ff42c17, type: 2}
+  - {fileID: 11400000, guid: 02e90514c7d8ba24b863c51e63112c08, type: 2}
+  - {fileID: 11400000, guid: d5e51a539e770d346a8308a02860647a, type: 2}
+  - {fileID: 11400000, guid: bb52b355307570648a71c2621d276058, type: 2}
+  - {fileID: 11400000, guid: d2f080c5c64e8ed4ab6fc12871baf007, type: 2}
+  tubQuestions:
+  - {fileID: 11400000, guid: 8585a10066d558d458dbfd75e7e4dbeb, type: 2}
+  - {fileID: 11400000, guid: a9e251ddbe6aef74b91b0b3b8d5fbf75, type: 2}
+  - {fileID: 11400000, guid: c7e8944959582bf43bd4355f271f8dbf, type: 2}
+  - {fileID: 11400000, guid: d0155318b80fa4c4f8a4328cf7f8be51, type: 2}
+  - {fileID: 11400000, guid: bb330a2bb1a22094e8d3fa7f86236285, type: 2}
+  - {fileID: 11400000, guid: 845c6f8a6cebeac4f8cae2e87c1545c0, type: 2}
+  - {fileID: 11400000, guid: c85b8f6485156b246b60c9e547873100, type: 2}
+  - {fileID: 11400000, guid: 8c12bdf2d18392745a3eac111f7ba26d, type: 2}
+  - {fileID: 11400000, guid: 68e9b874a62dc1e43951576dbbdd30f8, type: 2}
   audioSource: {fileID: 0}
   currentExhibitStory: []
   audioClipIndex: 0
   triggerSwordStory: 0
+  triggerNeedlesStory: 0
+  triggerTubStory: 0
   isDisplayQuestions: 1
   currentStoryQuestions: []
 --- !u!4 &1754432106
