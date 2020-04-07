@@ -26,7 +26,7 @@ public class SwitchGuideView : MonoBehaviour
     {
         int guideViewIndex = m.ModelTarget.GetNumGuideViews();
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             if (counter == guideViewIndex)
             {
