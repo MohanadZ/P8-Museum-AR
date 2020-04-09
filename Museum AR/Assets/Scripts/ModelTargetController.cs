@@ -12,20 +12,19 @@ public class ModelTargetController : MonoBehaviour
 
     ObjectTracker objectTracker;
 
-    string dataSetName;
+    string[] dataSetNames;
 
-    int counter;
-
-    IEnumerable<DataSet> dataSets;
+    int guideViewCounter;
+    int dataSetCounter;
 
     void Start()
     {
-
         mModelTarget = modelTarget.GetComponent<ModelTargetBehaviour>();
 
-        counter = 0;
+        guideViewCounter = 0;
+        dataSetCounter = 0;
 
-        dataSetName = "Car";
+        dataSetNames = new string[2]{ "Spinner", "iPhone6_Color" };
 
         VuforiaARController.Instance.RegisterVuforiaStartedCallback(InitializeObjectTracker);
     }
@@ -33,25 +32,21 @@ public class ModelTargetController : MonoBehaviour
     private void InitializeObjectTracker()
     {
         objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-        dataSets = objectTracker.GetDataSets();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        SwitchDatabase();
+        SwitchDatabase(dataSetNames);
         SwitchGuideView();
     }
 
-    private void SwitchDatabase()
+    private void SwitchDatabase(string[] dataSetsToBeActivated)
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-
             IEnumerable<DataSet> activeDataSets = objectTracker.GetActiveDataSets();
             List<DataSet> activeDataSetsToBeRemoved = new List<DataSet>();
             activeDataSetsToBeRemoved.AddRange(activeDataSets);
-            // Debug.Log("Number of Datasets in Total: " + activeDataSetsToBeRemoved.Count);
 
             foreach (DataSet set in activeDataSetsToBeRemoved)
             {
@@ -60,27 +55,29 @@ public class ModelTargetController : MonoBehaviour
 
             objectTracker.Stop();
 
-            //foreach (DataSet set in dataSets)
-            //{
-            //    if (set.Path.Contains(dataSetName))
-            //    {
-            //        objectTracker.ActivateDataSet(set);
-            //    }
-            //}
 
             DataSet dataSet = objectTracker.CreateDataSet();
 
-            if (DataSet.Exists(dataSetName))
+            if (DataSet.Exists(dataSetNames[dataSetCounter]))
             {
-                dataSet.Load(dataSetName);
+                dataSet.Load(dataSetNames[dataSetCounter]);
                 objectTracker.ActivateDataSet(dataSet);
+
+                if (dataSetCounter == dataSetNames.Length - 1)
+                {
+                    dataSetCounter = 0;
+                }
+                else
+                {
+                    dataSetCounter++;
+                }
             }
 
 
             IEnumerable<TrackableBehaviour> trackableBehaviours = TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
-            foreach(TrackableBehaviour tb in trackableBehaviours)
+            foreach (TrackableBehaviour tb in trackableBehaviours)
             {
-                if(tb is ModelTargetBehaviour && tb.isActiveAndEnabled)
+                if (tb is ModelTargetBehaviour && tb.isActiveAndEnabled)
                 {
                     Debug.Log("TrackableName: " + tb.TrackableName);
                     (tb as ModelTargetBehaviour).GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.GuideView2D;
@@ -97,16 +94,16 @@ public class ModelTargetController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (counter == mModelTarget.ModelTarget.GetNumGuideViews() - 1)
+            if (guideViewCounter == mModelTarget.ModelTarget.GetNumGuideViews() - 1)
             {
-                counter = 0;
+                guideViewCounter = 0;
             }
             else
             {
-                counter++;
+                guideViewCounter++;
             }
 
-            mModelTarget.ModelTarget.SetActiveGuideViewIndex(counter);
+            mModelTarget.ModelTarget.SetActiveGuideViewIndex(guideViewCounter);
 
         }
     }
