@@ -1,109 +1,113 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
 public class ModelTargetController : MonoBehaviour
 {
-    [SerializeField] GameObject iPhoneModelTarget;
-    [SerializeField] GameObject spinnerModelTarget;
+    [SerializeField] GameObject modelTarget;
 
-    private ModelTargetBehaviour mIPhone;
-    private ModelTargetBehaviour mSpinner;
-    private int counter;
+    ModelTargetBehaviour mModelTarget;
 
-    [SerializeField] bool iPhoneActive;
-    [SerializeField] bool spinnerActive;
+    ObjectTracker objectTracker;
+
+    string dataSetName;
+
+    int counter;
+
+    IEnumerable<DataSet> dataSets;
 
     void Start()
     {
-        iPhoneModelTarget = GetComponent<GameObject>();
-        spinnerModelTarget = GetComponent<GameObject>();
 
-        mIPhone = iPhoneModelTarget.GetComponent<ModelTargetBehaviour>();
-        mSpinner = spinnerModelTarget.GetComponent<ModelTargetBehaviour>();
+        mModelTarget = modelTarget.GetComponent<ModelTargetBehaviour>();
 
         counter = 0;
 
-        iPhoneActive = false;
-        spinnerActive = true;
+        dataSetName = "Car";
+
+        VuforiaARController.Instance.RegisterVuforiaStartedCallback(InitializeObjectTracker);
+    }
+
+    private void InitializeObjectTracker()
+    {
+        objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+        dataSets = objectTracker.GetDataSets();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SwitchModel();
+        SwitchDatabase();
         SwitchGuideView();
     }
 
-    private void SwitchModel()
+    private void SwitchDatabase()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            if (spinnerActive)
-            {
-                spinnerActive = false;
-                iPhoneActive = true;
-            }
-            else
-            {
-                spinnerActive = true;
-                iPhoneActive = false;
-            }
-        }
-    }
 
-    private int IsModelActive()
-    {
-        int activeModel;
+            IEnumerable<DataSet> activeDataSets = objectTracker.GetActiveDataSets();
+            List<DataSet> activeDataSetsToBeRemoved = new List<DataSet>();
+            activeDataSetsToBeRemoved.AddRange(activeDataSets);
+            // Debug.Log("Number of Datasets in Total: " + activeDataSetsToBeRemoved.Count);
 
-        if(iPhoneActive)
-        {
-            spinnerActive = false;
-            iPhoneModelTarget.SetActive(true);
-            spinnerModelTarget.SetActive(false);
-            activeModel = 0;
-        } else
-        {
-            iPhoneActive = false;
-            iPhoneModelTarget.SetActive(false);
-            spinnerModelTarget.SetActive(true);
-            activeModel = 1;
+            foreach (DataSet set in activeDataSetsToBeRemoved)
+            {
+                objectTracker.DeactivateDataSet(set);
+            }
+
+            objectTracker.Stop();
+
+            //foreach (DataSet set in dataSets)
+            //{
+            //    if (set.Path.Contains(dataSetName))
+            //    {
+            //        objectTracker.ActivateDataSet(set);
+            //    }
+            //}
+
+            DataSet dataSet = objectTracker.CreateDataSet();
+
+            if (DataSet.Exists(dataSetName))
+            {
+                dataSet.Load(dataSetName);
+                objectTracker.ActivateDataSet(dataSet);
+            }
+
+
+            IEnumerable<TrackableBehaviour> trackableBehaviours = TrackerManager.Instance.GetStateManager().GetTrackableBehaviours();
+            foreach(TrackableBehaviour tb in trackableBehaviours)
+            {
+                if(tb is ModelTargetBehaviour && tb.isActiveAndEnabled)
+                {
+                    Debug.Log("TrackableName: " + tb.TrackableName);
+                    (tb as ModelTargetBehaviour).GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.GuideView2D;
+                    mModelTarget = tb.GetComponent<ModelTargetBehaviour>();
+                }
+            }
+
+            objectTracker.Start();
+
         }
-       
-        return activeModel;
     }
 
     private void SwitchGuideView()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if(IsModelActive() == 0)
+            if (counter == mModelTarget.ModelTarget.GetNumGuideViews() - 1)
             {
-                if (counter == mIPhone.ModelTarget.GetNumGuideViews())
-                {
-                    counter = 0;
-                }
-                else
-                {
-                    counter++;
-                }
-
-                mIPhone.ModelTarget.SetActiveGuideViewIndex(counter);
+                counter = 0;
             }
-            else if(IsModelActive() == 1)
+            else
             {
-                if (counter == mSpinner.ModelTarget.GetNumGuideViews())
-                {
-                    counter = 0;
-                }
-                else
-                {
-                    counter++;
-                }
-
-                mSpinner.ModelTarget.SetActiveGuideViewIndex(counter);
+                counter++;
             }
+
+            mModelTarget.ModelTarget.SetActiveGuideViewIndex(counter);
+
         }
     }
 }
