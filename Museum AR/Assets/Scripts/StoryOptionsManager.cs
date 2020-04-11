@@ -27,44 +27,44 @@ public class StoryOptionsManager : MonoBehaviour
 
     private void DisplayStoryQuestionsUI(StoryPart[] exhibitStory)
     {
-        if (exhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions == 3)
+        if (exhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions == 3)
         {
             for (int i = 0; i < 3; i++)  // change number to a variable
             {
                 storyUIButtons[i].gameObject.SetActive(true);
             }
-            storyButtonsText[0].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[0].question;
-            storyButtonsText[1].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[1].question;
-            storyButtonsText[2].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[2].question;
+            storyButtonsText[0].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[0].question;
+            storyButtonsText[1].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[1].question;
+            storyButtonsText[2].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[2].question;
         }
-        else if (exhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions == 2)
+        else if (exhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions == 2)
         {
-            if (exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[1].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[4].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[5].index)
+            if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[1].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[4].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[5].index)
             {
                 for (int i = 3; i < 5; i++)  // change number to a variable
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[3].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[3].question;
-                storyButtonsText[4].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[4].question;
+                storyButtonsText[3].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[3].question;
+                storyButtonsText[4].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[4].question;
             }
-            else if (exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[2].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[6].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[7].index)
+            else if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[2].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[6].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[7].index)
             {
                 for (int i = 5; i < 7; i++)  // change number to a variable
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[5].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[5].question;
-                storyButtonsText[6].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[6].question;
+                storyButtonsText[5].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[5].question;
+                storyButtonsText[6].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[6].question;
             }
-            else if (exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[3].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[8].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[9].index)
+            else if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[3].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[8].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[9].index)
             {
                 for (int i = 7; i < 9; i++)  // change number to a variable
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[7].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[7].question;
-                storyButtonsText[8].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[8].question;
+                storyButtonsText[7].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[7].question;
+                storyButtonsText[8].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.CurrentStoryQuestions[8].question;
             }
         }
 
@@ -95,8 +95,8 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[0].GetComponent<Image>().color = Color.gray;
         storyUIButtons[0].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[1].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[1].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
     }
 
     public void ChooseStoryOption2()
@@ -106,8 +106,8 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[1].GetComponent<Image>().color = Color.gray;
         storyUIButtons[1].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[2].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[2].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
     }
 
     public void ChooseStoryOption3()
@@ -117,8 +117,8 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[2].GetComponent<Image>().color = Color.gray;
         storyUIButtons[2].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[3].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[3].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
     }
 
     public void ChooseStoryOption4()
@@ -128,15 +128,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[3].GetComponent<Image>().color = Color.gray;
         storyUIButtons[3].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[4].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[4].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[4].hasFinished && exhibitAudioManager.currentExhibitStory[5].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[4].hasFinished && exhibitAudioManager.CurrentExhibitStory[5].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[1].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[1].hasFinished = true;
         }
     }
 
@@ -147,15 +147,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[4].GetComponent<Image>().color = Color.gray;
         storyUIButtons[4].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[5].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[5].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[4].hasFinished && exhibitAudioManager.currentExhibitStory[5].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[4].hasFinished && exhibitAudioManager.CurrentExhibitStory[5].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[1].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[1].hasFinished = true;
         }
     }
 
@@ -166,15 +166,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[5].GetComponent<Image>().color = Color.gray;
         storyUIButtons[5].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[6].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[6].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[6].hasFinished && exhibitAudioManager.currentExhibitStory[7].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[6].hasFinished && exhibitAudioManager.CurrentExhibitStory[7].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[2].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[2].hasFinished = true;
         }
     }
 
@@ -185,15 +185,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[6].GetComponent<Image>().color = Color.gray;
         storyUIButtons[6].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[7].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[7].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[6].hasFinished && exhibitAudioManager.currentExhibitStory[7].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[6].hasFinished && exhibitAudioManager.CurrentExhibitStory[7].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[2].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[2].hasFinished = true;
         }
     }
 
@@ -204,15 +204,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[7].GetComponent<Image>().color = Color.gray;
         storyUIButtons[7].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[8].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[8].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[8].hasFinished && exhibitAudioManager.currentExhibitStory[9].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[8].hasFinished && exhibitAudioManager.CurrentExhibitStory[9].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[3].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[3].hasFinished = true;
         }
     }
 
@@ -223,15 +223,15 @@ public class StoryOptionsManager : MonoBehaviour
         storyUIButtons[8].GetComponent<Image>().color = Color.gray;
         storyUIButtons[8].interactable = false;
 
-        exhibitAudioManager.audioClipIndex = exhibitAudioManager.currentExhibitStory[9].index;
-        exhibitAudioManager.PlayAudio(exhibitAudioManager.currentExhibitStory, exhibitAudioManager.audioClipIndex);
+        exhibitAudioManager.AudioClipIndex = exhibitAudioManager.CurrentExhibitStory[9].index;
+        exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, exhibitAudioManager.AudioClipIndex);
 
-        exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].hasFinished = true;
+        exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].hasFinished = true;
 
-        if (exhibitAudioManager.currentExhibitStory[8].hasFinished && exhibitAudioManager.currentExhibitStory[9].hasFinished)
+        if (exhibitAudioManager.CurrentExhibitStory[8].hasFinished && exhibitAudioManager.CurrentExhibitStory[9].hasFinished)
         {
-            exhibitAudioManager.currentExhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions = 3;
-            exhibitAudioManager.currentExhibitStory[3].hasFinished = true;
+            exhibitAudioManager.CurrentExhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions = 3;
+            exhibitAudioManager.CurrentExhibitStory[3].hasFinished = true;
         }
     }
 }

@@ -17,16 +17,31 @@ public class ExhibitAudioManager : MonoBehaviour
     public StoryPart[] tubStory = null;
     [SerializeField] QuestionsText[] tubQuestions = null;
 
-    [HideInInspector] public AudioSource audioSource;
-    [HideInInspector] public StoryPart[] currentExhibitStory = null;
-    [HideInInspector] public IEnumerator coroutine;
-    [HideInInspector] public int audioClipIndex;
+    AudioSource audioSource;
+    StoryPart[] currentExhibitStory = null;
+    QuestionsText[] currentStoryQuestions = null;
+    IEnumerator coroutine;
+    int audioClipIndex;
+    bool isDisplayQuestions = true;
     [HideInInspector] public bool triggerSwordStory, triggerNeedlesStory, triggerTubStory;
-    [HideInInspector] public bool isDisplayQuestions = true;
-    [HideInInspector] public QuestionsText[] currentStoryQuestions = null;
-
+    
     StoryOptionsManager storyOptionsManager;
     StoryCompletionManager storyCompletion;
+
+    public AudioSource GetAudioSource { get { return audioSource; } }
+    public StoryPart[] CurrentExhibitStory { get { return currentExhibitStory; } }
+    public QuestionsText[] CurrentStoryQuestions { get { return currentStoryQuestions; } }
+    public IEnumerator Coroutine { get { return coroutine; } }
+    public int AudioClipIndex
+    {
+        get { return audioClipIndex; }
+        set { audioClipIndex = value; }
+    }
+    public bool IsDisplayQuestions
+    {
+        get { return isDisplayQuestions; }
+        set { isDisplayQuestions = value; }
+    }
 
     void Awake()
     {

@@ -11,10 +11,12 @@ public class AudioControlManager : MonoBehaviour
 
     Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
     ExhibitAudioManager exhibitAudioManager;
+    NPCManager npc;
 
     void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+        npc = FindObjectOfType<NPCManager>();
         defaultPauseSprite = playPauseIcon.GetComponent<Image>().sprite;
         defaultTalkingIndicatorSprite = npcTalkingIndicator.sprite;
         playPauseButton.gameObject.SetActive(false);
@@ -32,41 +34,44 @@ public class AudioControlManager : MonoBehaviour
         if (playPauseIcon.GetComponent<Image>().sprite == defaultPauseSprite)
         {
             playPauseIcon.GetComponent<Image>().sprite = playSprite;
-            exhibitAudioManager.audioSource.Pause();
-            exhibitAudioManager.isDisplayQuestions = false;
+            exhibitAudioManager.GetAudioSource.Pause();
+            exhibitAudioManager.IsDisplayQuestions = false;
         }
         else
         {
             playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
-            exhibitAudioManager.audioSource.UnPause();
-            exhibitAudioManager.isDisplayQuestions = true;
+            exhibitAudioManager.GetAudioSource.UnPause();
+            exhibitAudioManager.IsDisplayQuestions = true;
         }
     }
 
     public void Skip()
     {
-        exhibitAudioManager.audioSource.Stop();
-        exhibitAudioManager.isDisplayQuestions = true;
+        exhibitAudioManager.GetAudioSource.Stop();
+        exhibitAudioManager.IsDisplayQuestions = true;
 
-        if (exhibitAudioManager.audioClipIndex < exhibitAudioManager.currentExhibitStory.Length)
+        if (exhibitAudioManager.AudioClipIndex < exhibitAudioManager.CurrentExhibitStory.Length)
         {
             playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
-            StopCoroutine(exhibitAudioManager.coroutine);
+            StopCoroutine(exhibitAudioManager.Coroutine);
         }
     }
 
     private void TalkingIcon()
     {
-        if (exhibitAudioManager.audioSource.isPlaying)
+        if (exhibitAudioManager.GetAudioSource.isPlaying)
         {
             npcTalkingIndicator.sprite = defaultTalkingIndicatorSprite;
             npcTalkingIndicator.gameObject.SetActive(true);
             playPauseButton.gameObject.SetActive(true);
             skipButton.gameObject.SetActive(true);
+            npc.gameObject.SetActive(true);
+            npc.ChangeExhibitNPC();
         }
         else
         {
             npcTalkingIndicator.sprite = npcNotTalkingIndicator;
+            npc.gameObject.SetActive(false);
         }
     }
 
@@ -74,5 +79,6 @@ public class AudioControlManager : MonoBehaviour
     {
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
+        //npcTalkingIndicator.gameObject.SetActive(false);
     }
 }
