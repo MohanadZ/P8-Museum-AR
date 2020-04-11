@@ -102,10 +102,10 @@ public class ExhibitButtonManager : MonoBehaviour
 
             if(exhibitButton.ExhibitTag == exhibitTag)
             {
-                Image exhibitImage = exhibitButton.GetComponent<Image>();
-                Color temporaryColor = exhibitImage.color;
+                Image iconImage = exhibitButton.transform.GetChild(0).GetComponent<Image>();
+                Color temporaryColor = iconImage.color;
                 temporaryColor.a = 1f;
-                exhibitImage.color = temporaryColor;
+                iconImage.color = temporaryColor;
                 exhibitButton.gameObject.tag = "Visited";
             }
         }

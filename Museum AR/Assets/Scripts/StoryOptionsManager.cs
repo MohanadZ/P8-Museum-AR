@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StoryOptionsManager : MonoBehaviour
 {
     [SerializeField] Button[] storyUIButtons = null;
-    [SerializeField] Text[] storyButtonsText = null;
+    [SerializeField] TextMeshProUGUI[] storyButtonsText = null;
 
     ExhibitAudioManager exhibitAudioManager;
     StoryCompletionManager storyCompletion;
@@ -32,9 +33,9 @@ public class StoryOptionsManager : MonoBehaviour
             {
                 storyUIButtons[i].gameObject.SetActive(true);
             }
-            storyButtonsText[0].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[0].question;
-            storyButtonsText[1].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[1].question;
-            storyButtonsText[2].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[2].question;
+            storyButtonsText[0].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[0].question;
+            storyButtonsText[1].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[1].question;
+            storyButtonsText[2].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[2].question;
         }
         else if (exhibitStory[exhibitAudioManager.audioClipIndex].numberOfOptions == 2)
         {
@@ -44,8 +45,8 @@ public class StoryOptionsManager : MonoBehaviour
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[3].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[3].question;
-                storyButtonsText[4].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[4].question;
+                storyButtonsText[3].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[3].question;
+                storyButtonsText[4].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[4].question;
             }
             else if (exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[2].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[6].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[7].index)
             {
@@ -53,8 +54,8 @@ public class StoryOptionsManager : MonoBehaviour
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[5].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[5].question;
-                storyButtonsText[6].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[6].question;
+                storyButtonsText[5].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[5].question;
+                storyButtonsText[6].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[6].question;
             }
             else if (exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[3].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[8].index || exhibitStory[exhibitAudioManager.audioClipIndex].index == exhibitAudioManager.currentExhibitStory[9].index)
             {
@@ -62,8 +63,8 @@ public class StoryOptionsManager : MonoBehaviour
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
-                storyButtonsText[7].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[7].question;
-                storyButtonsText[8].GetComponent<Text>().text = exhibitAudioManager.currentStoryQuestions[8].question;
+                storyButtonsText[7].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[7].question;
+                storyButtonsText[8].GetComponent<TextMeshProUGUI>().text = exhibitAudioManager.currentStoryQuestions[8].question;
             }
         }
 

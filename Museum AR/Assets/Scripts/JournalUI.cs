@@ -9,11 +9,11 @@ public class JournalUI : MonoBehaviour
     [SerializeField] Image inputBlocker = null;
     [SerializeField] Image journalImage = null;
     [SerializeField] Image background = null;
-    [SerializeField] Sprite journalIcon = null;
     [SerializeField] Sprite closeIcon = null;
     [SerializeField] Image[] exhibitImages = null;
 
     Animator animator = null;
+    Sprite journalIcon = null;
 
     private bool closeIconIsShowing = false;
 
@@ -25,6 +25,7 @@ public class JournalUI : MonoBehaviour
         journalImage.GetComponent<Image>();
         background.GetComponent<Image>();
         animator = GetComponent<Animator>();
+        journalIcon = journalImage.GetComponent<Image>().sprite;
     }
 
     public void ExpandJournalUI()
