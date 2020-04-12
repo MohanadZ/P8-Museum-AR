@@ -1,61 +1,31 @@
 fileFormatVersion: 2
-guid: 3766d5d2385490b4f8a851e3f02f108e
+guid: 1270ea514a4adc645a2cc407a8b4ac8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8610101541847444194
-    second: Default NPC Sprite_0
+      213: -3985213205982074557
+    second: Arabic NPC Sprite_0
   - first:
-      213: 7123185150281476589
-    second: Default NPC Sprite_1
+      213: -3507330752367337014
+    second: Arabic NPC Sprite_1
   - first:
-      213: 5133120202939878464
-    second: Default NPC Sprite_2
+      213: 6513448554460603523
+    second: Arabic NPC Sprite_2
   - first:
-      213: -4907535753453839130
-    second: Default NPC Sprite_3
+      213: 7053335671298985427
+    second: Arabic NPC Sprite_3
   - first:
-      213: -7660025523480013848
-    second: Default NPC Sprite_4
+      213: -1876315835191782998
+    second: Arabic NPC Sprite_4
   - first:
-      213: -6871463209109851020
-    second: Default NPC Sprite_5
+      213: 4372420905960128528
+    second: Arabic NPC Sprite_5
   - first:
-      213: -2896239384269555728
-    second: Default NPC Sprite_6
+      213: -512278996588324718
+    second: Arabic NPC Sprite_6
   - first:
-      213: -7001173844636004538
-    second: Default NPC Sprite_7
-  - first:
-      213: -2045147898200660426
-    second: Default NPC Sprite_8
-  - first:
-      213: -5110325759308023876
-    second: Default NPC Sprite_9
-  - first:
-      213: -7745921721065068335
-    second: Default NPC Sprite_10
-  - first:
-      213: -8611330740779273808
-    second: Default NPC Sprite_0
-  - first:
-      213: -5985354914063615069
-    second: Default NPC Sprite_1
-  - first:
-      213: -8120666112262251796
-    second: Default NPC Sprite_2
-  - first:
-      213: 4020282234620107699
-    second: Default NPC Sprite_3
-  - first:
-      213: 8671222568331868919
-    second: Default NPC Sprite_4
-  - first:
-      213: 1872104127366828655
-    second: Default NPC Sprite_5
-  - first:
-      213: 3849396005272879437
-    second: Default NPC Sprite_6
+      213: -615590303880185391
+    second: Arabic NPC Sprite_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -152,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default NPC Sprite_0
+      name: Arabic NPC Sprite_0
       rect:
         serializedVersion: 2
         x: 25
@@ -166,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b13378e0586e7880800000000000000
-      internalID: -8611330740779273808
+      spriteID: 3492e3724bda1b8c0800000000000000
+      internalID: -3985213205982074557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_1
+      name: Arabic NPC Sprite_1
       rect:
         serializedVersion: 2
         x: 224
@@ -187,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ab799cda6fbfeca0800000000000000
-      internalID: -5985354914063615069
+      spriteID: ac1675b6345735fc0800000000000000
+      internalID: -3507330752367337014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_2
+      name: Arabic NPC Sprite_2
       rect:
         serializedVersion: 2
         x: 423
@@ -208,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cea5e0f22399d4f80800000000000000
-      internalID: -8120666112262251796
+      spriteID: 384e76753fa646a50800000000000000
+      internalID: 6513448554460603523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_3
+      name: Arabic NPC Sprite_3
       rect:
         serializedVersion: 2
         x: 622
@@ -229,14 +199,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bb585b5469eac730800000000000000
-      internalID: 4020282234620107699
+      spriteID: 3dd0e514c6b72e160800000000000000
+      internalID: 7053335671298985427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_4
+      name: Arabic NPC Sprite_4
       rect:
         serializedVersion: 2
         x: 821
@@ -250,14 +220,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa75c9dbfe565870800000000000000
-      internalID: 8671222568331868919
+      spriteID: aa114f460bcf5f5e0800000000000000
+      internalID: -1876315835191782998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_5
+      name: Arabic NPC Sprite_5
       rect:
         serializedVersion: 2
         x: 1020
@@ -271,14 +241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f621e36f8cc0bf910800000000000000
-      internalID: 1872104127366828655
+      spriteID: 010ce3cd5a5fdac30800000000000000
+      internalID: 4372420905960128528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_6
+      name: Arabic NPC Sprite_6
       rect:
         serializedVersion: 2
         x: 1219
@@ -292,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d410916954dcb6530800000000000000
-      internalID: 3849396005272879437
+      spriteID: 298957e77f404e8f0800000000000000
+      internalID: -512278996588324718
       vertices: []
       indices: 
       edges: []
@@ -301,7 +271,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0ed0a6da6c6b74e43af73fd7facedd54
+    spriteID: 02f829b0b782eeb4081f7791c9e9ae72
     internalID: 0
     vertices: []
     indices: 

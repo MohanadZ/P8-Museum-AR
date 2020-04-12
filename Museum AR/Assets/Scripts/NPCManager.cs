@@ -6,6 +6,7 @@ public class NPCManager : MonoBehaviour
 {
     Animator animator;
     ExhibitAudioManager exhibitAudioManager;
+    float animationSpeed = 0.5f;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class NPCManager : MonoBehaviour
     {
         if (exhibitAudioManager.CurrentExhibitStory == null || exhibitAudioManager.CurrentExhibitStory.Length == 0) { return; }
 
+        animator.speed = animationSpeed;
         if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sword")
         {
             animator.SetTrigger("Sword");
