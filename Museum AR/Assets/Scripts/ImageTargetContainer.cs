@@ -7,7 +7,9 @@ public class ImageTargetContainer : MonoBehaviour
 {
     [SerializeField] GameObject astronaut;
     [SerializeField] GameObject drone;
+
     List<GameObject> imageTargets;
+
     int localTarget;
     void Start()
     {
@@ -45,5 +47,8 @@ public class ImageTargetContainer : MonoBehaviour
         }
 
         imageTargets[ImageTargetController.CurrentImageTarget].SetActive(true);
+
+        HighlightController.SetNumberOfHighlights(
+            imageTargets[ImageTargetController.CurrentImageTarget].GetComponent<ImageTarget>().numberOfHighlights);
     }
 }

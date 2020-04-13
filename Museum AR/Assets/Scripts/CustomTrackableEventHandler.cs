@@ -38,7 +38,6 @@ public class CustomTrackableEventHandler : MonoBehaviour
             mTrackableBehaviour.RegisterOnTrackableStatusChanged(OnTrackableStatusChanged);
         }
 
-        HighlightController.SetNumberOfHighlights(2);
     }
 
     protected virtual void OnDestroy()
@@ -163,6 +162,8 @@ public class CustomTrackableEventHandler : MonoBehaviour
                 component.enabled = false;
         };
 
+
+        // This line should NOT be here! For testing Only!
         HighlightController.SwitchToNextHighlight();
 
         if (OnTargetLost != null)
