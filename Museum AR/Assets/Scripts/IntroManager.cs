@@ -7,20 +7,22 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
     [SerializeField] Button startButton = null, playPauseButton = null, skipButton = null;
-    [SerializeField] Image npcTalkingIndicator = null;
-    [SerializeField] Sprite playSprite = null;
+    [SerializeField] Image npcTalkingIndicator = null, playPauseIcon = null;
+    [SerializeField] Sprite playSprite = null, npcNotTalkingIndicator = null;
     [SerializeField] AudioClip[] introduction = null;
+    [SerializeField] Image npc;
     bool isNextClip = true;
 
-    Sprite defaultPauseSprite;
+    Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
     AudioSource audioSource;
     int audioClipIndex = 0;
     bool isIntroOver = false;
 
     private void Awake()
     {
-        defaultPauseSprite = playPauseButton.GetComponent<Image>().sprite;
         audioSource = GetComponent<AudioSource>();
+        defaultPauseSprite = playPauseIcon.GetComponent<Image>().sprite;
+        defaultTalkingIndicatorSprite = npcTalkingIndicator.sprite;
 
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -66,15 +68,15 @@ public class IntroManager : MonoBehaviour
 
     public void PlayPause()
     {
-        if (playPauseButton.GetComponent<Image>().sprite == defaultPauseSprite)
+        if (playPauseIcon.GetComponent<Image>().sprite == defaultPauseSprite)
         {
-            playPauseButton.GetComponent<Image>().sprite = playSprite;
+            playPauseIcon.GetComponent<Image>().sprite = playSprite;
             audioSource.Pause();
             isNextClip = false;
         }
         else
         {
-            playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
+            playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
             audioSource.UnPause();
             isNextClip = true;
         }
@@ -86,7 +88,7 @@ public class IntroManager : MonoBehaviour
         audioClipIndex++;
         if (audioClipIndex < introduction.Length)
         {
-            playPauseButton.GetComponent<Image>().sprite = defaultPauseSprite;
+            playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
             PlayIntroductionStory(introduction, audioClipIndex);
         }
         else
@@ -100,10 +102,13 @@ public class IntroManager : MonoBehaviour
         if (audioSource.isPlaying)
         {
             npcTalkingIndicator.gameObject.SetActive(true);
+            npcTalkingIndicator.sprite = defaultTalkingIndicatorSprite;
+            npc.gameObject.SetActive(true);
         }
         else
         {
-            npcTalkingIndicator.gameObject.SetActive(false);
+            npcTalkingIndicator.sprite = npcNotTalkingIndicator;
+            npc.gameObject.SetActive(false);
         }
     }
 
