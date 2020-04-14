@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class ExhibitAudioManager : MonoBehaviour
 {
     [Header("Sword Exhibit")]
-    public StoryPart[] swordStory = null;
+    [SerializeField] StoryPart[] swordStory = null;
     [SerializeField] QuestionsText[] swordQuestions = null;
 
     [Header("Tattoo Needles Exhibit")]
-    public StoryPart[] needlesStory = null;
+    [SerializeField] StoryPart[] needlesStory = null;
     [SerializeField] QuestionsText[] needlesQuestions = null;
 
     [Header("Tub Exhibit")]
-    public StoryPart[] tubStory = null;
+    [SerializeField] StoryPart[] tubStory = null;
     [SerializeField] QuestionsText[] tubQuestions = null;
 
     AudioSource audioSource;
@@ -28,6 +28,9 @@ public class ExhibitAudioManager : MonoBehaviour
     StoryOptionsManager storyOptionsManager;
     StoryCompletionManager storyCompletion;
 
+    public StoryPart[] SwordStory { get { return swordStory; } }
+    public StoryPart[] NeedlesStory { get { return needlesStory; } }
+    public StoryPart[] TubStory { get { return tubStory; } }
     public AudioSource GetAudioSource { get { return audioSource; } }
     public StoryPart[] CurrentExhibitStory { get { return currentExhibitStory; } }
     public QuestionsText[] CurrentStoryQuestions { get { return currentStoryQuestions; } }

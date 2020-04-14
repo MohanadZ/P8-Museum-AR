@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class IntroManager : MonoBehaviour
 {
-    [SerializeField] Button startButton = null, playPauseButton = null, skipButton = null;
-    [SerializeField] Image npcTalkingIndicator = null, playPauseIcon = null;
+    [Header("Start Screen UI")]
+    [SerializeField] Button startButton = null;
+    [SerializeField] Image logo = null;
+    [SerializeField] TextMeshProUGUI title = null;
+
+    [Header("Introduction UI Control")]
+    [SerializeField] Button skipButton = null;
+    [SerializeField] Button playPauseButton = null;
+    [SerializeField] Image npcTalkingIndicator = null, playPauseIcon = null, npc = null;
     [SerializeField] Sprite playSprite = null, npcNotTalkingIndicator = null;
+
+    [Header("Introduction Audio")]
     [SerializeField] AudioClip[] introduction = null;
-    [SerializeField] Image npc;
-    bool isNextClip = true;
 
     Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
     AudioSource audioSource;
     int audioClipIndex = 0;
+    bool isNextClip = true;
     bool isIntroOver = false;
 
     private void Awake()
@@ -37,6 +46,8 @@ public class IntroManager : MonoBehaviour
 
     public void StartJourney()
     {
+        title.gameObject.SetActive(false);
+        logo.gameObject.SetActive(false);
         startButton.gameObject.SetActive(false);
         playPauseButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);

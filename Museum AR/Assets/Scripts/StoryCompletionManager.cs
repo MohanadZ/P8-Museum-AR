@@ -19,8 +19,8 @@ public class StoryCompletionManager : MonoBehaviour
     {
         if (!isSwordOver)
         {
-            if(exhibitAudioManager.swordStory[1].hasFinished && exhibitAudioManager.swordStory[2].hasFinished 
-                && exhibitAudioManager.swordStory[3].hasFinished)
+            if(exhibitAudioManager.SwordStory[1].hasFinished && exhibitAudioManager.SwordStory[2].hasFinished 
+                && exhibitAudioManager.SwordStory[3].hasFinished)
             {
                 isSwordOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Sword);
@@ -29,8 +29,8 @@ public class StoryCompletionManager : MonoBehaviour
         }
         if (!isNeedlesOver)
         {
-            if (exhibitAudioManager.needlesStory[1].hasFinished && exhibitAudioManager.needlesStory[2].hasFinished
-                && exhibitAudioManager.needlesStory[3].hasFinished)
+            if (exhibitAudioManager.NeedlesStory[1].hasFinished && exhibitAudioManager.NeedlesStory[2].hasFinished
+                && exhibitAudioManager.NeedlesStory[3].hasFinished)
             {
                 isNeedlesOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Tattoo);
@@ -39,8 +39,8 @@ public class StoryCompletionManager : MonoBehaviour
         }
         if (!isTubOver)
         {
-            if (exhibitAudioManager.tubStory[1].hasFinished && exhibitAudioManager.tubStory[2].hasFinished
-                && exhibitAudioManager.tubStory[3].hasFinished)
+            if (exhibitAudioManager.TubStory[1].hasFinished && exhibitAudioManager.TubStory[2].hasFinished
+                && exhibitAudioManager.TubStory[3].hasFinished)
             {
                 isTubOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bathtub);
