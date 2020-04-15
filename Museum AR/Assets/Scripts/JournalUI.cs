@@ -10,7 +10,7 @@ public class JournalUI : MonoBehaviour
     [SerializeField] Image journalImage = null;
     [SerializeField] Image background = null;
     [SerializeField] Sprite closeIcon = null;
-    [SerializeField] Image[] exhibitImages = null;
+    [SerializeField] ExhibitButton[] exhibitButtons = null;
 
     Animator animator = null;
     Sprite journalIcon = null;
@@ -57,9 +57,9 @@ public class JournalUI : MonoBehaviour
     //Animation event
     public void EnableExhibitButtons()
     {
-        for (int i = 0; i < exhibitImages.Length; i++)
+        for (int i = 0; i < exhibitButtons.Length; i++)
         {
-            exhibitImages[i].gameObject.SetActive(true);
+            exhibitButtons[i].gameObject.SetActive(true);
         }
 
         animator.SetBool("enableButtons", true);
@@ -70,9 +70,9 @@ public class JournalUI : MonoBehaviour
     {
         animator.SetBool("enableButtons", false);
 
-        for (int i = 0; i < exhibitImages.Length; i++)
+        for (int i = 0; i < exhibitButtons.Length; i++)
         {
-            exhibitImages[i].gameObject.SetActive(false);
+            exhibitButtons[i].gameObject.SetActive(false);
         }
 
         animator.SetTrigger("shrinkBackground");
