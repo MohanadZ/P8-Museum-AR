@@ -85,7 +85,7 @@ public class ExhibitAudioManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-            triggerNeedlesStory = true;
+            // triggerNeedlesStory = true;
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
