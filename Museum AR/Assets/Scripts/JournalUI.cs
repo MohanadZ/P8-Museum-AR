@@ -18,7 +18,6 @@ public class JournalUI : MonoBehaviour
     private bool closeIconIsShowing = false;
 
     public static event Action JournalUIClosedEvent;
-    public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
     private void Awake()
     {
@@ -86,17 +85,6 @@ public class JournalUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ExhibitVisitedEvent(ExhibitTag.Petrea);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ExhibitVisitedEvent(ExhibitTag.Bank);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            ExhibitVisitedEvent(ExhibitTag.Skull);
-        }
+        
     }
 }

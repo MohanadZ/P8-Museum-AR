@@ -29,7 +29,7 @@ public class StoryOptionsManager : MonoBehaviour
     {
         if (exhibitStory[exhibitAudioManager.AudioClipIndex].numberOfOptions == 3)
         {
-            for (int i = 0; i < 3; i++)  // change number to a variable
+            for (int i = 0; i < 3; i++)
             {
                 storyUIButtons[i].gameObject.SetActive(true);
             }
@@ -41,7 +41,7 @@ public class StoryOptionsManager : MonoBehaviour
         {
             if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[1].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[4].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[5].index)
             {
-                for (int i = 3; i < 5; i++)  // change number to a variable
+                for (int i = 3; i < 5; i++)
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
@@ -50,7 +50,7 @@ public class StoryOptionsManager : MonoBehaviour
             }
             else if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[2].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[6].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[7].index)
             {
-                for (int i = 5; i < 7; i++)  // change number to a variable
+                for (int i = 5; i < 7; i++)
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }
@@ -59,7 +59,7 @@ public class StoryOptionsManager : MonoBehaviour
             }
             else if (exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[3].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[8].index || exhibitStory[exhibitAudioManager.AudioClipIndex].index == exhibitAudioManager.CurrentExhibitStory[9].index)
             {
-                for (int i = 7; i < 9; i++)  // change number to a variable
+                for (int i = 7; i < 9; i++)
                 {
                     storyUIButtons[i].gameObject.SetActive(true);
                 }

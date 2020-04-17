@@ -17,13 +17,25 @@ public class ExhibitAudioManager : MonoBehaviour
     [SerializeField] StoryPart[] tubStory = null;
     [SerializeField] QuestionsText[] tubQuestions = null;
 
+    [Header("Sign Exhibit")]
+    [SerializeField] StoryPart[] signStory = null;
+    [SerializeField] QuestionsText[] signQuestions = null;
+
+    [Header("Skull Exhibit")]
+    [SerializeField] StoryPart[] skullStory = null;
+    [SerializeField] QuestionsText[] skullQuestions = null;
+
+    [Header("Bank Exhibit")]
+    [SerializeField] StoryPart[] bankStory = null;
+    [SerializeField] QuestionsText[] bankQuestions = null;
+
     AudioSource audioSource;
     StoryPart[] currentExhibitStory = null;
     QuestionsText[] currentStoryQuestions = null;
     IEnumerator coroutine;
     int audioClipIndex;
     bool isDisplayQuestions = true;
-    [HideInInspector] public bool triggerSwordStory, triggerNeedlesStory, triggerTubStory;
+    [HideInInspector] public bool triggerSwordStory, triggerNeedlesStory, triggerTubStory, triggerSignStory, triggerSkullStory, triggerBankStory;
     
     StoryOptionsManager storyOptionsManager;
     StoryCompletionManager storyCompletion;
@@ -31,6 +43,9 @@ public class ExhibitAudioManager : MonoBehaviour
     public StoryPart[] SwordStory { get { return swordStory; } }
     public StoryPart[] NeedlesStory { get { return needlesStory; } }
     public StoryPart[] TubStory { get { return tubStory; } }
+    public StoryPart[] SignStory { get { return signStory; } }
+    public StoryPart[] SkullStory { get { return skullStory; } }
+    public StoryPart[] BankStory { get { return bankStory; } }
     public AudioSource GetAudioSource { get { return audioSource; } }
     public StoryPart[] CurrentExhibitStory { get { return currentExhibitStory; } }
     public QuestionsText[] CurrentStoryQuestions { get { return currentStoryQuestions; } }
@@ -68,16 +83,37 @@ public class ExhibitAudioManager : MonoBehaviour
         {
             story.hasFinished = false;
         }
+        foreach (StoryPart story in signStory)
+        {
+            story.hasFinished = false;
+        }
+        foreach(StoryPart story in skullStory)
+        {
+            story.hasFinished = false;
+        }
+        foreach(StoryPart story in bankStory)
+        {
+            story.hasFinished = false;
+        }
 
         for (int i = 4; i < swordStory.Length; i++)
         {
             swordStory[i].numberOfOptions = 2;
             needlesStory[i].numberOfOptions = 2;
             tubStory[i].numberOfOptions = 2;
+            signStory[i].numberOfOptions = 2;
+            skullStory[i].numberOfOptions = 2;
+            bankStory[i].numberOfOptions = 2;
         }
     }
 
     void Update()
+    {
+        ManualStoryTrigger();
+        ExhibitStart();
+    }
+
+    private void ManualStoryTrigger()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -85,45 +121,77 @@ public class ExhibitAudioManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-            // triggerNeedlesStory = true;
+            triggerNeedlesStory = true;
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
             triggerTubStory = true;
         }
-
-        ExhibitStart();
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            triggerSignStory = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            triggerSkullStory = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            triggerBankStory = true;
+        }
     }
 
     private void ExhibitStart()
     {
         if (triggerSwordStory && !storyCompletion.isSwordOver)
         {
-            storyOptionsManager.ResetOptionsButtons();
             currentExhibitStory = swordStory;
             currentStoryQuestions = swordQuestions;
-            audioClipIndex = 0;
-            PlayAudio(currentExhibitStory, audioClipIndex);
+            ExhibitPreset();
             triggerSwordStory = false;
         }
         else if(triggerNeedlesStory && !storyCompletion.isNeedlesOver)
         {
-            storyOptionsManager.ResetOptionsButtons();
             currentExhibitStory = needlesStory;
             currentStoryQuestions = needlesQuestions;
-            audioClipIndex = 0;
-            PlayAudio(currentExhibitStory, audioClipIndex);
+            ExhibitPreset();
             triggerNeedlesStory = false;
         }
         else if (triggerTubStory && !storyCompletion.isTubOver)
         {
-            storyOptionsManager.ResetOptionsButtons();
             currentExhibitStory = tubStory;
             currentStoryQuestions = tubQuestions;
-            audioClipIndex = 0;
-            PlayAudio(currentExhibitStory, audioClipIndex);
+            ExhibitPreset();
             triggerTubStory = false;
         }
+        else if (triggerSignStory && !storyCompletion.isSignOver)
+        {
+            currentExhibitStory = signStory;
+            currentStoryQuestions = signQuestions;
+            ExhibitPreset();
+            triggerSignStory = false;
+        }
+        else if(triggerSkullStory && !storyCompletion.isSkullOver)
+        {
+            currentExhibitStory = skullStory;
+            currentStoryQuestions = skullQuestions;
+            ExhibitPreset();
+            triggerSkullStory = false;
+        }
+        else if(triggerBankStory && !storyCompletion.isBankOver)
+        {
+            currentExhibitStory = bankStory;
+            currentStoryQuestions = bankQuestions;
+            ExhibitPreset();
+            triggerBankStory = false;
+        }
+    }
+
+    private void ExhibitPreset()
+    {
+        storyOptionsManager.ResetOptionsButtons();
+        audioClipIndex = 0;
+        PlayAudio(currentExhibitStory, audioClipIndex);
     }
 
     public void PlayAudio(StoryPart[] exhibitStory, int audioClipIndex)

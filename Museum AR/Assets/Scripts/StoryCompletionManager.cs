@@ -6,13 +6,15 @@ using System;
 public class StoryCompletionManager : MonoBehaviour
 {
     ExhibitAudioManager exhibitAudioManager;
-    [HideInInspector] public bool isSwordOver, isNeedlesOver, isTubOver;
+    StoryOptionsManager storyOptionsManager;
+    [HideInInspector] public bool isSwordOver, isNeedlesOver, isTubOver, isSignOver, isSkullOver, isBankOver;
 
     public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
     void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+        storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
     }
 
     public void CheckExhibitCompletion()
@@ -24,7 +26,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 isSwordOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Sword);
-                FindObjectOfType<StoryOptionsManager>().DisableOptionsButtons();
+                storyOptionsManager.DisableOptionsButtons();
             }
         }
         if (!isNeedlesOver)
@@ -34,7 +36,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 isNeedlesOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Tattoo);
-                FindObjectOfType<StoryOptionsManager>().DisableOptionsButtons();
+                storyOptionsManager.DisableOptionsButtons();
             }
         }
         if (!isTubOver)
@@ -44,7 +46,37 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 isTubOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bathtub);
-                FindObjectOfType<StoryOptionsManager>().DisableOptionsButtons();
+                storyOptionsManager.DisableOptionsButtons();
+            }
+        }
+        if (!isSignOver)
+        {
+            if (exhibitAudioManager.SignStory[1].hasFinished && exhibitAudioManager.SignStory[2].hasFinished
+                && exhibitAudioManager.SignStory[3].hasFinished)
+            {
+                isSignOver = true;
+                ExhibitVisitedEvent(ExhibitTag.Petrea);
+                storyOptionsManager.DisableOptionsButtons();
+            }
+        }
+        if (!isSkullOver)
+        {
+            if (exhibitAudioManager.SkullStory[1].hasFinished && exhibitAudioManager.SkullStory[2].hasFinished
+                && exhibitAudioManager.SkullStory[3].hasFinished)
+            {
+                isSkullOver = true;
+                ExhibitVisitedEvent(ExhibitTag.Skull);
+                storyOptionsManager.DisableOptionsButtons();
+            }
+        }
+        if (!isBankOver)
+        {
+            if (exhibitAudioManager.BankStory[1].hasFinished && exhibitAudioManager.BankStory[2].hasFinished
+                && exhibitAudioManager.BankStory[3].hasFinished)
+            {
+                isBankOver = true;
+                ExhibitVisitedEvent(ExhibitTag.Bank);
+                storyOptionsManager.DisableOptionsButtons();
             }
         }
     }
