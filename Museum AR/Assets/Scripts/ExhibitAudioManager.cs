@@ -95,6 +95,11 @@ public class ExhibitAudioManager : MonoBehaviour
         ExhibitStart();
     }
 
+    public void TestStart()
+    {
+        triggerSwordStory = true;
+    }
+
     private void ExhibitStart()
     {
         if (triggerSwordStory && !storyCompletion.isSwordOver)
