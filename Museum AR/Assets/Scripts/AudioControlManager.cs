@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AudioControlManager : MonoBehaviour
 {
     [SerializeField] Button skipButton = null, playPauseButton = null;
-    [SerializeField] Image npcTalkingIndicator = null, playPauseIcon = null;
+    [SerializeField] Image npcTalkingIndicator = null, npcTalkingIndicatorIcon = null, playPauseIcon = null;
     [SerializeField] Sprite playSprite = null, npcNotTalkingIndicator = null;
 
     Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
@@ -18,7 +18,7 @@ public class AudioControlManager : MonoBehaviour
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
         npc = FindObjectOfType<NPCManager>();
         defaultPauseSprite = playPauseIcon.GetComponent<Image>().sprite;
-        defaultTalkingIndicatorSprite = npcTalkingIndicator.sprite;
+        defaultTalkingIndicatorSprite = npcTalkingIndicatorIcon.sprite;
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         npcTalkingIndicator.gameObject.SetActive(false);
@@ -61,7 +61,7 @@ public class AudioControlManager : MonoBehaviour
     {
         if (exhibitAudioManager.GetAudioSource.isPlaying)
         {
-            npcTalkingIndicator.sprite = defaultTalkingIndicatorSprite;
+            npcTalkingIndicatorIcon.sprite = defaultTalkingIndicatorSprite;
             npcTalkingIndicator.gameObject.SetActive(true);
             playPauseButton.gameObject.SetActive(true);
             skipButton.gameObject.SetActive(true);
@@ -70,7 +70,7 @@ public class AudioControlManager : MonoBehaviour
         }
         else
         {
-            npcTalkingIndicator.sprite = npcNotTalkingIndicator;
+            npcTalkingIndicatorIcon.sprite = npcNotTalkingIndicator;
             npc.gameObject.SetActive(false);
         }
     }
