@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class JournalUI : MonoBehaviour
 {
     [SerializeField] Image inputBlocker = null;
-    [SerializeField] Image journalImage = null;
+    [SerializeField] Image journalIconHolder = null;
     [SerializeField] Image background = null;
     [SerializeField] Sprite closeIcon = null;
     [SerializeField] ExhibitButton[] exhibitButtons = null;
@@ -22,12 +22,13 @@ public class JournalUI : MonoBehaviour
 
     private void Awake()
     {
-        journalImage.GetComponent<Image>();
+        journalIconHolder.GetComponent<Image>();
         background.GetComponent<Image>();
         animator = GetComponent<Animator>();
-        journalIcon = journalImage.GetComponent<Image>().sprite;
+        journalIcon = journalIconHolder.GetComponent<Image>().sprite;
     }
 
+    //Button OnClick event
     public void ExpandJournalUI()
     {
         inputBlocker.gameObject.SetActive(true);
@@ -44,11 +45,11 @@ public class JournalUI : MonoBehaviour
     {
         if (!closeIconIsShowing)
         {
-            journalImage.sprite = closeIcon;
+            journalIconHolder.sprite = closeIcon;
         }
         else
         {
-            journalImage.sprite = journalIcon;
+            journalIconHolder.sprite = journalIcon;
         }
 
         closeIconIsShowing = !closeIconIsShowing;

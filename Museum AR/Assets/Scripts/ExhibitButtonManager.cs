@@ -3,31 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class ExhibitButtonManager : MonoBehaviour
 {
-    [Header("Visited Journal Canvas References")]
-    [SerializeField] Canvas journalCanvas = null;
-    [SerializeField] TextMeshProUGUI exhibitTitle = null;
-    [SerializeField] Image exhibitImage = null;
-    [SerializeField] TextMeshProUGUI exhibitText = null;
+    public ExhibitButton[] ExhibitButtons { get; private set; }
 
-    ExhibitButton[] exhibitButtons = null;
-    string defaultExhibitText = "";
-
-    private void Awake()
-    {
-        journalCanvas.GetComponent<Canvas>();
-        exhibitTitle.GetComponent<TextMeshProUGUI>();
-        exhibitImage.GetComponent<Image>();
-        exhibitText.GetComponent<TextMeshProUGUI>();
-    }
+    public event Action<int> ExhibitButtonPressedEvent;
 
     private void OnEnable()
     {
         StoryCompletionManager.ExhibitVisitedEvent += OnExhibitVisited;
         JournalUI.ExhibitVisitedEvent += OnExhibitVisited;      // for testing
-        JournalUI.JournalUIClosedEvent += OnJournalClosed;
         //Subscribe to event that triggers once an exhibit has been fully explored/visited
     }
 
@@ -35,43 +22,24 @@ public class ExhibitButtonManager : MonoBehaviour
     {
         StoryCompletionManager.ExhibitVisitedEvent -= OnExhibitVisited;
         JournalUI.ExhibitVisitedEvent -= OnExhibitVisited;      // for testing
-        JournalUI.JournalUIClosedEvent -= OnJournalClosed;
         //Unsubscribe to event that triggers once an exhibit has been fully explored/visited
     }
 
     private void Start()
     {
-        defaultExhibitText = exhibitText.text;
-        exhibitButtons = FindObjectsOfType<ExhibitButton>();
-
-        for (int i = 0; i < exhibitButtons.Length; i++)
+        ExhibitButtons = FindObjectsOfType<ExhibitButton>();
+        
+        for (int i = 0; i < ExhibitButtons.Length; i++)
         {
-            exhibitButtons[i].gameObject.SetActive(false);
+            ExhibitButtons[i].gameObject.SetActive(false);
         }
-    }
-
-    public void OpenJournal(ExhibitButton exhibitButton)
-    {
-        exhibitTitle.text = exhibitButton.Title;
-        exhibitImage.sprite = exhibitButton.ExhibitImage;
-
-        if (exhibitButton.gameObject.tag == "Visited")
-        {
-            exhibitText.text = exhibitButton.ExhibitText;
-        }
-        else
-        {
-            exhibitText.text = defaultExhibitText;
-        }
-
-        journalCanvas.gameObject.SetActive(true);
     }
 
     private void OnExhibitVisited(ExhibitTag exhibitTag)
     {
-        for(int i = 0; i < exhibitButtons.Length; i++)
+        for(int i = 0; i < ExhibitButtons.Length; i++)
         {
-            ExhibitButton exhibitButton = exhibitButtons[i];
+            ExhibitButton exhibitButton = ExhibitButtons[i];
 
             if(exhibitButton.ExhibitTag == exhibitTag)
             {
@@ -82,10 +50,5 @@ public class ExhibitButtonManager : MonoBehaviour
                 exhibitButton.gameObject.tag = "Visited";
             }
         }
-    }
-
-    public void OnJournalClosed()
-    {
-        journalCanvas.gameObject.SetActive(false);
     }
 }

@@ -11,15 +11,13 @@ public class ExhibitButton : MonoBehaviour
     [SerializeField] Sprite exhibitImage = null;
     [SerializeField] ExhibitTag exhibitTag;
 
-    private string exhibitText = "";
-
     public string Title { get { return title; } }
-    public string ExhibitText { get { return exhibitText; } }
+    public string ExhibitText { get; private set; }
     public Sprite ExhibitImage { get { return exhibitImage; } }
     public ExhibitTag ExhibitTag { get { return exhibitTag; } }
 
     private void Start()
     {
-        exhibitText = exhibitTextAsset.text;
+        ExhibitText = exhibitTextAsset.text;
     }
 }
