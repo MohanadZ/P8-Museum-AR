@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 8632863095419704799}
   - component: {fileID: 8632863095419704798}
   - component: {fileID: 8632863095419704797}
+  - component: {fileID: 8632863095419704796}
   m_Layer: 5
   m_Name: Default NPC
   m_TagString: Untagged
@@ -1199,6 +1200,18 @@ RectTransform:
   m_AnchoredPosition: {x: 122.599976, y: 137}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8632863095419704796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632863095419704794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041d41e95ffa254aa57dc2881a0651c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8632863095419704797
 Animator:
   serializedVersion: 3
@@ -1236,7 +1249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8610101541847444194, guid: 3766d5d2385490b4f8a851e3f02f108e,
+  m_Sprite: {fileID: -7568237270991228265, guid: 45e5092b443a64749bfa13a285f56a5c,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

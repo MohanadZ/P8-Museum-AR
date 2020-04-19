@@ -1,63 +1,30 @@
 fileFormatVersion: 2
-guid: 3766d5d2385490b4f8a851e3f02f108e
+guid: a8a6c2b645b4eda4b87ebf3c3a822181
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8610101541847444194
-    second: Default NPC Sprite_0
+      213: -6055688897539287385
+    second: Farmer-Banker NPC_0
   - first:
-      213: 7123185150281476589
-    second: Default NPC Sprite_1
+      213: 3415808935854402911
+    second: Farmer-Banker NPC_1
   - first:
-      213: 5133120202939878464
-    second: Default NPC Sprite_2
+      213: -4312186563698910468
+    second: Farmer-Banker NPC_2
   - first:
-      213: -4907535753453839130
-    second: Default NPC Sprite_3
+      213: 1569715218839556906
+    second: Farmer-Banker NPC_3
   - first:
-      213: -7660025523480013848
-    second: Default NPC Sprite_4
+      213: 3651294151209967002
+    second: Farmer-Banker NPC_4
   - first:
-      213: -6871463209109851020
-    second: Default NPC Sprite_5
+      213: -6689454321780190197
+    second: Farmer-Banker NPC_5
   - first:
-      213: -2896239384269555728
-    second: Default NPC Sprite_6
-  - first:
-      213: -7001173844636004538
-    second: Default NPC Sprite_7
-  - first:
-      213: -2045147898200660426
-    second: Default NPC Sprite_8
-  - first:
-      213: -5110325759308023876
-    second: Default NPC Sprite_9
-  - first:
-      213: -7745921721065068335
-    second: Default NPC Sprite_10
-  - first:
-      213: -8611330740779273808
-    second: Default NPC Sprite_0
-  - first:
-      213: -5985354914063615069
-    second: Default NPC Sprite_1
-  - first:
-      213: -8120666112262251796
-    second: Default NPC Sprite_2
-  - first:
-      213: 4020282234620107699
-    second: Default NPC Sprite_3
-  - first:
-      213: 8671222568331868919
-    second: Default NPC Sprite_4
-  - first:
-      213: 1872104127366828655
-    second: Default NPC Sprite_5
-  - first:
-      213: 3849396005272879437
-    second: Default NPC Sprite_6
+      213: -18324892015038699
+    second: Farmer-Banker NPC_6
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -111,6 +78,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -136,28 +104,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default NPC Sprite_0
+      name: Farmer-Banker NPC_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 20
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b13378e0586e7880800000000000000
-      internalID: -8611330740779273808
+      spriteID: 7a6d4e7380fd5fba0800000000000000
+      internalID: -6055688897539287385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_1
+      name: Farmer-Banker NPC_1
       rect:
         serializedVersion: 2
-        x: 224
+        x: 220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ab799cda6fbfeca0800000000000000
-      internalID: -5985354914063615069
+      spriteID: f5de4322124676f20800000000000000
+      internalID: 3415808935854402911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_2
+      name: Farmer-Banker NPC_2
       rect:
         serializedVersion: 2
-        x: 423
+        x: 420
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cea5e0f22399d4f80800000000000000
-      internalID: -8120666112262251796
+      spriteID: cfa9381da290824c0800000000000000
+      internalID: -4312186563698910468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_3
+      name: Farmer-Banker NPC_3
       rect:
         serializedVersion: 2
-        x: 622
+        x: 620
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bb585b5469eac730800000000000000
-      internalID: 4020282234620107699
+      spriteID: a23d471ccafb8c510800000000000000
+      internalID: 1569715218839556906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_4
+      name: Farmer-Banker NPC_4
       rect:
         serializedVersion: 2
-        x: 821
+        x: 820
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa75c9dbfe565870800000000000000
-      internalID: 8671222568331868919
+      spriteID: a9dd4556fa00ca230800000000000000
+      internalID: 3651294151209967002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_5
+      name: Farmer-Banker NPC_5
       rect:
         serializedVersion: 2
         x: 1020
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f621e36f8cc0bf910800000000000000
-      internalID: 1872104127366828655
+      spriteID: b0417119cb84a23a0800000000000000
+      internalID: -6689454321780190197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default NPC Sprite_6
+      name: Farmer-Banker NPC_6
       rect:
         serializedVersion: 2
-        x: 1219
+        x: 1220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d410916954dcb6530800000000000000
-      internalID: 3849396005272879437
+      spriteID: 51f65e89b95eebff0800000000000000
+      internalID: -18324892015038699
       vertices: []
       indices: 
       edges: []
@@ -301,7 +257,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0ed0a6da6c6b74e43af73fd7facedd54
+    spriteID: 3d5dff0c9df60df4a9762eb4af45ab22
     internalID: 0
     vertices: []
     indices: 

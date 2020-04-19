@@ -12,13 +12,14 @@ public class NPCManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+
+        animator.speed = animationSpeed;
     }
 
     public void ChangeExhibitNPC()
     {
         if (exhibitAudioManager.CurrentExhibitStory == null || exhibitAudioManager.CurrentExhibitStory.Length == 0) { return; }
-
-        animator.speed = animationSpeed;
+  
         if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sword")
         {
             animator.SetTrigger("Sword");
@@ -30,6 +31,18 @@ public class NPCManager : MonoBehaviour
         else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Tub")
         {
             animator.SetTrigger("Tub");
+        }
+        else if(exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sign")
+        {
+            animator.SetTrigger("Sign");
+        }
+        else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Skull")
+        {
+            animator.SetTrigger("Skull");
+        }
+        else if(exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Bank")
+        {
+            animator.SetTrigger("Bank");
         }
     }
 }

@@ -1,33 +1,30 @@
 fileFormatVersion: 2
-guid: 1270ea514a4adc645a2cc407a8b4ac8b
+guid: 6e180e666c9043946abdeade3fbaef1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3985213205982074557
-    second: Arabic NPC Sprite_0
+      213: 9086757491060818249
+    second: Ice Man NPC_0
   - first:
-      213: -3507330752367337014
-    second: Arabic NPC Sprite_1
+      213: -6988740625235105788
+    second: Ice Man NPC_1
   - first:
-      213: 6513448554460603523
-    second: Arabic NPC Sprite_2
+      213: 798836274189732909
+    second: Ice Man NPC_2
   - first:
-      213: 7053335671298985427
-    second: Arabic NPC Sprite_3
+      213: 6838063412133372720
+    second: Ice Man NPC_3
   - first:
-      213: -1876315835191782998
-    second: Arabic NPC Sprite_4
+      213: -3337633600449032076
+    second: Ice Man NPC_4
   - first:
-      213: 4372420905960128528
-    second: Arabic NPC Sprite_5
+      213: -3253841260450137620
+    second: Ice Man NPC_5
   - first:
-      213: -512278996588324718
-    second: Arabic NPC Sprite_6
-  - first:
-      213: -615590303880185391
-    second: Arabic NPC Sprite_7
+      213: 1006060746659908331
+    second: Ice Man NPC_6
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,6 +78,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,28 +104,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arabic NPC Sprite_0
+      name: Ice Man NPC_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 20
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3492e3724bda1b8c0800000000000000
-      internalID: -3985213205982074557
+      spriteID: 941ccce5bc5aa1e70800000000000000
+      internalID: 9086757491060818249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_1
+      name: Ice Man NPC_1
       rect:
         serializedVersion: 2
-        x: 224
+        x: 220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac1675b6345735fc0800000000000000
-      internalID: -3507330752367337014
+      spriteID: 4082585ed61030f90800000000000000
+      internalID: -6988740625235105788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_2
+      name: Ice Man NPC_2
       rect:
         serializedVersion: 2
-        x: 423
+        x: 420
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 384e76753fa646a50800000000000000
-      internalID: 6513448554460603523
+      spriteID: d2c86c4eb59061b00800000000000000
+      internalID: 798836274189732909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_3
+      name: Ice Man NPC_3
       rect:
         serializedVersion: 2
-        x: 622
+        x: 620
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dd0e514c6b72e160800000000000000
-      internalID: 7053335671298985427
+      spriteID: 0332ec7917ea5ee50800000000000000
+      internalID: 6838063412133372720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_4
+      name: Ice Man NPC_4
       rect:
         serializedVersion: 2
-        x: 821
+        x: 820
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa114f460bcf5f5e0800000000000000
-      internalID: -1876315835191782998
+      spriteID: 470d3d68ce75ea1d0800000000000000
+      internalID: -3337633600449032076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_5
+      name: Ice Man NPC_5
       rect:
         serializedVersion: 2
         x: 1020
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -241,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 010ce3cd5a5fdac30800000000000000
-      internalID: 4372420905960128528
+      spriteID: ce93c5bfc9808d2d0800000000000000
+      internalID: -3253841260450137620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arabic NPC Sprite_6
+      name: Ice Man NPC_6
       rect:
         serializedVersion: 2
-        x: 1219
+        x: 1220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -262,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 298957e77f404e8f0800000000000000
-      internalID: -512278996588324718
+      spriteID: beac0233bee36fd00800000000000000
+      internalID: 1006060746659908331
       vertices: []
       indices: 
       edges: []
@@ -271,7 +257,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 02f829b0b782eeb4081f7791c9e9ae72
+    spriteID: faf942b62da376b4dac66dfcf61f9209
     internalID: 0
     vertices: []
     indices: 

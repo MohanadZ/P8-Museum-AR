@@ -1,30 +1,30 @@
 fileFormatVersion: 2
-guid: 1ac9d0b76fa30924badf36e9fbdd60f7
+guid: 307813a031d541a418a4055689e5d77d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7316295577919817389
-    second: Archiologist NPC Sprite_0
+      213: -3795418550509072857
+    second: Baker NPC_0
   - first:
-      213: 1616500304743909918
-    second: Archiologist NPC Sprite_1
+      213: 1656116962330320362
+    second: Baker NPC_1
   - first:
-      213: 2528019849547619882
-    second: Archiologist NPC Sprite_2
+      213: -2520899984273954175
+    second: Baker NPC_2
   - first:
-      213: 7562472574543921286
-    second: Archiologist NPC Sprite_3
+      213: -8992691902955496188
+    second: Baker NPC_3
   - first:
-      213: -7991717312485281082
-    second: Archiologist NPC Sprite_4
+      213: -3640155282882735582
+    second: Baker NPC_4
   - first:
-      213: -710484392745615879
-    second: Archiologist NPC Sprite_5
+      213: 475447670510119693
+    second: Baker NPC_5
   - first:
-      213: -5582296981980234306
-    second: Archiologist NPC Sprite_6
+      213: -80245757249417241
+    second: Baker NPC_6
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -78,6 +78,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -103,28 +104,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_0
+      name: Baker NPC_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 20
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -133,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 359f35e6feb477a90800000000000000
-      internalID: -7316295577919817389
+      spriteID: 72e8af2ffe6f35bc0800000000000000
+      internalID: -3795418550509072857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_1
+      name: Baker NPC_1
       rect:
         serializedVersion: 2
-        x: 224
+        x: 220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a429b6676fe6610800000000000000
-      internalID: 1616500304743909918
+      spriteID: aed923e4a95bbf610800000000000000
+      internalID: 1656116962330320362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_2
+      name: Baker NPC_2
       rect:
         serializedVersion: 2
-        x: 423
+        x: 420
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -175,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2e1c6db8a4551320800000000000000
-      internalID: 2528019849547619882
+      spriteID: 18a201312d6f30dd0800000000000000
+      internalID: -2520899984273954175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_3
+      name: Baker NPC_3
       rect:
         serializedVersion: 2
-        x: 622
+        x: 620
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68003552dbc43f860800000000000000
-      internalID: 7562472574543921286
+      spriteID: 40d5ecd0c5a833380800000000000000
+      internalID: -8992691902955496188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_4
+      name: Baker NPC_4
       rect:
         serializedVersion: 2
-        x: 822
+        x: 820
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -217,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c2b9fb3277b71190800000000000000
-      internalID: -7991717312485281082
+      spriteID: 222538c7e029b7dc0800000000000000
+      internalID: -3640155282882735582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_5
+      name: Baker NPC_5
       rect:
         serializedVersion: 2
         x: 1020
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -238,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd30f7853ad326f0800000000000000
-      internalID: -710484392745615879
+      spriteID: d0bea062321299600800000000000000
+      internalID: 475447670510119693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archiologist NPC Sprite_6
+      name: Baker NPC_6
       rect:
         serializedVersion: 2
-        x: 1219
+        x: 1220
         y: 0
-        width: 199
+        width: 200
         height: 225
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -259,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebd355e9872b782b0800000000000000
-      internalID: -5582296981980234306
+      spriteID: 7ef8a60b8e8e2eef0800000000000000
+      internalID: -80245757249417241
       vertices: []
       indices: 
       edges: []
@@ -268,7 +257,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f92085bc47443d046b10d32c6bf49114
+    spriteID: db15dc9da52b9a44d8ed231faf8e96bf
     internalID: 0
     vertices: []
     indices: 
