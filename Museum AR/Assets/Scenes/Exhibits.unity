@@ -1988,6 +1988,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625b0aaee524e7c4dabe8ab2ae43312c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordMoveOn: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
+  needlesMoveOn: {fileID: 8300000, guid: 9f7ced491f872004fb750b77f988d2b8, type: 3}
+  tubMoveOn: {fileID: 8300000, guid: 38c54986e4e21214eafdf69cd30e81e5, type: 3}
+  signMoveOn: {fileID: 8300000, guid: 1a28815e833a2a54a8e8e45eec20f67a, type: 3}
+  skullMoveOn: {fileID: 8300000, guid: 05900c4af02c50145bfcf47797d44057, type: 3}
+  bankMoveOn: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
   isSwordOver: 0
   isNeedlesOver: 0
   isTubOver: 0

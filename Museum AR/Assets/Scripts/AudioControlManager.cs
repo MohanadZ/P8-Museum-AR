@@ -13,6 +13,8 @@ public class AudioControlManager : MonoBehaviour
     ExhibitAudioManager exhibitAudioManager;
     NPCManager npc;
 
+    public Button SkipButton { get { return skipButton; } }
+
     void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();

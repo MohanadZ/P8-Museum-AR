@@ -12,6 +12,8 @@ public class StoryOptionsManager : MonoBehaviour
     ExhibitAudioManager exhibitAudioManager;
     StoryCompletionManager storyCompletion;
 
+    public Button[] StoryUIButtons { get { return storyUIButtons; } }
+
     private void Awake()
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
@@ -161,7 +163,7 @@ public class StoryOptionsManager : MonoBehaviour
     private void OptionInteraction(int audioClipIndex)
     {
         storyUIButtons[audioClipIndex - 1].GetComponent<Image>().color = Color.gray;
-        storyUIButtons[audioClipIndex - 1].interactable = false;
+        //storyUIButtons[audioClipIndex - 1].interactable = false;
 
         exhibitAudioManager.PlayAudio(exhibitAudioManager.CurrentExhibitStory, audioClipIndex);
         if(audioClipIndex >= 4)

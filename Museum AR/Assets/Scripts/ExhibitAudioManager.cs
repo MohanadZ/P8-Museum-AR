@@ -35,7 +35,8 @@ public class ExhibitAudioManager : MonoBehaviour
     IEnumerator coroutine;
     int audioClipIndex;
     bool isDisplayQuestions = true;
-    [HideInInspector] public bool triggerSwordStory, triggerNeedlesStory, triggerTubStory, triggerSignStory, triggerSkullStory, triggerBankStory;
+    bool triggerSwordStory, triggerNeedlesStory, triggerTubStory, 
+        triggerSignStory, triggerSkullStory, triggerBankStory;
     
     StoryOptionsManager storyOptionsManager;
     StoryCompletionManager storyCompletion;
@@ -60,6 +61,12 @@ public class ExhibitAudioManager : MonoBehaviour
         get { return isDisplayQuestions; }
         set { isDisplayQuestions = value; }
     }
+    public bool TriggerSwordStory { set { triggerSwordStory = value; } }
+    public bool TriggerNeedlesStory { set { triggerNeedlesStory = value; } }
+    public bool TriggerTubStory { set { triggerTubStory = value; } }
+    public bool TriggerSignStory { set { triggerSignStory = value; } }
+    public bool TriggerSkullStory { set { triggerSkullStory = value; } }
+    public bool TriggerBankStory { set { triggerBankStory = value; } }
 
     void Awake()
     {
@@ -143,42 +150,42 @@ public class ExhibitAudioManager : MonoBehaviour
 
     private void ExhibitStart()
     {
-        if (triggerSwordStory && !storyCompletion.isSwordOver)
+        if (triggerSwordStory && !storyCompletion.IsSwordOver)
         {
             currentExhibitStory = swordStory;
             currentStoryQuestions = swordQuestions;
             ExhibitPreset();
             triggerSwordStory = false;
         }
-        else if(triggerNeedlesStory && !storyCompletion.isNeedlesOver)
+        else if(triggerNeedlesStory && !storyCompletion.IsNeedlesOver)
         {
             currentExhibitStory = needlesStory;
             currentStoryQuestions = needlesQuestions;
             ExhibitPreset();
             triggerNeedlesStory = false;
         }
-        else if (triggerTubStory && !storyCompletion.isTubOver)
+        else if (triggerTubStory && !storyCompletion.IsTubOver)
         {
             currentExhibitStory = tubStory;
             currentStoryQuestions = tubQuestions;
             ExhibitPreset();
             triggerTubStory = false;
         }
-        else if (triggerSignStory && !storyCompletion.isSignOver)
+        else if (triggerSignStory && !storyCompletion.IsSignOver)
         {
             currentExhibitStory = signStory;
             currentStoryQuestions = signQuestions;
             ExhibitPreset();
             triggerSignStory = false;
         }
-        else if(triggerSkullStory && !storyCompletion.isSkullOver)
+        else if(triggerSkullStory && !storyCompletion.IsSkullOver)
         {
             currentExhibitStory = skullStory;
             currentStoryQuestions = skullQuestions;
             ExhibitPreset();
             triggerSkullStory = false;
         }
-        else if(triggerBankStory && !storyCompletion.isBankOver)
+        else if(triggerBankStory && !storyCompletion.IsBankOver)
         {
             currentExhibitStory = bankStory;
             currentStoryQuestions = bankQuestions;
@@ -190,6 +197,7 @@ public class ExhibitAudioManager : MonoBehaviour
     private void ExhibitPreset()
     {
         storyOptionsManager.ResetOptionsButtons();
+        FindObjectOfType<AudioControlManager>().SkipButton.interactable = true;
         audioClipIndex = 0;
         PlayAudio(currentExhibitStory, audioClipIndex);
     }
