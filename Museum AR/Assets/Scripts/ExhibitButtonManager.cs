@@ -12,14 +12,12 @@ public class ExhibitButtonManager : MonoBehaviour
     private void OnEnable()
     {
         StoryCompletionManager.ExhibitVisitedEvent += OnExhibitVisited;
-        JournalUI.ExhibitVisitedEvent += OnExhibitVisited;      // for testing
         //Subscribe to event that triggers once an exhibit has been fully explored/visited
     }
 
     private void OnDisable()
     {
         StoryCompletionManager.ExhibitVisitedEvent -= OnExhibitVisited;
-        JournalUI.ExhibitVisitedEvent -= OnExhibitVisited;      // for testing
         //Unsubscribe to event that triggers once an exhibit has been fully explored/visited
     }
 
