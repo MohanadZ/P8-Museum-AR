@@ -9,8 +9,6 @@ public class ExhibitButtonManager : MonoBehaviour
 {
     public ExhibitButton[] ExhibitButtons { get; private set; }
 
-    public event Action<int> ExhibitButtonPressedEvent;
-
     private void OnEnable()
     {
         StoryCompletionManager.ExhibitVisitedEvent += OnExhibitVisited;

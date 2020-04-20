@@ -2560,8 +2560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d24fe52f3af9224c9620052430aa66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exhibitButtonManager: {fileID: 0}
-  pageIndex: 0
 --- !u!1001 &1286738941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5257,6 +5255,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 4229309826824173807, guid: 7009ffdb39770c743987b964277c2982,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b8479942fe639a40821904fe6ab39b9,
+        type: 3}
     - target: {fileID: 6095815800400789459, guid: 7009ffdb39770c743987b964277c2982,
         type: 3}
       propertyPath: m_SizeDelta.x
