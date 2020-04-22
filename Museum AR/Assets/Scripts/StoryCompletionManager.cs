@@ -9,15 +9,14 @@ public class StoryCompletionManager : MonoBehaviour
         signMoveOn = null, skullMoveOn = null, bankMoveOn = null;
     ExhibitAudioManager exhibitAudioManager;
     StoryOptionsManager storyOptionsManager;
-    AudioControlManager audioControlManager;
-    bool isSwordOver, isNeedlesOver, isTubOver, isSignOver, isSkullOver, isBankOver;
+    AudioUIControlManager audioUIControlManager;
 
-    public bool IsSwordOver { get { return isSwordOver; } }
-    public bool IsNeedlesOver { get { return isNeedlesOver; } }
-    public bool IsTubOver { get { return isTubOver; } }
-    public bool IsSignOver { get { return isSignOver; } }
-    public bool IsSkullOver { get { return isSkullOver; } }
-    public bool IsBankOver { get { return isBankOver; } }
+    public bool IsSwordOver { get; private set; }
+    public bool IsNeedlesOver { get; private set; }
+    public bool IsTubOver { get; private set; }
+    public bool IsSignOver { get; private set; }
+    public bool IsSkullOver { get; private set; }
+    public bool IsBankOver { get; private set; }
 
     public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
@@ -25,67 +24,67 @@ public class StoryCompletionManager : MonoBehaviour
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
         storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
-        audioControlManager = FindObjectOfType<AudioControlManager>();
+        audioUIControlManager = FindObjectOfType<AudioUIControlManager>();
     }
 
     public void CheckExhibitCompletion()
     {
-        if (!isSwordOver)
+        if (!IsSwordOver)
         {
             if(exhibitAudioManager.SwordStory[1].hasFinished && exhibitAudioManager.SwordStory[2].hasFinished 
                 && exhibitAudioManager.SwordStory[3].hasFinished)
             {
-                isSwordOver = true;
+                IsSwordOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Sword);
                 MoveOnToNextExhibit(swordMoveOn);
             }
         }
-        if (!isNeedlesOver)
+        if (!IsNeedlesOver)
         {
             if (exhibitAudioManager.NeedlesStory[1].hasFinished && exhibitAudioManager.NeedlesStory[2].hasFinished
                 && exhibitAudioManager.NeedlesStory[3].hasFinished)
             {
-                isNeedlesOver = true;
+                IsNeedlesOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Tattoo);
                 MoveOnToNextExhibit(needlesMoveOn);
             }
         }
-        if (!isTubOver)
+        if (!IsTubOver)
         {
             if (exhibitAudioManager.TubStory[1].hasFinished && exhibitAudioManager.TubStory[2].hasFinished
                 && exhibitAudioManager.TubStory[3].hasFinished)
             {
-                isTubOver = true;
+                IsTubOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bathtub);
                 MoveOnToNextExhibit(tubMoveOn);
             }
         }
-        if (!isSignOver)
+        if (!IsSignOver)
         {
             if (exhibitAudioManager.SignStory[1].hasFinished && exhibitAudioManager.SignStory[2].hasFinished
                 && exhibitAudioManager.SignStory[3].hasFinished)
             {
-                isSignOver = true;
+                IsSignOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Petrea);
                 MoveOnToNextExhibit(signMoveOn);
             }
         }
-        if (!isSkullOver)
+        if (!IsSkullOver)
         {
             if (exhibitAudioManager.SkullStory[1].hasFinished && exhibitAudioManager.SkullStory[2].hasFinished
                 && exhibitAudioManager.SkullStory[3].hasFinished)
             {
-                isSkullOver = true;
+                IsSkullOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Skull);
                 MoveOnToNextExhibit(skullMoveOn);
             }
         }
-        if (!isBankOver)
+        if (!IsBankOver)
         {
             if (exhibitAudioManager.BankStory[1].hasFinished && exhibitAudioManager.BankStory[2].hasFinished
                 && exhibitAudioManager.BankStory[3].hasFinished)
             {
-                isBankOver = true;
+                IsBankOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bank);
                 MoveOnToNextExhibit(bankMoveOn);
             }
@@ -99,7 +98,7 @@ public class StoryCompletionManager : MonoBehaviour
         {
             storyOptionsManager.StoryUIButtons[i].interactable = false;
         }
-        audioControlManager.SkipButton.interactable = false;
+        audioUIControlManager.SkipButton.interactable = false;
         StartCoroutine(WaitThenCompleteExhibit());
     }
 
@@ -107,6 +106,7 @@ public class StoryCompletionManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
         storyOptionsManager.DisableOptionsButtons();
-        audioControlManager.HideAudioControlUI();
+        audioUIControlManager.HideAudioControlUI();
+        audioUIControlManager.HideNPC();
     }
 }

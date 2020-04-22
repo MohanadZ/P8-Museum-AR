@@ -36,6 +36,7 @@ public class IntroManager : MonoBehaviour
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         npcTalkingIndicator.gameObject.SetActive(false);
+        npc.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -119,7 +120,7 @@ public class IntroManager : MonoBehaviour
         else
         {
             npcTalkingIndicator.sprite = npcNotTalkingIndicator;
-            npc.gameObject.SetActive(false);
+            //npc.gameObject.SetActive(false);
         }
     }
 

@@ -22,7 +22,7 @@ public class StoryOptionsManager : MonoBehaviour
 
     public void ShowOptions(StoryPart[] exhibitStory)
     {
-        FindObjectOfType<AudioControlManager>().HideAudioControlUI();
+        FindObjectOfType<AudioUIControlManager>().HideAudioControlUI();
 
         DisplayStoryQuestionsUI(exhibitStory);
     }

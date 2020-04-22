@@ -29,12 +29,7 @@ public class ExhibitAudioManager : MonoBehaviour
     [SerializeField] StoryPart[] bankStory = null;
     [SerializeField] QuestionsText[] bankQuestions = null;
 
-    AudioSource audioSource;
-    StoryPart[] currentExhibitStory = null;
-    QuestionsText[] currentStoryQuestions = null;
     IEnumerator coroutine;
-    int audioClipIndex;
-    bool isDisplayQuestions = true;
     bool triggerSwordStory, triggerNeedlesStory, triggerTubStory, 
         triggerSignStory, triggerSkullStory, triggerBankStory;
     
@@ -47,20 +42,11 @@ public class ExhibitAudioManager : MonoBehaviour
     public StoryPart[] SignStory { get { return signStory; } }
     public StoryPart[] SkullStory { get { return skullStory; } }
     public StoryPart[] BankStory { get { return bankStory; } }
-    public AudioSource GetAudioSource { get { return audioSource; } }
-    public StoryPart[] CurrentExhibitStory { get { return currentExhibitStory; } }
-    public QuestionsText[] CurrentStoryQuestions { get { return currentStoryQuestions; } }
-    public IEnumerator Coroutine { get { return coroutine; } }
-    public int AudioClipIndex
-    {
-        get { return audioClipIndex; }
-        set { audioClipIndex = value; }
-    }
-    public bool IsDisplayQuestions
-    {
-        get { return isDisplayQuestions; }
-        set { isDisplayQuestions = value; }
-    }
+    public AudioSource GetAudioSource { get; private set; }
+    public StoryPart[] CurrentExhibitStory { get; private set; } = null;
+    public QuestionsText[] CurrentStoryQuestions { get; private set; } = null;
+    public int AudioClipIndex { get; set; }
+    public bool IsDisplayQuestions { get; set; } = true;
     public bool TriggerSwordStory { set { triggerSwordStory = value; } }
     public bool TriggerNeedlesStory { set { triggerNeedlesStory = value; } }
     public bool TriggerTubStory { set { triggerTubStory = value; } }
@@ -68,9 +54,11 @@ public class ExhibitAudioManager : MonoBehaviour
     public bool TriggerSkullStory { set { triggerSkullStory = value; } }
     public bool TriggerBankStory { set { triggerBankStory = value; } }
 
+    //public IEnumerator Coroutine { get { return coroutine; } }
+
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        GetAudioSource = GetComponent<AudioSource>();
         storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
         storyCompletion = FindObjectOfType<StoryCompletionManager>();
         ResetScriptableObjectsProperties();
@@ -157,43 +145,43 @@ public class ExhibitAudioManager : MonoBehaviour
     {
         if (triggerSwordStory && !storyCompletion.IsSwordOver)
         {
-            currentExhibitStory = swordStory;
-            currentStoryQuestions = swordQuestions;
+            CurrentExhibitStory = swordStory;
+            CurrentStoryQuestions = swordQuestions;
             ExhibitPreset();
             triggerSwordStory = false;
         }
         else if(triggerNeedlesStory && !storyCompletion.IsNeedlesOver)
         {
-            currentExhibitStory = needlesStory;
-            currentStoryQuestions = needlesQuestions;
+            CurrentExhibitStory = needlesStory;
+            CurrentStoryQuestions = needlesQuestions;
             ExhibitPreset();
             triggerNeedlesStory = false;
         }
         else if (triggerTubStory && !storyCompletion.IsTubOver)
         {
-            currentExhibitStory = tubStory;
-            currentStoryQuestions = tubQuestions;
+            CurrentExhibitStory = tubStory;
+            CurrentStoryQuestions = tubQuestions;
             ExhibitPreset();
             triggerTubStory = false;
         }
         else if (triggerSignStory && !storyCompletion.IsSignOver)
         {
-            currentExhibitStory = signStory;
-            currentStoryQuestions = signQuestions;
+            CurrentExhibitStory = signStory;
+            CurrentStoryQuestions = signQuestions;
             ExhibitPreset();
             triggerSignStory = false;
         }
         else if(triggerSkullStory && !storyCompletion.IsSkullOver)
         {
-            currentExhibitStory = skullStory;
-            currentStoryQuestions = skullQuestions;
+            CurrentExhibitStory = skullStory;
+            CurrentStoryQuestions = skullQuestions;
             ExhibitPreset();
             triggerSkullStory = false;
         }
         else if(triggerBankStory && !storyCompletion.IsBankOver)
         {
-            currentExhibitStory = bankStory;
-            currentStoryQuestions = bankQuestions;
+            CurrentExhibitStory = bankStory;
+            CurrentStoryQuestions = bankQuestions;
             ExhibitPreset();
             triggerBankStory = false;
         }
@@ -202,18 +190,18 @@ public class ExhibitAudioManager : MonoBehaviour
     private void ExhibitPreset()
     {
         storyOptionsManager.ResetOptionsButtons();
-        FindObjectOfType<AudioControlManager>().SkipButton.interactable = true;
-        audioClipIndex = 0;
-        PlayAudio(currentExhibitStory, audioClipIndex);
+        FindObjectOfType<AudioUIControlManager>().SkipButton.interactable = true;
+        AudioClipIndex = 0;
+        PlayAudio(CurrentExhibitStory, AudioClipIndex);
     }
 
     public void PlayAudio(StoryPart[] exhibitStory, int audioClipIndex)
     {
         if(audioClipIndex >= exhibitStory.Length) { return; }
 
-        if (!audioSource.isPlaying)
+        if (!GetAudioSource.isPlaying)
         {
-            audioSource.PlayOneShot(exhibitStory[audioClipIndex].audioClip);
+            GetAudioSource.PlayOneShot(exhibitStory[audioClipIndex].audioClip);
             coroutine = WaitThenDisplayQuestions(exhibitStory);
             StartCoroutine(coroutine);
         }
@@ -221,7 +209,7 @@ public class ExhibitAudioManager : MonoBehaviour
 
     IEnumerator WaitThenDisplayQuestions(StoryPart[] exhibitStory)
     {
-        yield return new WaitUntil(() => !audioSource.isPlaying && isDisplayQuestions);
+        yield return new WaitUntil(() => !GetAudioSource.isPlaying && IsDisplayQuestions);
         storyOptionsManager.ShowOptions(exhibitStory);
     }
 }

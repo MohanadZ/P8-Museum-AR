@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioControlManager : MonoBehaviour
+public class AudioUIControlManager : MonoBehaviour
 {
     [SerializeField] Button skipButton = null, playPauseButton = null;
     [SerializeField] Image npcTalkingIndicator = null, npcTalkingIndicatorIcon = null, playPauseIcon = null;
@@ -30,6 +30,7 @@ public class AudioControlManager : MonoBehaviour
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         npcTalkingIndicator.gameObject.SetActive(false);
+        npc.gameObject.SetActive(false);
     }
 
     void Update()
@@ -79,7 +80,7 @@ public class AudioControlManager : MonoBehaviour
         else
         {
             npcTalkingIndicatorIcon.sprite = npcNotTalkingIndicator;
-            npc.gameObject.SetActive(false);
+            //npc.gameObject.SetActive(false);
         }
     }
 
@@ -88,6 +89,11 @@ public class AudioControlManager : MonoBehaviour
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         //npcTalkingIndicator.gameObject.SetActive(false);
+    }
+
+    public void HideNPC()
+    {
+        npc.gameObject.SetActive(false);
     }
 
     private void PlayRandomVoiceLine(AudioClip[] randomAudioClip, AudioAction action)
