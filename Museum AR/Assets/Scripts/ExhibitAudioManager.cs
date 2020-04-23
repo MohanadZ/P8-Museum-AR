@@ -35,6 +35,7 @@ public class ExhibitAudioManager : MonoBehaviour
     
     StoryOptionsManager storyOptionsManager;
     StoryCompletionManager storyCompletion;
+    AudioUIControlManager audioUIControlManager;
 
     public StoryPart[] SwordStory { get { return swordStory; } }
     public StoryPart[] NeedlesStory { get { return needlesStory; } }
@@ -61,6 +62,7 @@ public class ExhibitAudioManager : MonoBehaviour
         GetAudioSource = GetComponent<AudioSource>();
         storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
         storyCompletion = FindObjectOfType<StoryCompletionManager>();
+        audioUIControlManager = FindObjectOfType<AudioUIControlManager>();
         ResetScriptableObjectsProperties();
     }
 
@@ -136,11 +138,6 @@ public class ExhibitAudioManager : MonoBehaviour
         }
     }
 
-    public void TestStart()
-    {
-        triggerSwordStory = true;
-    }
-
     private void ExhibitStart()
     {
         if (triggerSwordStory && !storyCompletion.IsSwordOver)
@@ -190,9 +187,10 @@ public class ExhibitAudioManager : MonoBehaviour
     private void ExhibitPreset()
     {
         storyOptionsManager.ResetOptionsButtons();
-        FindObjectOfType<AudioUIControlManager>().SkipButton.interactable = true;
+        audioUIControlManager.SkipButton.interactable = true;
         AudioClipIndex = 0;
         PlayAudio(CurrentExhibitStory, AudioClipIndex);
+        audioUIControlManager.DetermineExhibitRandomVoiceLines();
     }
 
     public void PlayAudio(StoryPart[] exhibitStory, int audioClipIndex)

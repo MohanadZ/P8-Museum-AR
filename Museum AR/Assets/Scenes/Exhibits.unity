@@ -4074,18 +4074,36 @@ MonoBehaviour:
   playSprite: {fileID: 21300000, guid: 846230c805e43604b805f85610351898, type: 3}
   npcNotTalkingIndicator: {fileID: 21300000, guid: e322653291013a049ac99e4e5dba18ef,
     type: 3}
-  pausingVoiceLines:
+  swordPauseVoiceLines:
   - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
   - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
-  - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
-  uspausingVoiceLines:
+  swordUnpauseVoiceLines:
   - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
   - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
-  - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
-  skippingVoiceLines:
+  swordSkipVoiceLines:
   - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
   - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  signPauseVoiceLines:
   - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
+  - {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
+  signUnpauseVoiceLines:
+  - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
+  - {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
+  signSkipVoiceLines:
+  - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
+  - {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
+  tubPauseVoiceLines: []
+  tubUnpauseVoiceLines: []
+  tubSkipVoiceLines: []
+  needlesPauseVoiceLines: []
+  needlesUnpauseVoiceLines: []
+  needlesSkipVoiceLines: []
+  skullPauseVoiceLines: []
+  skullUnpauseVoiceLines: []
+  skullSkipVoiceLines: []
+  bankPauseVoiceLines: []
+  bankUnpauseVoiceLines: []
+  bankSkipVoiceLines: []
 --- !u!4 &1829959677
 Transform:
   m_ObjectHideFlags: 0

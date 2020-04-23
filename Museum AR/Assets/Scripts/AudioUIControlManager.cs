@@ -8,7 +8,21 @@ public class AudioUIControlManager : MonoBehaviour
     [SerializeField] Button skipButton = null, playPauseButton = null;
     [SerializeField] Image npcTalkingIndicator = null, npcTalkingIndicatorIcon = null, playPauseIcon = null;
     [SerializeField] Sprite playSprite = null, npcNotTalkingIndicator = null;
-    [SerializeField] AudioClip[] pausingVoiceLines = null, uspausingVoiceLines = null, skippingVoiceLines = null;
+
+    [Header("Sword Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] swordPauseVoiceLines = null; [SerializeField] AudioClip[] swordUnpauseVoiceLines = null; [SerializeField] AudioClip[] swordSkipVoiceLines = null;
+    [Header("Sign Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] signPauseVoiceLines = null; [SerializeField] AudioClip[] signUnpauseVoiceLines = null; [SerializeField] AudioClip[] signSkipVoiceLines = null;
+    [Header("Tub Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] tubPauseVoiceLines = null; [SerializeField] AudioClip[] tubUnpauseVoiceLines = null; [SerializeField] AudioClip[] tubSkipVoiceLines = null;
+    [Header("Needles Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] needlesPauseVoiceLines = null; [SerializeField] AudioClip[] needlesUnpauseVoiceLines = null; [SerializeField] AudioClip[] needlesSkipVoiceLines = null;
+    [Header("Skull Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] skullPauseVoiceLines = null; [SerializeField] AudioClip[] skullUnpauseVoiceLines = null; [SerializeField] AudioClip[] skullSkipVoiceLines = null;
+    [Header("Bank Exhibit Random Voice Lines")]
+    [SerializeField] AudioClip[] bankPauseVoiceLines = null; [SerializeField] AudioClip[] bankUnpauseVoiceLines = null; [SerializeField] AudioClip[] bankSkipVoiceLines = null;
+
+    AudioClip[] currentPausingVoiceLines = null, currentUspausingVoiceLines = null, currentSkippingVoiceLines = null;
 
     Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
     ExhibitAudioManager exhibitAudioManager;
@@ -44,13 +58,13 @@ public class AudioUIControlManager : MonoBehaviour
         {
             playPauseIcon.GetComponent<Image>().sprite = playSprite;
             audioAction = AudioAction.Pause;
-            PlayRandomVoiceLine(pausingVoiceLines, audioAction);
+            PlayRandomVoiceLine(currentPausingVoiceLines, audioAction);
         }
         else
         {
             playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
             audioAction = AudioAction.Unpause;
-            PlayRandomVoiceLine(uspausingVoiceLines, audioAction);
+            PlayRandomVoiceLine(currentUspausingVoiceLines, audioAction);
         }
     }
 
@@ -58,12 +72,7 @@ public class AudioUIControlManager : MonoBehaviour
     {
         playPauseIcon.GetComponent<Image>().sprite = defaultPauseSprite;
         audioAction = AudioAction.Skip;
-        PlayRandomVoiceLine(skippingVoiceLines, audioAction);
-
-        //if (exhibitAudioManager.AudioClipIndex < exhibitAudioManager.CurrentExhibitStory.Length)
-        //{
-        //    //StopCoroutine(exhibitAudioManager.Coroutine);
-        //}
+        PlayRandomVoiceLine(currentSkippingVoiceLines, audioAction);
     }
 
     private void TalkingIcon()
@@ -95,8 +104,50 @@ public class AudioUIControlManager : MonoBehaviour
     {
         npc.gameObject.SetActive(false);
     }
+    
+    public void DetermineExhibitRandomVoiceLines()
+    {
+        if (exhibitAudioManager.CurrentExhibitStory == null || exhibitAudioManager.CurrentExhibitStory.Length == 0) { return; }
 
-    private void PlayRandomVoiceLine(AudioClip[] randomAudioClip, AudioAction action)
+        switch (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag)
+        {
+            case "Sword":
+                currentPausingVoiceLines = swordPauseVoiceLines;
+                currentUspausingVoiceLines = swordUnpauseVoiceLines;
+                currentSkippingVoiceLines = swordSkipVoiceLines;
+                break;
+            case "Needles":
+                currentPausingVoiceLines = needlesPauseVoiceLines;
+                currentUspausingVoiceLines = needlesUnpauseVoiceLines;
+                currentSkippingVoiceLines = needlesSkipVoiceLines;
+                break;
+            case "Tub":
+                currentPausingVoiceLines = tubPauseVoiceLines;
+                currentUspausingVoiceLines = tubUnpauseVoiceLines;
+                currentSkippingVoiceLines = tubSkipVoiceLines;
+                break;
+            case "Sign":
+                currentPausingVoiceLines = signPauseVoiceLines;
+                currentUspausingVoiceLines = signUnpauseVoiceLines;
+                currentSkippingVoiceLines = signSkipVoiceLines;
+                break;
+            case "Skull":
+                currentPausingVoiceLines = skullPauseVoiceLines;
+                currentUspausingVoiceLines = skullUnpauseVoiceLines;
+                currentSkippingVoiceLines = skullSkipVoiceLines;
+                break;
+            case "Bank":
+                currentPausingVoiceLines = bankPauseVoiceLines;
+                currentUspausingVoiceLines = bankUnpauseVoiceLines;
+                currentSkippingVoiceLines = bankSkipVoiceLines;
+                break;
+            default:
+                Debug.LogWarning("Exhibit random voice lines was not assigned.");
+                break;
+        }
+    }
+
+    private void PlayRandomVoiceLine(AudioClip[] randomAudioClip, AudioAction audioAction)
     {
         int randomIndex = Random.Range(0, randomAudioClip.Length);
 
@@ -105,7 +156,7 @@ public class AudioUIControlManager : MonoBehaviour
             audioSource.PlayOneShot(randomAudioClip[randomIndex]);
         }
 
-        switch (action)
+        switch (audioAction)
         {
             case AudioAction.Pause:
                 StartCoroutine(PauseExhibitAudioThenWait());
@@ -115,6 +166,9 @@ public class AudioUIControlManager : MonoBehaviour
                 break;
             case AudioAction.Skip:
                 StartCoroutine(WaitThenSkipExhibitAudio());
+                break;
+            default:
+                Debug.LogWarning("No audio action was executed!!");
                 break;
         }
     }
