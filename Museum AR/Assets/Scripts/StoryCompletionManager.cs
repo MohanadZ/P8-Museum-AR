@@ -7,9 +7,12 @@ public class StoryCompletionManager : MonoBehaviour
 {
     [SerializeField] AudioClip swordMoveOn = null, needlesMoveOn = null, tubMoveOn = null,
         signMoveOn = null, skullMoveOn = null, bankMoveOn = null;
+    [SerializeField] AudioClip finishExperience = null;
+    [SerializeField] NPCManager npcManager;
     ExhibitAudioManager exhibitAudioManager;
     StoryOptionsManager storyOptionsManager;
     AudioUIControlManager audioUIControlManager;
+    float waitBeforeEnding = 1f;
 
     public bool IsSwordOver { get; private set; }
     public bool IsNeedlesOver { get; private set; }
@@ -25,6 +28,7 @@ public class StoryCompletionManager : MonoBehaviour
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
         storyOptionsManager = FindObjectOfType<StoryOptionsManager>();
         audioUIControlManager = FindObjectOfType<AudioUIControlManager>();
+        npcManager.GetComponent<NPCManager>();
     }
 
     public void CheckExhibitCompletion()
@@ -36,7 +40,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsSwordOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Sword);
-                MoveOnToNextExhibit(swordMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(swordMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
@@ -47,7 +51,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsNeedlesOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Tattoo);
-                MoveOnToNextExhibit(needlesMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(needlesMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
@@ -58,7 +62,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsTubOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bathtub);
-                MoveOnToNextExhibit(tubMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(tubMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
@@ -69,7 +73,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsSignOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Petrea);
-                MoveOnToNextExhibit(signMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(signMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
@@ -80,7 +84,7 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsSkullOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Skull);
-                MoveOnToNextExhibit(skullMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(skullMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
@@ -91,20 +95,27 @@ public class StoryCompletionManager : MonoBehaviour
             {
                 IsBankOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bank);
-                MoveOnToNextExhibit(bankMoveOn);
+                StartCoroutine(MoveOnToNextExhibit(bankMoveOn));
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
+
+        if (IsSwordOver && IsNeedlesOver && IsTubOver
+            && IsSkullOver && IsSignOver && IsBankOver)
+        {
+            StartCoroutine(CompleteJourney());
+        }
     }
 
-    private void MoveOnToNextExhibit(AudioClip audioClip)
+    IEnumerator MoveOnToNextExhibit(AudioClip audioClip)
     {
-        exhibitAudioManager.GetAudioSource.PlayOneShot(audioClip);
         for(int i = 0; i < storyOptionsManager.StoryUIButtons.Length; i++)
         {
             storyOptionsManager.StoryUIButtons[i].interactable = false;
         }
         audioUIControlManager.SkipButton.interactable = false;
+        yield return Wait();
+        exhibitAudioManager.GetAudioSource.PlayOneShot(audioClip);
         StartCoroutine(WaitThenCompleteExhibit());
     }
 
@@ -115,4 +126,57 @@ public class StoryCompletionManager : MonoBehaviour
         audioUIControlManager.HideAudioControlUI();
         audioUIControlManager.HideNPC();
     }
+
+    IEnumerator CompleteJourney()
+    {
+        yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
+        yield return Wait();
+        audioUIControlManager.SkipButton.interactable = false;
+        exhibitAudioManager.GetAudioSource.PlayOneShot(finishExperience);
+        //npcManager.gameObject.SetActive(true);
+        npcManager.NPCAnimator.Play("Default NPC Animation");
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(waitBeforeEnding);
+    }
+
+    // For testing
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha1))
+    //    {
+    //        IsSwordOver = true;
+
+    //        IsNeedlesOver = true;
+
+    //        IsTubOver = true;
+
+    //        IsSkullOver = true;
+
+    //        IsSignOver = true;
+
+    //        IsBankOver = true;
+    //    }
+
+    //    if (IsSwordOver && IsNeedlesOver && IsTubOver
+    //        && IsSkullOver && IsSignOver && IsBankOver)
+    //    {
+    //        StartCoroutine(CompleteJourney());
+    //        Debug.Log("HELLLLOOOO");
+
+    //        IsSwordOver = false;
+
+    //        IsNeedlesOver = false;
+
+    //        IsTubOver = false;
+
+    //        IsSkullOver = false;
+
+    //        IsSignOver = false;
+
+    //        IsBankOver = false;
+    //    }
+    //}
 }

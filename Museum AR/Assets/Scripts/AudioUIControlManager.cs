@@ -97,12 +97,12 @@ public class AudioUIControlManager : MonoBehaviour
     {
         playPauseButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        //npcTalkingIndicator.gameObject.SetActive(false);
     }
 
     public void HideNPC()
     {
         npc.gameObject.SetActive(false);
+        npcTalkingIndicator.gameObject.SetActive(false);
     }
     
     public void DetermineExhibitRandomVoiceLines()

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-    Animator animator;
     ExhibitAudioManager exhibitAudioManager;
     float animationSpeed = 0.5f;
 
+    public Animator NPCAnimator { get; set; }
+
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        NPCAnimator = GetComponent<Animator>();
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
 
-        animator.speed = animationSpeed;
+        NPCAnimator.speed = animationSpeed;
     }
 
     public void ChangeExhibitNPC()
@@ -22,27 +23,27 @@ public class NPCManager : MonoBehaviour
   
         if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sword")
         {
-            animator.SetTrigger("Sword");
+            NPCAnimator.SetTrigger("Sword");
         }
         else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Needles")
         {
-            animator.SetTrigger("Needles");
+            NPCAnimator.SetTrigger("Needles");
         }
         else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Tub")
         {
-            animator.SetTrigger("Tub");
+            NPCAnimator.SetTrigger("Tub");
         }
         else if(exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sign")
         {
-            animator.SetTrigger("Sign");
+            NPCAnimator.SetTrigger("Sign");
         }
         else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Skull")
         {
-            animator.SetTrigger("Skull");
+            NPCAnimator.SetTrigger("Skull");
         }
         else if(exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Bank")
         {
-            animator.SetTrigger("Bank");
+            NPCAnimator.SetTrigger("Bank");
         }
     }
 }
