@@ -8,6 +8,8 @@ public class ImageTargetContainer : MonoBehaviour
     [SerializeField] GameObject astronaut;
     [SerializeField] GameObject drone;
 
+    ObjectTracker objectTracker;
+
     List<GameObject> imageTargets;
 
     int localTarget;
@@ -21,9 +23,17 @@ public class ImageTargetContainer : MonoBehaviour
         ImageTargetController.NumberOfImageTargets = imageTargets.Count;
         localTarget = ImageTargetController.CurrentImageTarget;
 
+        VuforiaARController.Instance.RegisterVuforiaStartedCallback(InitializeObjectTracker);
+
         ActiavteImageTarget();
     }
 
+    private void InitializeObjectTracker()
+    {
+        objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+    }
+
+  
     void Update()
     {
 
@@ -41,6 +51,8 @@ public class ImageTargetContainer : MonoBehaviour
 
     private void ActiavteImageTarget()
     {
+        objectTracker.Stop();
+
         foreach (var item in imageTargets)
         {
             item.SetActive(false);
@@ -50,5 +62,7 @@ public class ImageTargetContainer : MonoBehaviour
 
         HighlightController.SetNumberOfHighlights(
             imageTargets[ImageTargetController.CurrentImageTarget].GetComponent<ImageTarget>().NumberOfHighlights);
+
+        objectTracker.Start();
     }
 }

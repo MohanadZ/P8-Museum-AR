@@ -124,10 +124,10 @@ public class ExhibitAudioManager : MonoBehaviour
         {
             triggerTubStory = true;
         }
-        else if (Input.GetKeyDown(KeyCode.I))
-        {
-            triggerSignStory = true;
-        }
+        //else if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    triggerSignStory = true;
+        //}
         else if (Input.GetKeyDown(KeyCode.K))
         {
             triggerSkullStory = true;

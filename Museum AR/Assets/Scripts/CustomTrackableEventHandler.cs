@@ -6,6 +6,9 @@ using Vuforia;
 
 public class CustomTrackableEventHandler : MonoBehaviour
 {
+
+    ExhibitAudioManager exhibitAudioManager;
+
     public enum TrackingStatusFilter
     {
         Tracked,
@@ -29,8 +32,16 @@ public class CustomTrackableEventHandler : MonoBehaviour
     protected TrackableBehaviour.Status m_NewStatus;
     protected bool m_CallbackReceivedOnce = false;
 
+    bool firstTrigger;
+
+    //public bool FirstTrigger { set => firstTrigger = value; }
+
     protected virtual void Start()
     {
+        firstTrigger = true;
+
+        exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
+
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
 
         if (mTrackableBehaviour)
@@ -125,6 +136,18 @@ public class CustomTrackableEventHandler : MonoBehaviour
             var rendererComponents = mTrackableBehaviour.GetComponentsInChildren<Renderer>(true);
             var colliderComponents = mTrackableBehaviour.GetComponentsInChildren<Collider>(true);
             var canvasComponents = mTrackableBehaviour.GetComponentsInChildren<Canvas>(true);
+
+            if (ImageTargetController.CurrentImageTarget == 0 && firstTrigger)
+            {
+                exhibitAudioManager.TriggerTubStory = true;
+                firstTrigger = false;
+            }
+            else if (ImageTargetController.CurrentImageTarget == 1 && firstTrigger)
+            {
+                exhibitAudioManager.TriggerNeedlesStory = true;
+                firstTrigger = false;
+            }
+
 
             if (HighlightController.HasHighlight)
             {

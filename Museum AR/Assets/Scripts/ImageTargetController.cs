@@ -16,9 +16,5 @@ public static class ImageTargetController
     {
         CurrentImageTarget++;
 
-        if (CurrentImageTarget >= NumberOfImageTargets)
-        {
-            CurrentImageTarget = 0;
-        }
     }
 }
