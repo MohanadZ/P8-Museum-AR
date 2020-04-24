@@ -126,9 +126,13 @@ public class CustomTrackableEventHandler : MonoBehaviour
             var colliderComponents = mTrackableBehaviour.GetComponentsInChildren<Collider>(true);
             var canvasComponents = mTrackableBehaviour.GetComponentsInChildren<Canvas>(true);
 
-            if (rendererComponents != null)
+            if (HighlightController.HasHighlight)
             {
                 rendererComponents[HighlightController.CurrentHighlight].enabled = true;
+            }
+            else
+            {
+                rendererComponents[HighlightController.CurrentHighlight].enabled = false;
             }
 
 

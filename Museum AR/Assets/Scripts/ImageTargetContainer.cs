@@ -49,6 +49,6 @@ public class ImageTargetContainer : MonoBehaviour
         imageTargets[ImageTargetController.CurrentImageTarget].SetActive(true);
 
         HighlightController.SetNumberOfHighlights(
-            imageTargets[ImageTargetController.CurrentImageTarget].GetComponent<ImageTarget>().numberOfHighlights);
+            imageTargets[ImageTargetController.CurrentImageTarget].GetComponent<ImageTarget>().NumberOfHighlights);
     }
 }

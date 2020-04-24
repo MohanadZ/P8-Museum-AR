@@ -25,19 +25,27 @@ public class HighlightTrigger : MonoBehaviour
         {
             if (exhibitAudioManager.AudioClipIndex == 2)
             {
+                HighlightController.HasHighlight = true;
                 HighlightController.TriggerSpecifiedHighlight(0);
             }
             else if (exhibitAudioManager.AudioClipIndex == 6)
             {
+                HighlightController.HasHighlight = true;
                 HighlightController.TriggerSpecifiedHighlight(1);
             }
             else if (exhibitAudioManager.AudioClipIndex == 7)
             {
+                HighlightController.HasHighlight = true;
                 HighlightController.TriggerSpecifiedHighlight(2);
             }
             else if (exhibitAudioManager.AudioClipIndex == 8)
             {
+                HighlightController.HasHighlight = true;
                 HighlightController.TriggerSpecifiedHighlight(3);
+            }
+            else
+            {
+                HighlightController.HasHighlight = false;
             }
         }
         else if (exhibitAudioManager.CurrentExhibitStory[0].exhibitTag == "Sign")

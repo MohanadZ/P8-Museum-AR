@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ImageTarget : MonoBehaviour
 {
-    public int numberOfHighlights;
+    public int NumberOfHighlights;
 }
