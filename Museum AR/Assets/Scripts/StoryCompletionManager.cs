@@ -37,6 +37,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsSwordOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Sword);
                 MoveOnToNextExhibit(swordMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
         if (!IsNeedlesOver)
@@ -47,6 +48,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsNeedlesOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Tattoo);
                 MoveOnToNextExhibit(needlesMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
         if (!IsTubOver)
@@ -57,6 +59,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsTubOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bathtub);
                 MoveOnToNextExhibit(tubMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
         if (!IsSignOver)
@@ -67,6 +70,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsSignOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Petrea);
                 MoveOnToNextExhibit(signMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
         if (!IsSkullOver)
@@ -77,6 +81,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsSkullOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Skull);
                 MoveOnToNextExhibit(skullMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
         if (!IsBankOver)
@@ -87,6 +92,7 @@ public class StoryCompletionManager : MonoBehaviour
                 IsBankOver = true;
                 ExhibitVisitedEvent(ExhibitTag.Bank);
                 MoveOnToNextExhibit(bankMoveOn);
+                ImageTargetController.SwitchToNextImageTarget();
             }
         }
     }

@@ -15,9 +15,9 @@ public static class HighlightController
         NumberOfHighlights = totalHighlights;
         CurrentHighlight = 0;
     }
-    public static void SwitchToNextHighlight()
+    public static void TriggerSpecifiedHighlight(int index)
     {
-        CurrentHighlight++;
+        CurrentHighlight = index;
 
         if(CurrentHighlight >= NumberOfHighlights)
         {
