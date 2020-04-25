@@ -20,6 +20,7 @@ public class StoryCompletionManager : MonoBehaviour
     public bool IsSignOver { get; private set; }
     public bool IsSkullOver { get; private set; }
     public bool IsBankOver { get; private set; }
+    public bool IsEnd { get; private set; }
 
     public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
@@ -99,12 +100,6 @@ public class StoryCompletionManager : MonoBehaviour
                 ImageTargetController.SwitchToNextImageTarget();
             }
         }
-
-        if (IsSwordOver && IsNeedlesOver && IsTubOver
-            && IsSkullOver && IsSignOver && IsBankOver)
-        {
-            StartCoroutine(CompleteJourney());
-        }
     }
 
     IEnumerator MoveOnToNextExhibit(AudioClip audioClip)
@@ -114,7 +109,7 @@ public class StoryCompletionManager : MonoBehaviour
             storyOptionsManager.StoryUIButtons[i].interactable = false;
         }
         audioUIControlManager.SkipButton.interactable = false;
-        yield return Wait();
+        yield return Delay();
         exhibitAudioManager.GetAudioSource.PlayOneShot(audioClip);
         StartCoroutine(WaitThenCompleteExhibit());
     }
@@ -125,58 +120,37 @@ public class StoryCompletionManager : MonoBehaviour
         storyOptionsManager.DisableOptionsButtons();
         audioUIControlManager.HideAudioControlUI();
         audioUIControlManager.HideNPC();
+
+        CheckForEnd();
+    }
+
+    private void CheckForEnd()
+    {
+        if (IsSwordOver && IsNeedlesOver && IsTubOver
+            && IsSkullOver && IsSignOver && IsBankOver)
+        {
+            IsEnd = true;
+            if (IsEnd)
+            {
+                StartCoroutine(CompleteJourney());
+            }
+        }
     }
 
     IEnumerator CompleteJourney()
     {
-        yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
-        yield return Wait();
-        audioUIControlManager.SkipButton.interactable = false;
+        yield return Delay();
         exhibitAudioManager.GetAudioSource.PlayOneShot(finishExperience);
-        //npcManager.gameObject.SetActive(true);
         npcManager.NPCAnimator.Play("Default NPC Animation");
+        audioUIControlManager.SkipButton.interactable = false;
+        //npcManager.gameObject.SetActive(true);
+        yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
+        audioUIControlManager.HideAudioControlUI();
+        audioUIControlManager.HideNPC();
     }
 
-    IEnumerator Wait()
+    IEnumerator Delay()
     {
         yield return new WaitForSeconds(waitBeforeEnding);
     }
-
-    // For testing
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Alpha1))
-    //    {
-    //        IsSwordOver = true;
-
-    //        IsNeedlesOver = true;
-
-    //        IsTubOver = true;
-
-    //        IsSkullOver = true;
-
-    //        IsSignOver = true;
-
-    //        IsBankOver = true;
-    //    }
-
-    //    if (IsSwordOver && IsNeedlesOver && IsTubOver
-    //        && IsSkullOver && IsSignOver && IsBankOver)
-    //    {
-    //        StartCoroutine(CompleteJourney());
-    //        Debug.Log("HELLLLOOOO");
-
-    //        IsSwordOver = false;
-
-    //        IsNeedlesOver = false;
-
-    //        IsTubOver = false;
-
-    //        IsSkullOver = false;
-
-    //        IsSignOver = false;
-
-    //        IsBankOver = false;
-    //    }
-    //}
 }

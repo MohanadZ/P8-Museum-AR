@@ -26,6 +26,7 @@ public class AudioUIControlManager : MonoBehaviour
 
     Sprite defaultPauseSprite, defaultTalkingIndicatorSprite;
     ExhibitAudioManager exhibitAudioManager;
+    StoryCompletionManager storyCompletionManager;
     NPCManager npc;
     AudioSource audioSource;
 
@@ -39,6 +40,7 @@ public class AudioUIControlManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
         npc = FindObjectOfType<NPCManager>();
+        storyCompletionManager = FindObjectOfType<StoryCompletionManager>();
         defaultPauseSprite = playPauseIcon.GetComponent<Image>().sprite;
         defaultTalkingIndicatorSprite = npcTalkingIndicatorIcon.sprite;
         playPauseButton.gameObject.SetActive(false);
@@ -84,12 +86,16 @@ public class AudioUIControlManager : MonoBehaviour
             playPauseButton.gameObject.SetActive(true);
             skipButton.gameObject.SetActive(true);
             npc.gameObject.SetActive(true);
-            npc.ChangeExhibitNPC();
+
+            if (!storyCompletionManager.IsEnd)
+            {
+                Debug.Log(storyCompletionManager.IsEnd);
+                npc.ChangeExhibitNPC();
+            }
         }
         else
         {
             npcTalkingIndicatorIcon.sprite = npcNotTalkingIndicator;
-            //npc.gameObject.SetActive(false);
         }
     }
 
