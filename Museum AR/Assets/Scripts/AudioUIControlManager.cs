@@ -86,10 +86,8 @@ public class AudioUIControlManager : MonoBehaviour
             playPauseButton.gameObject.SetActive(true);
             skipButton.gameObject.SetActive(true);
             npc.gameObject.SetActive(true);
-
             if (!storyCompletionManager.IsEnd)
             {
-                Debug.Log(storyCompletionManager.IsEnd);
                 npc.ChangeExhibitNPC();
             }
         }
@@ -157,7 +155,7 @@ public class AudioUIControlManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, randomAudioClip.Length);
 
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && !storyCompletionManager.IsEnd)
         {
             audioSource.PlayOneShot(randomAudioClip[randomIndex]);
         }
@@ -219,6 +217,9 @@ public class AudioUIControlManager : MonoBehaviour
     private void AllowControlInteraction()
     {
         playPauseButton.interactable = true;
-        skipButton.interactable = true;
+        if (storyCompletionManager.IsInteractive)
+        {
+            skipButton.interactable = true;
+        }
     }
 }

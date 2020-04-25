@@ -21,6 +21,7 @@ public class StoryCompletionManager : MonoBehaviour
     public bool IsSkullOver { get; private set; }
     public bool IsBankOver { get; private set; }
     public bool IsEnd { get; private set; }
+    public bool IsInteractive { get; private set; } = true;
 
     public static event Action<ExhibitTag> ExhibitVisitedEvent;
 
@@ -109,6 +110,7 @@ public class StoryCompletionManager : MonoBehaviour
             storyOptionsManager.StoryUIButtons[i].interactable = false;
         }
         audioUIControlManager.SkipButton.interactable = false;
+        IsInteractive = false;
         yield return Delay();
         exhibitAudioManager.GetAudioSource.PlayOneShot(audioClip);
         StartCoroutine(WaitThenCompleteExhibit());
@@ -117,10 +119,10 @@ public class StoryCompletionManager : MonoBehaviour
     IEnumerator WaitThenCompleteExhibit()
     {
         yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
+        IsInteractive = true;
         storyOptionsManager.DisableOptionsButtons();
         audioUIControlManager.HideAudioControlUI();
         audioUIControlManager.HideNPC();
-
         CheckForEnd();
     }
 
@@ -143,8 +145,9 @@ public class StoryCompletionManager : MonoBehaviour
         exhibitAudioManager.GetAudioSource.PlayOneShot(finishExperience);
         npcManager.NPCAnimator.Play("Default NPC Animation");
         audioUIControlManager.SkipButton.interactable = false;
-        //npcManager.gameObject.SetActive(true);
+        IsInteractive = false;
         yield return new WaitUntil(() => !exhibitAudioManager.GetAudioSource.isPlaying && exhibitAudioManager.IsDisplayQuestions);
+        IsInteractive = true;
         audioUIControlManager.HideAudioControlUI();
         audioUIControlManager.HideNPC();
     }

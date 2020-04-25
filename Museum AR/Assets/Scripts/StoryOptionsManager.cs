@@ -11,6 +11,7 @@ public class StoryOptionsManager : MonoBehaviour
 
     ExhibitAudioManager exhibitAudioManager;
     StoryCompletionManager storyCompletion;
+    AudioUIControlManager audioUIControlManager;
 
     public Button[] StoryUIButtons { get { return storyUIButtons; } }
 
@@ -18,11 +19,12 @@ public class StoryOptionsManager : MonoBehaviour
     {
         exhibitAudioManager = FindObjectOfType<ExhibitAudioManager>();
         storyCompletion = FindObjectOfType<StoryCompletionManager>();
+        audioUIControlManager = FindObjectOfType<AudioUIControlManager>();
     }
 
     public void ShowOptions(StoryPart[] exhibitStory)
     {
-        FindObjectOfType<AudioUIControlManager>().HideAudioControlUI();
+        audioUIControlManager.HideAudioControlUI();
 
         DisplayStoryQuestionsUI(exhibitStory);
     }
