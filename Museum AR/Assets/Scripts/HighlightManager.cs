@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HighlightTrigger : MonoBehaviour
+public class HighlightManager : MonoBehaviour
 {
     [SerializeField] ExhibitAudioManager exhibitAudioManager = null;
-    List<int> highlightIndex = new List<int>();
 
     private void Awake()
     {
@@ -20,17 +20,14 @@ public class HighlightTrigger : MonoBehaviour
         {
             if (exhibitAudioManager.AudioClipIndex == 3)
             {
-                // 1 = inscription      2 = middle part of blade
-                highlightIndex.Insert(0, 1); 
-                highlightIndex.Insert(1, 2);
-                HighlightController.TriggerSpecifiedHighlight(highlightIndex);
+                InsertValue(1, 1);
+                InsertValue(2, 2);
             }
             else if (exhibitAudioManager.AudioClipIndex == 8)
             {
-                highlightIndex.Insert(0, 2);
-                highlightIndex.Insert(1, 3);
-                highlightIndex.Insert(2, 4);
-                HighlightController.TriggerSpecifiedHighlight(highlightIndex);
+                InsertValue(1, 2);
+                InsertValue(2, 3);
+                InsertValue(3, 4);
             }
             else
             {
@@ -44,7 +41,7 @@ public class HighlightTrigger : MonoBehaviour
         {
             if (exhibitAudioManager.AudioClipIndex == 2)
             {
-                InsertValue(1, 1);
+                InsertValue(1, 1);;
             }
             else if (exhibitAudioManager.AudioClipIndex == 6)
             {
@@ -70,13 +67,13 @@ public class HighlightTrigger : MonoBehaviour
         {
             if (exhibitAudioManager.AudioClipIndex == 4)
             {
-                highlightIndex.Insert(0, 1);
-                HighlightController.TriggerSpecifiedHighlight(highlightIndex);
+                InsertValue(1, 1);
+
             }
             else if (exhibitAudioManager.AudioClipIndex == 5)
             {
-                highlightIndex.Insert(0, 2);
-                HighlightController.TriggerSpecifiedHighlight(highlightIndex);
+                InsertValue(1, 2);
+
             }
             else
             {

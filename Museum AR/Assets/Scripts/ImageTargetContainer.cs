@@ -7,6 +7,7 @@ public class ImageTargetContainer : MonoBehaviour
 {
     [SerializeField] GameObject astronaut;
     [SerializeField] GameObject drone;
+    [SerializeField] GameObject fissure;
 
     ObjectTracker objectTracker;
 
@@ -20,6 +21,7 @@ public class ImageTargetContainer : MonoBehaviour
 
         imageTargets.Add(astronaut);
         imageTargets.Add(drone);
+        imageTargets.Add(fissure);
 
         ImageTargetController.NumberOfImageTargets = imageTargets.Count;
 

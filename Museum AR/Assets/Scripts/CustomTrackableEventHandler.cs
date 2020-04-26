@@ -144,12 +144,12 @@ public class CustomTrackableEventHandler : MonoBehaviour
             }
             else if (ImageTargetController.CurrentImageTarget == 1 && firstTrigger)
             {
-                exhibitAudioManager.TriggerNeedlesStory = true;
+                exhibitAudioManager.TriggerSwordStory = true;
                 firstTrigger = false;
             }
             else if (ImageTargetController.CurrentImageTarget == 2 && firstTrigger)
             {
-                exhibitAudioManager.TriggerBankStory = true;
+                exhibitAudioManager.TriggerSkullStory = true;
                 firstTrigger = false;
             }
             else if (ImageTargetController.CurrentImageTarget == 3 && firstTrigger)
@@ -159,12 +159,12 @@ public class CustomTrackableEventHandler : MonoBehaviour
             }
             else if (ImageTargetController.CurrentImageTarget == 4 && firstTrigger)
             {
-                exhibitAudioManager.TriggerSkullStory = true;
+                exhibitAudioManager.TriggerBankStory = true;
                 firstTrigger = false;
             }
             else if (ImageTargetController.CurrentImageTarget == 5 && firstTrigger)
             {
-                exhibitAudioManager.TriggerSwordStory = true;
+                exhibitAudioManager.TriggerNeedlesStory = true;
                 firstTrigger = false;
             }
 
