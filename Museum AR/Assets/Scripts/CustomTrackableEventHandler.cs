@@ -144,24 +144,39 @@ public class CustomTrackableEventHandler : MonoBehaviour
             }
             else if (ImageTargetController.CurrentImageTarget == 1 && firstTrigger)
             {
+                exhibitAudioManager.TriggerSwordStory = true;
+                firstTrigger = false;
+            }
+            else if (ImageTargetController.CurrentImageTarget == 2 && firstTrigger)
+            {
+                exhibitAudioManager.TriggerSkullStory = true;
+                firstTrigger = false;
+            }
+            else if (ImageTargetController.CurrentImageTarget == 3 && firstTrigger)
+            {
+                exhibitAudioManager.TriggerSignStory = true;
+                firstTrigger = false;
+            }
+            else if (ImageTargetController.CurrentImageTarget == 4 && firstTrigger)
+            {
+                exhibitAudioManager.TriggerBankStory = true;
+                firstTrigger = false;
+            }
+            else if (ImageTargetController.CurrentImageTarget == 5 && firstTrigger)
+            {
                 exhibitAudioManager.TriggerNeedlesStory = true;
                 firstTrigger = false;
             }
 
 
-            if (HighlightController.HasHighlight)
+            foreach (var highlight in HighlightController.Highlights)
             {
-                rendererComponents[HighlightController.CurrentHighlight].enabled = true;
-            }
-            else
-            {
-                rendererComponents[HighlightController.CurrentHighlight].enabled = false;
+                Debug.Log("COMPONENTS LENGTH: " + rendererComponents.Length.ToString());
+                Debug.Log("DEBUG: " + highlight.ToString());
+                rendererComponents[highlight].enabled = true;
             }
 
 
-            // Enable colliders:
-            foreach (var component in colliderComponents)
-                component.enabled = true;
 
         }
 

@@ -7,30 +7,28 @@ public class ImageTargetContainer : MonoBehaviour
 {
     [SerializeField] GameObject astronaut;
     [SerializeField] GameObject drone;
+    [SerializeField] GameObject fissure;
 
     ObjectTracker objectTracker;
 
     List<GameObject> imageTargets;
 
     int localTarget;
-    void Start()
+    bool firstRun;
+    void Awake()
     {
         imageTargets = new List<GameObject>();
 
         imageTargets.Add(astronaut);
         imageTargets.Add(drone);
+        imageTargets.Add(fissure);
 
         ImageTargetController.NumberOfImageTargets = imageTargets.Count;
+
         localTarget = ImageTargetController.CurrentImageTarget;
+        firstRun = true;
 
-        VuforiaARController.Instance.RegisterVuforiaStartedCallback(InitializeObjectTracker);
-
-        ActiavteImageTarget();
-    }
-
-    private void InitializeObjectTracker()
-    {
-        objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+        VuforiaARController.Instance.RegisterVuforiaStartedCallback(ActiavteImageTarget);
     }
 
   
@@ -51,6 +49,12 @@ public class ImageTargetContainer : MonoBehaviour
 
     private void ActiavteImageTarget()
     {
+        if (firstRun)
+        {
+            objectTracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
+            firstRun = false;
+        }
+        
         objectTracker.Stop();
 
         foreach (var item in imageTargets)
@@ -59,10 +63,7 @@ public class ImageTargetContainer : MonoBehaviour
         }
 
         imageTargets[ImageTargetController.CurrentImageTarget].SetActive(true);
-
-        HighlightController.SetNumberOfHighlights(
-            imageTargets[ImageTargetController.CurrentImageTarget].GetComponent<ImageTarget>().NumberOfHighlights);
-
+        
         objectTracker.Start();
     }
 }

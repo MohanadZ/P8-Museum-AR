@@ -4,28 +4,17 @@ using UnityEngine;
 
 public static class HighlightController
 {
-    private static int numberOfHighlights;
+    private static List<int> highlights = new List<int>();
+    public static List<int> Highlights { get => highlights; set => highlights = value; }
 
-    private static int currentHighlight;
-
-    private static bool hasHighlight;
-    public static int NumberOfHighlights { get => numberOfHighlights; set => numberOfHighlights = value; }
-    public static int CurrentHighlight { get => currentHighlight; set => currentHighlight = value; }
-    public static bool HasHighlight { get => hasHighlight; set => hasHighlight = value; }
-
-    public static void SetNumberOfHighlights(int totalHighlights)
+    public static void InitializeHighlightList()
     {
-        NumberOfHighlights = totalHighlights;
-        CurrentHighlight = 0;
-    }
-    public static void TriggerSpecifiedHighlight(int index)
-    {
-        CurrentHighlight = index;
-
-        if(CurrentHighlight >= NumberOfHighlights)
-        {
-            CurrentHighlight = 0;
-        }
+        Highlights.Insert(0, 0);
     }
 
+    public static void ClearHighlights()
+    {
+        Highlights.Clear();
+        Highlights.Insert(0, 0);
+    }
 }
