@@ -7427,6 +7427,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 61e63a062040b3447ab1582d34d2fe02,
         type: 3}
+    - target: {fileID: 2253066778021826116, guid: 7009ffdb39770c743987b964277c2982,
+        type: 3}
+      propertyPath: exhibitTextAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 3ea952595e5265a40b7e69fa47ae2d05, type: 3}
     - target: {fileID: 2253066778347402354, guid: 7009ffdb39770c743987b964277c2982,
         type: 3}
       propertyPath: exhibitImage
@@ -7645,6 +7650,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 075deab358488a641ab625705b4fbc95,
         type: 3}
+    - target: {fileID: 2253066778964105310, guid: 7009ffdb39770c743987b964277c2982,
+        type: 3}
+      propertyPath: exhibitTextAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 23a44a1932ae6f042abfc0aeb9f05f8c, type: 3}
     - target: {fileID: 2253066779016588917, guid: 7009ffdb39770c743987b964277c2982,
         type: 3}
       propertyPath: m_LocalScale.x

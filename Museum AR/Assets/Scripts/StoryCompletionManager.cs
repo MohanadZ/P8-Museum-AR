@@ -156,4 +156,16 @@ public class StoryCompletionManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitBeforeEnding);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Sword);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ExhibitVisitedEvent(ExhibitTag.Bathtub);
+        }
+    }
 }
