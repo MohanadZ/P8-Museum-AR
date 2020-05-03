@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tub Introduction Audio
   m_EditorClassIdentifier: 
   exhibitTag: Tub
-  audioClip: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
+  audioClip: {fileID: 8300000, guid: 32526170f7376b74a8541ed387cad4a7, type: 3}
   index: 0
   numberOfOptions: 3
   hasFinished: 0
