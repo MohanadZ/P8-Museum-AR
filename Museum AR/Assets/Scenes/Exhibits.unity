@@ -3916,13 +3916,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625b0aaee524e7c4dabe8ab2ae43312c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordMoveOn: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
+  swordMoveOn: {fileID: 8300000, guid: b304f32ebf47fa346a621ac70041f99a, type: 3}
   needlesMoveOn: {fileID: 8300000, guid: 9f7ced491f872004fb750b77f988d2b8, type: 3}
-  tubMoveOn: {fileID: 8300000, guid: 38c54986e4e21214eafdf69cd30e81e5, type: 3}
+  tubMoveOn: {fileID: 8300000, guid: 2729614ff0b67d243b998c811da20016, type: 3}
   signMoveOn: {fileID: 8300000, guid: 1a28815e833a2a54a8e8e45eec20f67a, type: 3}
   skullMoveOn: {fileID: 8300000, guid: 05900c4af02c50145bfcf47797d44057, type: 3}
   bankMoveOn: {fileID: 8300000, guid: fdfec6d9a7882c444be743b9b4125336, type: 3}
-  finishExperience: {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
+  finishExperience: {fileID: 8300000, guid: 426ffa2b93ea5c54ab6451b27a6244a5, type: 3}
   npcManager: {fileID: 46556636}
 --- !u!4 &1195497913
 Transform:
@@ -6397,14 +6397,17 @@ MonoBehaviour:
   npcNotTalkingIndicator: {fileID: 21300000, guid: e322653291013a049ac99e4e5dba18ef,
     type: 3}
   swordPauseVoiceLines:
-  - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: 0875fc3193ea7ad4e976dce9ca52a2ea, type: 3}
+  - {fileID: 8300000, guid: ba9f2e99a369a3245bd3b8925c4bcf93, type: 3}
+  - {fileID: 8300000, guid: 270114e8096613845a46f640b670cc14, type: 3}
   swordUnpauseVoiceLines:
-  - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: 78d6b16933ba9a24283147657eaff86f, type: 3}
+  - {fileID: 8300000, guid: 6ea365a5bd5ac0844bf3a53c2d7cf5a9, type: 3}
+  - {fileID: 8300000, guid: b88d16a7d4ee4224e953acf3820fc790, type: 3}
   swordSkipVoiceLines:
-  - {fileID: 8300000, guid: 0f55118717969bc488b01cc8ae691b8d, type: 3}
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: ccdfd47033152c44993e5ed8cb264723, type: 3}
+  - {fileID: 8300000, guid: b1da3d01cfec5b944a6d13e1ac55bea8, type: 3}
+  - {fileID: 8300000, guid: 553acf9e443a1e04d82546e2b6a3169a, type: 3}
   signPauseVoiceLines:
   - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
   - {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
@@ -6415,11 +6418,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b320c087360b46b4e981d9c9f92d24c8, type: 3}
   - {fileID: 8300000, guid: 1a6bb5153285a7e449247ff27be128ec, type: 3}
   tubPauseVoiceLines:
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: 70dd27691a59af447b0d3d10027e43f9, type: 3}
+  - {fileID: 8300000, guid: da2384ac685b6414fb8d07c2e030e844, type: 3}
+  - {fileID: 8300000, guid: 1ae10f742bc98df41af5b08ada783725, type: 3}
   tubUnpauseVoiceLines:
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: d3ce9a9e8e09bc14e922f00ea9e27ac3, type: 3}
+  - {fileID: 8300000, guid: 0627677ef445eb44687b849576c17455, type: 3}
+  - {fileID: 8300000, guid: 2f4e7f05d31ed5e4b9785394d7a720fa, type: 3}
   tubSkipVoiceLines:
-  - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
+  - {fileID: 8300000, guid: e78da2925da0f26409d6200581d99549, type: 3}
+  - {fileID: 8300000, guid: eca77e6234fe3cd4d98d69bf361d6eca, type: 3}
+  - {fileID: 8300000, guid: 1041a12d7defb344fbef64804fba6d24, type: 3}
   needlesPauseVoiceLines:
   - {fileID: 8300000, guid: c862d5fbd44d39a47962848c7a7921ef, type: 3}
   needlesUnpauseVoiceLines:

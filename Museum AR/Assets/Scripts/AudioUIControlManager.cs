@@ -29,6 +29,7 @@ public class AudioUIControlManager : MonoBehaviour
     StoryCompletionManager storyCompletionManager;
     NPCManager npc;
     AudioSource audioSource;
+    float shortDelay = 0.4f;
 
     enum AudioAction { Pause, Unpause, Skip}
     AudioAction audioAction;
@@ -179,6 +180,7 @@ public class AudioUIControlManager : MonoBehaviour
 
     IEnumerator PauseExhibitAudioThenWait()
     {
+        yield return new WaitForSeconds(shortDelay);
         exhibitAudioManager.GetAudioSource.Pause();
         exhibitAudioManager.IsDisplayQuestions = false;
         DisableControlInteraction();
@@ -192,6 +194,7 @@ public class AudioUIControlManager : MonoBehaviour
         DisableControlInteraction();
         yield return new WaitUntil(() => !audioSource.isPlaying);
 
+        yield return new WaitForSeconds(shortDelay);
         exhibitAudioManager.GetAudioSource.UnPause();
         exhibitAudioManager.IsDisplayQuestions = true;
         AllowControlInteraction();
