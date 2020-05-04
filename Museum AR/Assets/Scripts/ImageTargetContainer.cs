@@ -5,9 +5,9 @@ using Vuforia;
 
 public class ImageTargetContainer : MonoBehaviour
 {
-    [SerializeField] GameObject cauldron;
-    [SerializeField] GameObject sword;
-    //[SerializeField] GameObject fissure;
+    [SerializeField] GameObject astronaut;
+    [SerializeField] GameObject drone;
+    [SerializeField] GameObject fissure;
 
     ObjectTracker objectTracker;
 
@@ -19,9 +19,9 @@ public class ImageTargetContainer : MonoBehaviour
     {
         imageTargets = new List<GameObject>();
 
-        imageTargets.Add(cauldron);
-        imageTargets.Add(sword);
-        //imageTargets.Add(fissure);
+        imageTargets.Add(astronaut);
+        imageTargets.Add(drone);
+        imageTargets.Add(fissure);
 
         ImageTargetController.NumberOfImageTargets = imageTargets.Count;
 
