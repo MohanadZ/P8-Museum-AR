@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HighlightManager : MonoBehaviour
 {
     [SerializeField] ExhibitAudioManager exhibitAudioManager = null;
+    [SerializeField] Image cameraIcon;
 
     private void Awake()
     {
@@ -21,13 +22,10 @@ public class HighlightManager : MonoBehaviour
             if (exhibitAudioManager.AudioClipIndex == 3)
             {
                 InsertValue(1, 1);
-                InsertValue(2, 2);
             }
             else if (exhibitAudioManager.AudioClipIndex == 8)
             {
                 InsertValue(1, 2);
-                InsertValue(2, 3);
-                InsertValue(3, 4);
             }
             else
             {
@@ -41,24 +39,31 @@ public class HighlightManager : MonoBehaviour
         {
             if (exhibitAudioManager.AudioClipIndex == 2)
             {
-                InsertValue(1, 1);;
+                cameraIcon.gameObject.SetActive(true);
+                InsertValue(1, 1);
+                InsertValue(2, 2);
             }
             else if (exhibitAudioManager.AudioClipIndex == 6)
             {
-                InsertValue(1, 2);
+                cameraIcon.gameObject.SetActive(true);
+                HighlightController.ClearHighlights();
+                InsertValue(1,3);
             }
             else if (exhibitAudioManager.AudioClipIndex == 7)
             {
-                InsertValue(1,3);
+                cameraIcon.gameObject.SetActive(true);
+                HighlightController.ClearHighlights();
+                InsertValue(1,4);
             }
-            else if (exhibitAudioManager.AudioClipIndex == 8)
-            {
-                InsertValue(1, 4);
-            }
+            //else if (exhibitAudioManager.AudioClipIndex == 8)
+            //{
+            //    InsertValue(1, 4);
+            //}
             else
             {
                 if (HighlightController.Highlights.Count > 1)
                 {
+                    cameraIcon.gameObject.SetActive(true);
                     HighlightController.ClearHighlights();
                 }
             }

@@ -62,11 +62,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Animalplates
-    second: {fileID: 2800000, guid: 647ae28314809d24a9582744558841ae, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
       name: Bottom plate
     second: {fileID: 2800000, guid: f036c3e74b050304bac2f6e89ac974cb, type: 3}
   - first:

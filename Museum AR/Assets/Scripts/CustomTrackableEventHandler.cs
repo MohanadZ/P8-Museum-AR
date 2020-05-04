@@ -6,7 +6,7 @@ using Vuforia;
 
 public class CustomTrackableEventHandler : MonoBehaviour
 {
-
+    [SerializeField] UnityEngine.UI.Image cameraIcon;
     ExhibitAudioManager exhibitAudioManager;
 
     public enum TrackingStatusFilter
@@ -147,27 +147,29 @@ public class CustomTrackableEventHandler : MonoBehaviour
                 exhibitAudioManager.TriggerSwordStory = true;
                 firstTrigger = false;
             }
-            else if (ImageTargetController.CurrentImageTarget == 2 && firstTrigger)
-            {
-                exhibitAudioManager.TriggerSkullStory = true;
-                firstTrigger = false;
-            }
-            else if (ImageTargetController.CurrentImageTarget == 3 && firstTrigger)
-            {
-                exhibitAudioManager.TriggerSignStory = true;
-                firstTrigger = false;
-            }
-            else if (ImageTargetController.CurrentImageTarget == 4 && firstTrigger)
-            {
-                exhibitAudioManager.TriggerBankStory = true;
-                firstTrigger = false;
-            }
-            else if (ImageTargetController.CurrentImageTarget == 5 && firstTrigger)
-            {
-                exhibitAudioManager.TriggerNeedlesStory = true;
-                firstTrigger = false;
-            }
+            //else if (ImageTargetController.CurrentImageTarget == 2 && firstTrigger)
+            //{
+            //    exhibitAudioManager.TriggerSkullStory = true;
+            //    firstTrigger = false;
+            //}
+            //else if (ImageTargetController.CurrentImageTarget == 3 && firstTrigger)
+            //{
+            //    exhibitAudioManager.TriggerSignStory = true;
+            //    firstTrigger = false;
+            //}
+            //else if (ImageTargetController.CurrentImageTarget == 4 && firstTrigger)
+            //{
+            //    exhibitAudioManager.TriggerBankStory = true;
+            //    firstTrigger = false;
+            //}
+            //else if (ImageTargetController.CurrentImageTarget == 5 && firstTrigger)
+            //{
+            //    exhibitAudioManager.TriggerNeedlesStory = true;
+            //    firstTrigger = false;
+            //}
 
+
+            cameraIcon.gameObject.SetActive(false);
 
             foreach (var highlight in HighlightController.Highlights)
             {

@@ -128,8 +128,7 @@ public class StoryCompletionManager : MonoBehaviour
 
     private void CheckForEnd()
     {
-        if (IsSwordOver && IsNeedlesOver && IsTubOver
-            && IsSkullOver && IsSignOver && IsBankOver)
+        if (IsSwordOver && IsTubOver)
         {
             IsEnd = true;
             if (IsEnd)
